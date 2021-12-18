@@ -1,11 +1,47 @@
+import { useStoreState, useStoreActions } from 'easy-peasy';
 import MapComponent from './MapComponent';
-import './App.css';
+import './styles/App.css';
+import './styles/weeklyWeather.css';
 
 const App = () => {
+  const { weeklyWeatherData, showWeeklyWeather, selectedResort, currentWeatherData } = useStoreState(state => ({
+    weeklyWeatherData: state.weeklyWeatherData,
+    showWeeklyWeather: state.showWeeklyWeather,
+    selectedResort: state.selectedResort,
+    currentWeatherData: state.currentWeatherData
+  }));
+
+  const { setWeeklyWeatherData, setShowWeeklyWeather } = useStoreActions(actions => ({
+    setWeeklyWeatherData: actions.setWeeklyWeatherData,
+    setShowWeeklyWeather: actions.setShowWeeklyWeather
+  }));
+
   return (
-    <div className='container'>
+    <div onClick={() => setShowWeeklyWeather(false)} className='container'>
       <div className='mapContainer'>
-        <MapComponent />
+        <MapComponent setWeeklyWeatherData={setWeeklyWeatherData} weeklyWeatherData={weeklyWeatherData}/>
+        {
+        showWeeklyWeather && selectedResort !== null
+        ?
+        <div className='weeklyWeatherContainer'>
+          <h3 className='weeklyWeatherResortName'>{selectedResort.properties.name} Weekly Forecast</h3>
+          <div className='weeklyWeather'>
+          {
+            weeklyWeatherData.map((w, index) => (
+              <div key={w.day + index} className='weeklyWeatherRow'>
+                <h4>{w.day}:</h4>
+                <div className='weeklyWeatherImg'><img src={'https://darksky.net' + w.icon} alt='Weather Img'/></div>
+                <h4>Low: {w.minTemp}</h4>
+                <h4>High: {w.maxTemp}</h4>
+              </div>
+            ))
+          }
+          </div>
+          <a className='moreWeather' href={currentWeatherData.darkSkyUrl} target='_blank' rel='noopener noreferrer'>More Weather Info</a>
+        </div>
+        :
+        null
+        }
       </div>
     </div>
   );

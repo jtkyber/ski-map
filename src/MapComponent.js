@@ -1,36 +1,46 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { useStoreState, useStoreActions } from 'easy-peasy';
 import ReactMapGL, { Marker, Popup } from 'react-map-gl';
 import mapboxgl from 'mapbox-gl';
 import skiResorts from "./skiResorts.json";
 import 'mapbox-gl/dist/mapbox-gl.css';
-import './mapComponent.css';
+import './styles/mapComponent.css';
+import './styles/currentWeather.css';
+import './styles/weeklyWeather.css';
 // eslint-disable-next-line import/no-webpack-loader-syntax
 mapboxgl.workerClass = require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
 
 
-const MapComponent = () => {
+const MapComponent = ({ setWeeklyWeatherData, weeklyWeatherData }) => {
+
+  const { selectedResort, currentWebcamLink, resortHoverName, currentWeatherData, viewport } = useStoreState(state => ({
+    selectedResort: state.selectedResort,
+    currentWebcamLink: state.currentWebcamLink,
+    resortHoverName: state.resortHoverName,
+    currentWeatherData: state.currentWeatherData,
+    viewport: state.viewport
+  }));
+
+  const { setSelectedResort, setCurrentWebcamLink, setResortHoverName, setCurrentWeatherData, setViewport, setShowWeeklyWeather } = useStoreActions(actions => ({
+    setSelectedResort: actions.setSelectedResort,
+    setCurrentWebcamLink: actions.setCurrentWebcamLink,
+    setResortHoverName: actions.setResortHoverName,
+    setCurrentWeatherData: actions.setCurrentWeatherData,
+    setViewport: actions.setViewport,
+    setShowWeeklyWeather: actions.setShowWeeklyWeather
+  }));
+
   const accessToken = 'pk.eyJ1IjoianRreWJlciIsImEiOiJja3g4YnNsMWMzNGhjMm9wMnlnZGg2NnR4In0.6FPRdpBZ28zeMHHihPYzLg';
-
-  const [viewport, setViewport] = useState({
-    latitude: 39.8,
-    longitude: -99.2,
-    width: '100%',
-    height: '100%',
-    zoom: 3
-  })
-
-  const [selectedResort, setSelectedResort] = useState(null);
-  const [currentWebcamLink, setCurrentWebcamLink] = useState('');
-  const [resortHoverName, setResortHoverName] = useState('');
-  const [currentWeatherData, setCurrentWeatherData] = useState(null);
+  // const urlRoot = 'https://shielded-springs-47306.herokuapp.com';
+  const urlRoot = 'http://localhost:3001';
 
   useEffect(() => {
+    console.log(weeklyWeatherData)
+  }, [weeklyWeatherData])
 
-  }, [resortHoverName])
-
-  const fetchWeatherData = async (lat, lon) => {
+  const fetchCurrentWeatherData = async (lat, lon) => {
     try {
-      const res = await fetch(`http://localhost:4000/scrapeWeather?lat=${lat}&lon=${lon}`);
+      const res = await fetch(`${urlRoot}/scrapeCurrentWeather?lat=${lat}&lon=${lon}`);
         if (!res.ok) {
             throw new Error('Error')
         }
@@ -41,16 +51,47 @@ const MapComponent = () => {
     }
   }
 
+  const fetchWeeklyWeatherData = async (lat, lon) => {
+    try {
+      const res = await fetch(`${urlRoot}/scrapeWeeklyWeather?lat=${lat}&lon=${lon}`);
+        if (!res.ok) {
+            throw new Error('Error')
+        }
+        const weather = await res.json();
+        setWeeklyWeatherData(weather);
+        setShowWeeklyWeather(true);
+    } catch(err) {
+      console.log(err);
+    }
+  }
+
   const handleResortClick = async (e, resort) => {
     e.preventDefault();
+    setShowWeeklyWeather(false);
+    setWeeklyWeatherData(null);
     setCurrentWeatherData(null);
     setSelectedResort(resort);
-    fetchWeatherData(resort.geometry.coordinates[1], resort.geometry.coordinates[0])
+    await fetchCurrentWeatherData(resort.geometry.coordinates[1], resort.geometry.coordinates[0])
+    await makePopupEvenWidthAndHeight();
   }
 
   const handleResortOnHover = (target) => {
     setResortHoverName(target.id);
     target.style.setProperty("--resort-name", `"${target.id}"`);
+  }
+
+  const makePopupEvenWidthAndHeight = () => {
+    const popup = document.querySelector('.popup');
+    const popupWidth = popup.offsetWidth;
+    const popupHeight = popup.offsetHeight;
+
+    if ((popupWidth % 10) !== 0) {
+      popup.style.width = `${Math.ceil(popupWidth / 10) * 10}px`
+    }
+
+    if ((popupHeight % 10) !== 0) {
+      popup.style.height = `${Math.ceil(popupHeight / 10) * 10}px`
+    }
   }
 
   return (
@@ -93,29 +134,35 @@ const MapComponent = () => {
           }}
         >
           <div className='popup'>
-            <h4 className='popupName'>{selectedResort.properties.name}</h4>
+            <h3 className='popupName'>{selectedResort.properties.name}</h3>
             {
             currentWeatherData !== null
             ?
             <div className='currentWeatherContainer'>
               <div className='currentSummaryRow'>
-                <img className='currentImg' src={'https://darksky.net' + currentWeatherData.current[0].icon} alt='Weather Img'/>
-                <h3>{currentWeatherData.current[0].summary.slice(0, -1)}</h3>
+                <img className='currentImg' src={'https://darksky.net' + currentWeatherData.icon} alt='Weather Img'/>
+                <h3>{currentWeatherData.summary.slice(0, -1)}</h3>
               </div>
               <div className='highLowRow'>
-                <h5>Feels like: {currentWeatherData.current[0].feelsLike}</h5>
-                <h5>Low: {currentWeatherData.current[0].minTemp}</h5>
-                <h5>High: {currentWeatherData.current[0].maxTemp}</h5>
+                <h5>Feels like: {currentWeatherData.feelsLike}</h5>
+                <h5>Low: {currentWeatherData.minTemp}</h5>
+                <h5>High: {currentWeatherData.maxTemp}</h5>
               </div>
-              <h3 className='restOfDay'>{currentWeatherData.current[0].restOfDay.slice(0, -1)}</h3>
+              <h3 className='restOfDay'>{currentWeatherData.restOfDay.slice(0, -1)}</h3>
             </div>
             :
             <div className='loadingWeather'>
               <h4>Loading Weather...</h4>
             </div>
             }
-            <div className='webcamLink'>
-              <a href={currentWebcamLink} target='_blank' rel='noopener noreferrer'>Webcams</a>
+            <div className='weeklyForcastWebcamBtnContainer'>
+              <button
+                onClick={() => fetchWeeklyWeatherData(selectedResort.geometry.coordinates[1], selectedResort.geometry.coordinates[0])}
+                className='weeklyWeatherBtn'>Weekly Forecast
+              </button>
+              <button className='webcamLink'>
+                <a href={currentWebcamLink} target='_blank' rel='noopener noreferrer'>Webcams</a>
+              </button>
             </div>
           </div>
         </Popup>

@@ -1,0 +1,67 @@
+.weeklyWeatherResortName {
+    margin: 0;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.weeklyWeatherContainer {
+    position: absolute;
+    display: flex;
+    flex-flow: nowrap column;
+    justify-content: center;
+    align-items: center;
+    top: 40vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.9);
+    border: 2px solid rgba(255, 255, 255, 1.0);
+    border-radius: 10px;
+    color: white;
+    width: 25rem;
+    max-width: 95vw;
+    height: 20rem;
+    padding: 1rem;
+}
+
+.weeklyWeather {
+    display: flex;
+    flex-flow: nowrap column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.weeklyWeatherRow {
+    display: flex;
+    flex-flow: nowrap row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0.5rem;
+    height: 2rem;
+    width: 100%;
+}
+
+.weeklyWeatherRow > * {
+    width: 100%;
+    text-align: center;
+}
+
+.weeklyWeatherImg {
+    width: 50%;
+}
+
+.weeklyWeatherImg > img{
+    width: 2rem;
+    height: 2rem;
+}
+
+.moreWeather {
+    text-decoration: none;
+    color: rgba(255, 220, 0, 1);
+    margin-top: 1rem;
+}
+
+.moreWeather:hover {
+    opacity: 0.6;
+}
