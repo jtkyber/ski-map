@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/ski-map/static/css/main.b4f5d310.css",
+    "main.js": "/ski-map/static/js/main.3f6fe8ca.js",
+    "static/js/787.e31e9c0f.chunk.js": "/ski-map/static/js/787.e31e9c0f.chunk.js",
+    "static/js/mapbox-gl-csp-worker.f262f78e.worker.js": "/ski-map/static/js/mapbox-gl-csp-worker.f262f78e.worker.js",
+    "index.html": "/ski-map/index.html",
+    "main.b4f5d310.css.map": "/ski-map/static/css/main.b4f5d310.css.map",
+    "main.3f6fe8ca.js.map": "/ski-map/static/js/main.3f6fe8ca.js.map",
+    "787.e31e9c0f.chunk.js.map": "/ski-map/static/js/787.e31e9c0f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b4f5d310.css",
+    "static/js/main.3f6fe8ca.js"
+  ]
+}
