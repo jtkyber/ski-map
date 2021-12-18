@@ -31,11 +31,11 @@ const MapComponent = ({ setWeeklyWeatherData, weeklyWeatherData }) => {
   }));
 
   const accessToken = 'pk.eyJ1IjoianRreWJlciIsImEiOiJja3g4YnNsMWMzNGhjMm9wMnlnZGg2NnR4In0.6FPRdpBZ28zeMHHihPYzLg';
-  // const urlRoot = 'https://shielded-springs-47306.herokuapp.com';
-  const urlRoot = 'http://localhost:3001';
+  const urlRoot = 'https://shielded-springs-47306.herokuapp.com';
+  // const urlRoot = 'http://localhost:3001';
 
   useEffect(() => {
-    console.log(weeklyWeatherData)
+
   }, [weeklyWeatherData])
 
   const fetchCurrentWeatherData = async (lat, lon) => {
