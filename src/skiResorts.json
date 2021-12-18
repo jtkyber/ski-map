@@ -1,0 +1,91 @@
+[
+    {
+        "geometry": {
+            "coordinates": [-81.859297, 36.129686],
+            "type": "Point"
+        },
+        "type": "Feature",
+        "properties": {
+            "name": "Sugar Mountain",
+            "webcams": "http://www.skisugar.com/cams/"
+        }
+    },
+    {
+        "geometry": {
+            "coordinates": [-105.87187561313836, 39.64209547434686],
+            "type": "Point"
+        },
+        "type": "Feature",
+        "properties": {
+            "name": "Arapahoe Basin",
+            "webcams": "https://www.arapahoebasin.com/the-mountain/webcams/"
+        }
+    },
+    {
+        "geometry": {
+            "coordinates": [-106.156593, 39.498913],
+            "type": "Point"
+        },
+        "type": "Feature",
+        "properties": {
+            "name": "Copper",
+            "webcams": "https://www.coppercolorado.com/the-mountain/webcams/mountain"
+        }
+    },
+    {
+        "geometry": {
+            "coordinates": [-105.954281, 39.604277],
+            "type": "Point"
+        },
+        "type": "Feature",
+        "properties": {
+            "name": "Keystone",
+            "webcams": "https://www.keystoneresort.com/the-mountain/mountain-conditions/mountain-cams.aspx"
+        }
+    },
+    {
+        "geometry": {
+            "coordinates": [-122.954751, 50.113907],
+            "type": "Point"
+        },
+        "type": "Feature",
+        "properties": {
+            "name": "Whistler",
+            "webcams": "https://www.whistlerblackcomb.com/the-mountain/mountain-conditions/mountain-cams.aspx"
+        }
+    },
+    {
+        "geometry": {
+            "coordinates": [-110.83137, 43.590769],
+            "type": "Point"
+        },
+        "type": "Feature",
+        "properties": {
+            "name": "Jackson Hole",
+            "webcams": "https://www.jacksonhole.com/live-mountain-cams"
+        }
+    },
+    {
+        "geometry": {
+            "coordinates": [-105.762983, 39.885626],
+            "type": "Point"
+        },
+        "type": "Feature",
+        "properties": {
+            "name": "Winter Park",
+            "webcams": "https://www.winterparkresort.com/the-mountain/mountain-cams"
+        }
+    },
+    {
+        "geometry": {
+            "coordinates": [-106.374233, 39.638939],
+            "type": "Point"
+        },
+        "type": "Feature",
+        "properties": {
+            "name": "Vail",
+            "webcams": "https://www.vail.com/the-mountain/mountain-conditions/mountain-cams.aspx"
+        }
+    }
+]
+
