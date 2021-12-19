@@ -10,6 +10,14 @@ button, a {
     cursor: pointer;
 }
 
+img {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+}
+
 .container {
     width: 100vw;
     height: 100vh;
@@ -24,6 +32,7 @@ button, a {
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 .map {
@@ -33,12 +42,12 @@ button, a {
 }
 
 .blurMap {
-    filter: blur(5px) brightness(0.7);
-    -webkit-filter: blur(5px) brightness(0.7);
-    -moz-filter: blur(5px) brightness(0.7);
-    -o-filter: blur(5px) brightness(0.7);
-    -ms-filter: blur(5px) brightness(0.7);
-    transition: all 1.5s linear;
+    filter: blur(5px) brightness(0.5);
+    -webkit-filter: blur(5px) brightness(0.5);
+    -moz-filter: blur(5px) brightness(0.5);
+    -o-filter: blur(5px) brightness(0.5);
+    -ms-filter: blur(5px) brightness(0.5);
+    transition: all 1s ease-out;
 }
 
 .mapboxgl-canvas {

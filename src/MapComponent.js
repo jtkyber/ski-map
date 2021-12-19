@@ -13,13 +13,12 @@ mapboxgl.workerClass = require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worke
 
 const MapComponent = ({ setWeeklyWeatherData, weeklyWeatherData }) => {
 
-  const { selectedResort, currentWebcamLink, resortHoverName, currentWeatherData, viewport, showWeeklyWeather } = useStoreState(state => ({
+  const { selectedResort, currentWebcamLink, resortHoverName, currentWeatherData, viewport } = useStoreState(state => ({
     selectedResort: state.selectedResort,
     currentWebcamLink: state.currentWebcamLink,
     resortHoverName: state.resortHoverName,
     currentWeatherData: state.currentWeatherData,
     viewport: state.viewport,
-    showWeeklyWeather: state.showWeeklyWeather
   }));
 
   const { setSelectedResort, setCurrentWebcamLink, setResortHoverName, setCurrentWeatherData, setViewport, setShowWeeklyWeather } = useStoreActions(actions => ({
@@ -73,12 +72,13 @@ const MapComponent = ({ setWeeklyWeatherData, weeklyWeatherData }) => {
     setCurrentWeatherData(null);
     setSelectedResort(resort);
     await fetchCurrentWeatherData(resort.geometry.coordinates[1], resort.geometry.coordinates[0])
-    await makePopupEvenWidthAndHeight();
+    makePopupEvenWidthAndHeight();
   }
 
   const handleResortOnHover = (target) => {
-    setResortHoverName(target.id);
-    target.style.setProperty("--resort-name", `"${target.id}"`);
+    setResortHoverName(target.parentNode.id);
+    console.log(target.parentNode.id);
+    target.parentNode.style.setProperty("--resort-name", `"${target.parentNode.id}"`);
   }
 
   const makePopupEvenWidthAndHeight = () => {
@@ -99,7 +99,7 @@ const MapComponent = ({ setWeeklyWeatherData, weeklyWeatherData }) => {
       <ReactMapGL
         {...viewport}
         mapboxApiAccessToken={accessToken}
-        mapStyle='mapbox://styles/jtkyber/ckx8ff5ll089g14nvynn2vgk4'
+        mapStyle='mapbox://styles/jtkyber/ckx8e5xkv0iiq14rt4g1sr98s'
         onViewportChange={(viewport => {
           setViewport(viewport);
         })}
@@ -108,7 +108,6 @@ const MapComponent = ({ setWeeklyWeatherData, weeklyWeatherData }) => {
         skiResorts.map(resort => (
           <Marker key={resort.properties.name} latitude={resort.geometry.coordinates[1]} longitude={resort.geometry.coordinates[0]}>
             <button
-              onMouseEnter={(e) => handleResortOnHover(e.target)}
               onClick={(e) => {
                 handleResortClick(e, resort);
                 setCurrentWebcamLink(resort.properties.webcams);
@@ -117,8 +116,9 @@ const MapComponent = ({ setWeeklyWeatherData, weeklyWeatherData }) => {
               id={resort.properties.name}
             >
               <img
-                src={require('./mountain.png')}
+                src={require('./skis2.png')}
                 alt={resort.properties.name}
+                onMouseEnter={(e) => handleResortOnHover(e.target)}
               />
             </button>
           </Marker>

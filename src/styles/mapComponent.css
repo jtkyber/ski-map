@@ -1,45 +1,44 @@
 :root {
-    --marker-size: 30px;
+    --marker-width: 30px;
+    --marker-height: 30px;
 }
 
 .markerBtn {
-    width: 100%;
-    height: 100%;
+    width: var(--marker-width);
+    height: var(--marker-height);
     background: transparent;
     border: none;
     border-radius: 100%;
     transform: translate(-50%, -50%);
-    cursor: pointer;
     padding: 0;
 }
 
 .markerBtn > img {
-    width: var(--marker-size);
-    height: auto;
-    pointer-events: none;
-    /*filter: invert(1);*/
+    cursor: pointer;
+    width: var(--marker-width);
+    height: var(--marker-height);
+    transition: all 0.12s ease-out;
 }
 
-.markerBtn:hover {
-    opacity: 0.7;
-    transition: 0.1s linear;
+.markerBtn > img:hover {
+    transform: rotate(10deg);
 }
 
 .showMarkerName:hover:before {
     position: absolute;
-    top: -75%;
+    top: -80%;
     width: max-content;
     content: var(--resort-name);
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(255, 255, 255, 0.8);
     padding: 0.1rem 0.3rem;
-    border: 1px solid white;
-    border-radius: 5px;
-    color: white;
+    border: 1px solid rgba(0, 100, 150, 1.0);
+    border-radius: 8px;
+    color: rgba(0, 100, 150, 1.0);
     font-weight: 600;
     font-size: 0.8rem;
     text-transform: capitalize;
-    transform: translate(calc(-50% + var(--marker-size) / 2));
-    animation: raiseOpacity 0.1s linear;
+    transform: translate(calc(-50% + var(--marker-width) / 2));
+    animation: raiseOpacity 0.2s ease-out;
 }
 
 @keyframes raiseOpacity {
@@ -47,11 +46,19 @@
     100% {opacity: 100%;}
 }
 
+.mapboxgl-popup-content {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: 3px solid black;
+    border-radius: 10px;
+}
+
 .popup {
     display: flex;
     flex-flow: nowrap column;
     justify-content: center;
     align-items: center;
+    margin: auto;
 }
 
 .popupName {
@@ -79,9 +86,9 @@
 
 .weeklyWeatherBtn {
     background-color: rgba(0, 0, 0, 0.8);
-    color: rgba(255, 220, 0, 1);
+    color: rgba(255, 220, 0, 0.9);
     outline: none;
-    border: 2px solid black;
+    border: 2px solid rgba(0, 0, 0, 1.0);
     border-radius: 10px;
     padding: 0.2rem 0.4rem;
     transition: all 0.1s ease-out;
@@ -97,18 +104,22 @@
     outline: none;
     border: 2px solid black;
     border-radius: 10px;
-    transition: all 0.1s ease-out;
     padding: 0;
+    transition: all 0.1s ease-out;
 }
 
 .webcamLink:hover {
     background-color: rgba(0, 0, 0, 0.6);
-    color: rgba(255, 255, 0, 0.6);
 }
 
 .webcamLink > a {
     display: block;
     text-decoration: none;
-    color: rgba(255, 220, 0, 1);
+    color: rgba(255, 220, 0, 0.9);
     padding: 0.2rem 0.4rem;
+    transition: all 0.1s ease-out;
+}
+
+.webcamLink > a:hover {
+    color: rgba(255, 220, 0, 0.6);
 }
