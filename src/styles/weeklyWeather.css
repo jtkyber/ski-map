@@ -21,6 +21,13 @@
     max-width: 95vw;
     height: 20rem;
     padding: 1rem;
+    animation-name: fadeIn;
+    animation-duration: 0.3s;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 100;}
 }
 
 .weeklyWeather {
