@@ -14,7 +14,7 @@ const model  = {
         longitude: -99.2,
         width: '100%',
         height: '100%',
-        zoom: 3
+        zoom: 3.5
     },
 
     //Actions:
