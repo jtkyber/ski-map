@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/ski-map/static/css/main.0d34e78f.css",
-    "main.js": "/ski-map/static/js/main.40c02062.js",
+    "main.css": "/ski-map/static/css/main.c8f1f081.css",
+    "main.js": "/ski-map/static/js/main.ce7c1dfc.js",
     "static/js/787.e31e9c0f.chunk.js": "/ski-map/static/js/787.e31e9c0f.chunk.js",
+    "static/media/mountain5.png": "/ski-map/static/media/mountain5.3a3446770d638a5dc6aa.png",
     "static/js/mapbox-gl-csp-worker.f262f78e.worker.js": "/ski-map/static/js/mapbox-gl-csp-worker.f262f78e.worker.js",
     "index.html": "/ski-map/index.html",
-    "main.0d34e78f.css.map": "/ski-map/static/css/main.0d34e78f.css.map",
-    "main.40c02062.js.map": "/ski-map/static/js/main.40c02062.js.map",
+    "main.c8f1f081.css.map": "/ski-map/static/css/main.c8f1f081.css.map",
+    "main.ce7c1dfc.js.map": "/ski-map/static/js/main.ce7c1dfc.js.map",
     "787.e31e9c0f.chunk.js.map": "/ski-map/static/js/787.e31e9c0f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0d34e78f.css",
-    "static/js/main.40c02062.js"
+    "static/css/main.c8f1f081.css",
+    "static/js/main.ce7c1dfc.js"
   ]
 }
