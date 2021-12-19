@@ -13,12 +13,13 @@ mapboxgl.workerClass = require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worke
 
 const MapComponent = ({ setWeeklyWeatherData, weeklyWeatherData }) => {
 
-  const { selectedResort, currentWebcamLink, resortHoverName, currentWeatherData, viewport } = useStoreState(state => ({
+  const { selectedResort, currentWebcamLink, resortHoverName, currentWeatherData, viewport, showWeeklyWeather } = useStoreState(state => ({
     selectedResort: state.selectedResort,
     currentWebcamLink: state.currentWebcamLink,
     resortHoverName: state.resortHoverName,
     currentWeatherData: state.currentWeatherData,
-    viewport: state.viewport
+    viewport: state.viewport,
+    showWeeklyWeather: state.showWeeklyWeather
   }));
 
   const { setSelectedResort, setCurrentWebcamLink, setResortHoverName, setCurrentWeatherData, setViewport, setShowWeeklyWeather } = useStoreActions(actions => ({

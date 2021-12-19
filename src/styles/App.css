@@ -13,9 +13,6 @@ button, a {
 .container {
     width: 100vw;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     padding: 0;
     background-color: rgb(236, 232, 228);
 }
@@ -23,14 +20,27 @@ button, a {
 .mapContainer {
     position: relative;
     width: 100vw;
-    max-width: 100vwrem;
     height: 100vh;
-    max-height: 100vh;
-    /*border: 6px solid black;
-    border-radius: 20px;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.map {
+    width: 100vw;
+    height: 100vh;
+    transition: all 0.2s ease-out;
+}
+
+.blurMap {
+    filter: blur(5px) brightness(0.7);
+    -webkit-filter: blur(5px) brightness(0.7);
+    -moz-filter: blur(5px) brightness(0.7);
+    -o-filter: blur(5px) brightness(0.7);
+    -ms-filter: blur(5px) brightness(0.7);
+    transition: all 1.5s linear;
 }
 
 .mapboxgl-canvas {
     position: absolute;
-    /*border-radius: 12px;*/
 }

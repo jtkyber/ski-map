@@ -19,7 +19,9 @@ const App = () => {
   return (
     <div onClick={() => setShowWeeklyWeather(false)} className='container'>
       <div className='mapContainer'>
-        <MapComponent setWeeklyWeatherData={setWeeklyWeatherData} weeklyWeatherData={weeklyWeatherData}/>
+        <div className={`map ${showWeeklyWeather ? 'blurMap' : null}`}>
+          <MapComponent setWeeklyWeatherData={setWeeklyWeatherData} weeklyWeatherData={weeklyWeatherData}/>
+        </div>
         {
         showWeeklyWeather && selectedResort !== null
         ?
