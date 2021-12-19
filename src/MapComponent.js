@@ -116,7 +116,7 @@ const MapComponent = ({ setWeeklyWeatherData, weeklyWeatherData }) => {
               id={resort.properties.name}
             >
               <img
-                src={require('./mountain5.png')}
+                src={require('./mountain.png')}
                 alt={resort.properties.name}
               />
             </button>
