@@ -10,11 +10,11 @@ const model  = {
     currentWeatherData: null,
     showWeeklyWeather: false,
     viewport: {
-        latitude: 39.8,
-        longitude: -99.2,
+        latitude: 39.2,
+        longitude: -106.9,
         width: '100%',
         height: '100%',
-        zoom: 3.5
+        zoom: 5.5
     },
 
     //Actions:

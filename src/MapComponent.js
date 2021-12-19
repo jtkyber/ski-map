@@ -77,7 +77,6 @@ const MapComponent = ({ setWeeklyWeatherData, weeklyWeatherData }) => {
 
   const handleResortOnHover = (target) => {
     setResortHoverName(target.parentNode.id);
-    console.log(target.parentNode.id);
     target.parentNode.style.setProperty("--resort-name", `"${target.parentNode.id}"`);
   }
 
@@ -99,7 +98,7 @@ const MapComponent = ({ setWeeklyWeatherData, weeklyWeatherData }) => {
       <ReactMapGL
         {...viewport}
         mapboxApiAccessToken={accessToken}
-        mapStyle='mapbox://styles/jtkyber/ckx8e5xkv0iiq14rt4g1sr98s'
+        mapStyle='mapbox://styles/jtkyber/ckxdnbiug3mua14nva7s2ehy7'
         onViewportChange={(viewport => {
           setViewport(viewport);
         })}
