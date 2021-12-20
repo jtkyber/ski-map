@@ -22,7 +22,6 @@ const SinglePopup = () => {
 
   useEffect(() => {
     const popup = document.querySelector('.mapboxgl-popup-content');
-    console.log(popup);
     if (darkMode) {
       popup.style.border = '3px solid white';
     } else {
