@@ -6,11 +6,11 @@ import '../styles/popup.css';
 const SinglePopup = () => {
   const urlRoot = 'https://shielded-springs-47306.herokuapp.com';
 
-  const { selectedResort, currentWebcamLink, currentWeatherData, favorites } = useStoreState(state => ({
+  const { selectedResort, currentWebcamLink, favorites, darkMode } = useStoreState(state => ({
     selectedResort: state.selectedResort,
     currentWebcamLink: state.currentWebcamLink,
-    currentWeatherData: state.currentWeatherData,
-    favorites: state.stored.favorites
+    favorites: state.stored.favorites,
+    darkMode: state.stored.darkMode
   }));
 
   const { setShowWeeklyWeather, setWeeklyWeatherData, addToFavorites, removeFromFavorites } = useStoreActions(actions => ({
@@ -21,8 +21,14 @@ const SinglePopup = () => {
   }));
 
   useEffect(() => {
-    console.log(favorites)
-  }, [favorites])
+    const popup = document.querySelector('.mapboxgl-popup-content');
+    console.log(popup);
+    if (darkMode) {
+      popup.style.border = '3px solid white';
+    } else {
+      popup.style.border = '3px solid black';
+    }
+  }, [darkMode])
 
   const fetchWeeklyWeatherData = async (lat, lon) => {
     try {
@@ -39,8 +45,8 @@ const SinglePopup = () => {
   }
 
   return (
-    <div className='popup'>
-      <div className='favoritesBtnAndName'>
+    <div className='popup' >
+      <div className={`favoritesBtnAndName ${darkMode ? 'favoritesBtnAndNameDark' : ''}`}>
         <button
           onClick={() => {
             if (!favorites.includes(selectedResort.properties.name)) {
@@ -58,9 +64,9 @@ const SinglePopup = () => {
       <div className='weeklyForcastWebcamBtnContainer'>
         <button
           onClick={() => fetchWeeklyWeatherData(selectedResort.geometry.coordinates[1], selectedResort.geometry.coordinates[0])}
-          className='weeklyWeatherBtn'>Weekly Forecast
+          className={`weeklyWeatherBtn ${darkMode ? 'weeklyWeatherBtnDark' : ''}`}>Weekly Forecast
         </button>
-        <button className='webcamLink'>
+        <button className={`webcamLink ${darkMode ? 'webcamLinkDark' : ''}`}>
           <a href={currentWebcamLink} target='_blank' rel='noopener noreferrer'>Webcams</a>
         </button>
       </div>

@@ -7,7 +7,8 @@ const model  = {
         {
             toggleResortNames: false,
             favorites: [],
-            toggleFavorites: false
+            toggleFavorites: false,
+            darkMode: false
         },
         {
             storage: 'localStorage',
@@ -75,6 +76,10 @@ const model  = {
 
     setToggleFavorites: action((state) => {
         state.stored.toggleFavorites = !state.stored.toggleFavorites;
+    }),
+
+    setDarkMode: action((state) => {
+        state.stored.darkMode = !state.stored.darkMode;
     }),
 }
 

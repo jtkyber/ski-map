@@ -11,12 +11,13 @@ mapboxgl.workerClass = require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worke
 
 
 const MapComponent = () => {
-  const { selectedResort, viewport, toggleResortNames, favorites, toggleFavorites } = useStoreState(state => ({
+  const { selectedResort, viewport, toggleResortNames, favorites, toggleFavorites, darkMode } = useStoreState(state => ({
     selectedResort: state.selectedResort,
     viewport: state.viewport,
     toggleResortNames: state.stored.toggleResortNames,
     favorites: state.stored.favorites,
-    toggleFavorites: state.stored.toggleFavorites
+    toggleFavorites: state.stored.toggleFavorites,
+    darkMode: state.stored.darkMode
   }));
 
   const { setSelectedResort, setViewport } = useStoreActions(actions => ({
@@ -38,7 +39,11 @@ const MapComponent = () => {
       <ReactMapGL
         {...viewport}
         mapboxApiAccessToken={accessToken}
-        mapStyle='mapbox://styles/jtkyber/ckxdnbiug3mua14nva7s2ehy7'
+        mapStyle={
+          !darkMode
+          ? `mapbox://styles/jtkyber/ckxdnbiug3mua14nva7s2ehy7`
+          : `mapbox://styles/jtkyber/ckx8ff5ll089g14nvynn2vgk4`
+        }
         onViewportChange={(viewport => {
           setViewport(viewport);
         })}

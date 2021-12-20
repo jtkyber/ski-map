@@ -5,37 +5,44 @@ import WeeklyWeather from './components/WeeklyWeather';
 import './App.css';
 
 const App = () => {
-  const { weeklyWeatherData, showWeeklyWeather, selectedResort, toggleResortNames, toggleFavorites } = useStoreState(state => ({
+  const { weeklyWeatherData, showWeeklyWeather, selectedResort, toggleResortNames, toggleFavorites, darkMode } = useStoreState(state => ({
     weeklyWeatherData: state.weeklyWeatherData,
     showWeeklyWeather: state.showWeeklyWeather,
     selectedResort: state.selectedResort,
     toggleResortNames: state.stored.toggleResortNames,
-    toggleFavorites: state.stored.toggleFavorites
+    toggleFavorites: state.stored.toggleFavorites,
+    darkMode: state.stored.darkMode
   }));
 
-  const { setWeeklyWeatherData, setShowWeeklyWeather, setToggleResortNames, setToggleFavorites } = useStoreActions(actions => ({
+  const { setWeeklyWeatherData, setShowWeeklyWeather, setToggleResortNames, setToggleFavorites, setDarkMode } = useStoreActions(actions => ({
     setWeeklyWeatherData: actions.setWeeklyWeatherData,
     setShowWeeklyWeather: actions.setShowWeeklyWeather,
     setToggleResortNames: actions.setToggleResortNames,
-    setToggleFavorites: actions.setToggleFavorites
+    setToggleFavorites: actions.setToggleFavorites,
+    setDarkMode: actions.setDarkMode
   }));
 
   useEffect(() => {
 
-  }, [toggleFavorites])
+  }, [darkMode])
 
   return (
     <div onClick={() => setShowWeeklyWeather(false)} className='container'>
       <div className='settingsContainer'>
         <button
           onClick={() => setToggleResortNames()}
-          className='settingsBtn'>
+          className={`settingsBtn ${darkMode ? 'settingsBtnDark' : ''}`}>
           {toggleResortNames ? 'Hide Labels' : 'Show Labels'}
         </button>
         <button
           onClick={() => setToggleFavorites()}
-          className='settingsBtn'>
+          className={`settingsBtn ${darkMode ? 'settingsBtnDark' : ''}`}>
           {toggleFavorites ? 'Show All Resorts' : 'Show Favorites'}
+        </button>
+        <button
+          onClick={() => setDarkMode()}
+          className={`settingsBtn ${darkMode ? 'settingsBtnDark' : ''}`}>
+          {!darkMode ? 'Dark Mode' : 'Light Mode'}
         </button>
       </div>
       <div className='mapContainer'>

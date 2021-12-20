@@ -50,6 +50,20 @@ img {
     color: rgba(0, 0, 0, 1);
 }
 
+
+/* Dark Mode */
+
+.settingsBtnDark {
+    background-color: rgba(255, 255, 255, 0.7) !important;
+    color: rgba(0, 0, 0, 0.8) !important;
+}
+
+.settingsBtnDark:hover {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+    border-color: rgba(255, 255, 255, 0.8) !important;
+}
+
 .mapContainer {
     position: relative;
     width: 100vw;
@@ -57,7 +71,6 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .map {
