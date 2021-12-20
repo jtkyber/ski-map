@@ -1,49 +1,5 @@
 :root {
-    --marker-width: 30px;
-    --marker-height: 30px;
-}
-
-.markerBtn {
-    width: var(--marker-width);
-    height: var(--marker-height);
-    background: transparent;
-    border: none;
-    border-radius: 100%;
-    transform: translate(-50%, -50%);
-    padding: 0;
-}
-
-.markerBtn > img {
-    cursor: pointer;
-    width: var(--marker-width);
-    height: var(--marker-height);
-    transition: all 0.12s ease-out;
-}
-
-.markerBtn > img:hover {
-    transform: rotate(10deg);
-}
-
-.showMarkerName:hover:before {
-    position: absolute;
-    top: -80%;
-    width: max-content;
-    content: var(--resort-name);
-    background: rgba(255, 255, 255, 0.8);
-    padding: 0.1rem 0.3rem;
-    border: 1px solid rgba(0, 100, 150, 1.0);
-    border-radius: 8px;
-    color: rgba(0, 100, 150, 1.0);
-    font-weight: 600;
-    font-size: 0.8rem;
-    text-transform: capitalize;
-    transform: translate(calc(-50% + var(--marker-width) / 2));
-    animation: raiseOpacity 0.2s ease-out;
-}
-
-@keyframes raiseOpacity {
-    0% {opacity: 0;}
-    100% {opacity: 100%;}
+    --favorites-btn-width: 1.5rem;
 }
 
 .mapboxgl-popup-content {
@@ -61,14 +17,66 @@
     margin: auto;
 }
 
-.popupName {
+.favoritesBtnAndName {
     width: 100%;
-    text-align: center;
-    margin: 0;
+    height: 3rem;
+    display: grid;
+    grid-template-columns: 1.5rem 1fr;
+    grid-template-areas:
+    "favoritesBtn popupName";
     margin-bottom: 0.5rem;
-    font-weight: 400;
     border-bottom: 1px solid rgba(0, 0, 0, 0.8);
     padding-bottom: 0.2rem;
+}
+
+.favoritesBtn {
+    position: absolute;
+    grid-area: favoritesBtn;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--favorites-btn-width);
+    height: 1.5rem;
+    border-radius: 100%;
+    background-color: transparent;
+    left: 0.5rem;
+    top: 0.5rem;
+}
+
+.favoritesBtn:hover {
+    opacity: 0.7;
+}
+
+.favoritesBtn > h3 {
+    display: inline-block;
+    font-weight: 400;
+    font-size: 1.5rem;
+    margin: 0;
+    cursor: pointer;
+}
+
+.addToFavorites {
+    border: 1px solid rgba(255, 220, 0, 0.9);
+    color: rgba(255, 220, 0, 0.9);
+}
+
+.removeFromFavorites {
+    border: 1px solid rgba(255, 0, 0, 0.9);
+    color: rgba(255, 0, 0, 0.9);
+}
+
+.removeFromFavorites > h3 {
+    margin-bottom: 0.2rem;
+}
+
+.popupName {
+    align-self: end;
+    grid-area: popupName;
+    width: calc(100% - var(--favorites-btn-width));
+    text-align: center;
+    margin: 0;
+    margin-top: 1rem;
+    font-weight: 400;
 }
 
 .loadingWeather > h4 {

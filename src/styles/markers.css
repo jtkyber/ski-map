@@ -1,0 +1,64 @@
+:root {
+    --marker-width: 30px;
+    --marker-height: 30px;
+}
+
+.markerBtn {
+    width: var(--marker-width);
+    height: var(--marker-height);
+    background: transparent;
+    border: none;
+    border-radius: 100%;
+    transform: translate(-50%, -50%);
+    padding: 0;
+}
+
+.markerBtn > img {
+    cursor: pointer;
+    width: var(--marker-width);
+    height: var(--marker-height);
+    transition: all 0.12s ease-out;
+}
+
+.markerBtn > img:hover {
+    transform: rotate(10deg);
+}
+
+.showAllMarkerNames:before {
+    position: absolute;
+    top: -80%;
+    width: max-content;
+    content: var(--resort-name);
+    background: rgba(255, 255, 255, 0.8);
+    padding: 0.1rem 0.3rem;
+    border: 1px solid rgba(0, 100, 150, 1.0);
+    border-radius: 8px;
+    color: rgba(0, 100, 150, 1.0);
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: capitalize;
+    transform: translate(calc(-50% + var(--marker-width) / 2));
+    animation: raiseOpacity 0.2s ease-out;
+}
+
+.showMarkerName:hover:before {
+    position: absolute;
+    top: -80%;
+    width: max-content;
+    content: var(--resort-name);
+    background: rgba(255, 255, 255, 0.8);
+    padding: 0.1rem 0.3rem;
+    border: 1px solid rgba(0, 100, 150, 1.0);
+    border-radius: 8px;
+    color: rgba(0, 100, 150, 1.0);
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: capitalize;
+    transform: translate(calc(-50% + var(--marker-width) / 2));
+    animation: raiseOpacity 0.2s ease-out;
+}
+
+@keyframes raiseOpacity {
+    0% {opacity: 0;}
+    100% {opacity: 100%;}
+}

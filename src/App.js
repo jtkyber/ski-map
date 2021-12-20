@@ -1,23 +1,38 @@
 import { useStoreState, useStoreActions } from 'easy-peasy';
-import MapComponent from './MapComponent';
-import './styles/App.css';
-import './styles/weeklyWeather.css';
+import MapComponent from './components/MapComponent';
+import WeeklyWeather from './components/WeeklyWeather';
+import './App.css';
 
 const App = () => {
-  const { weeklyWeatherData, showWeeklyWeather, selectedResort, currentWeatherData } = useStoreState(state => ({
+  const { weeklyWeatherData, showWeeklyWeather, selectedResort, toggleResortNames, toggleFavorites } = useStoreState(state => ({
     weeklyWeatherData: state.weeklyWeatherData,
     showWeeklyWeather: state.showWeeklyWeather,
     selectedResort: state.selectedResort,
-    currentWeatherData: state.currentWeatherData
+    toggleResortNames: state.stored.toggleResortNames,
+    toggleFavorites: state.stored.toggleFavorites
   }));
 
-  const { setWeeklyWeatherData, setShowWeeklyWeather } = useStoreActions(actions => ({
+  const { setWeeklyWeatherData, setShowWeeklyWeather, setToggleResortNames, setToggleFavorites } = useStoreActions(actions => ({
     setWeeklyWeatherData: actions.setWeeklyWeatherData,
-    setShowWeeklyWeather: actions.setShowWeeklyWeather
+    setShowWeeklyWeather: actions.setShowWeeklyWeather,
+    setToggleResortNames: actions.setToggleResortNames,
+    setToggleFavorites: actions.setToggleFavorites
   }));
 
   return (
     <div onClick={() => setShowWeeklyWeather(false)} className='container'>
+      <div className='settingsContainer'>
+        <button
+          onClick={() => setToggleResortNames()}
+          className='settingsBtn'>
+          {toggleResortNames ? 'Hide Labels' : 'Show Labels'}
+        </button>
+        <button
+          onClick={() => setToggleFavorites()}
+          className='settingsBtn'>
+          {toggleFavorites ? 'Show All Resorts' : 'Show Favorites'}
+        </button>
+      </div>
       <div className='mapContainer'>
         <div className={`map ${showWeeklyWeather ? 'blurMap' : null}`}>
           <MapComponent setWeeklyWeatherData={setWeeklyWeatherData} weeklyWeatherData={weeklyWeatherData}/>
@@ -25,22 +40,7 @@ const App = () => {
         {
         showWeeklyWeather && selectedResort !== null
         ?
-        <div className='weeklyWeatherContainer'>
-          <h3 className='weeklyWeatherResortName'>{selectedResort.properties.name} Weekly Forecast</h3>
-          <div className='weeklyWeather'>
-          {
-            weeklyWeatherData.map((w, index) => (
-              <div key={w.day + index} className='weeklyWeatherRow'>
-                <h4>{w.day}:</h4>
-                <div className='weeklyWeatherImg'><img src={'https://darksky.net' + w.icon} alt='Weather Img'/></div>
-                <h4>Low: {w.minTemp}</h4>
-                <h4>High: {w.maxTemp}</h4>
-              </div>
-            ))
-          }
-          </div>
-          <a className='moreWeather' href={currentWeatherData.darkSkyUrl} target='_blank' rel='noopener noreferrer'>More Weather Info</a>
-        </div>
+          <WeeklyWeather />
         :
         null
         }

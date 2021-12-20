@@ -1,7 +1,19 @@
-import { action } from 'easy-peasy';
+import { action, persist } from 'easy-peasy';
 
 const model  = {
     //State:
+
+    stored: persist(
+        {
+            toggleResortNames: false,
+            favorites: [],
+            toggleFavorites: false
+        },
+        {
+            storage: 'localStorage',
+        }
+
+    ),
 
     weeklyWeatherData: null,
     selectedResort: null,
@@ -9,12 +21,13 @@ const model  = {
     resortHoverName: '',
     currentWeatherData: null,
     showWeeklyWeather: false,
+    currentIsFavorite: false,
     viewport: {
-        latitude: 39.2,
-        longitude: -106.9,
+        latitude: 40.3,
+        longitude: -99.2,
         width: '100%',
         height: '100%',
-        zoom: 5.5
+        zoom: 4
     },
 
     //Actions:
@@ -45,7 +58,23 @@ const model  = {
 
     setShowWeeklyWeather: action((state, input) => {
         state.showWeeklyWeather = input;
-    })
+    }),
+
+    setToggleResortNames: action((state) => {
+        state.stored.toggleResortNames = !state.stored.toggleResortNames;
+    }),
+
+    addToFavorites: action((state, input) => {
+        state.stored.favorites.push(input);
+    }),
+
+    removeFromFavorites: action((state, input) => {
+        state.stored.favorites.pop(input);
+    }),
+
+    setToggleFavorites: action((state) => {
+        state.stored.toggleFavorites = !state.stored.toggleFavorites;
+    }),
 }
 
 export default model;
