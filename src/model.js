@@ -69,7 +69,8 @@ const model  = {
     }),
 
     removeFromFavorites: action((state, input) => {
-        state.stored.favorites.pop(input);
+        const index = state.stored.favorites.indexOf(input);
+        state.stored.favorites.splice(index, 1);
     }),
 
     setToggleFavorites: action((state) => {
