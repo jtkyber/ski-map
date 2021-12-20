@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import { useStoreState, useStoreActions } from 'easy-peasy';
 import MapComponent from './components/MapComponent';
 import WeeklyWeather from './components/WeeklyWeather';
@@ -18,6 +19,10 @@ const App = () => {
     setToggleResortNames: actions.setToggleResortNames,
     setToggleFavorites: actions.setToggleFavorites
   }));
+
+  useEffect(() => {
+
+  }, [toggleFavorites])
 
   return (
     <div onClick={() => setShowWeeklyWeather(false)} className='container'>

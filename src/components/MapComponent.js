@@ -32,7 +32,7 @@ const MapComponent = () => {
     for (let marker of markers) {
       marker.style.setProperty("--resort-name", `"${marker.id}"`);
     }
-  }, [toggleResortNames])
+  }, [toggleResortNames, toggleFavorites])
 
   return (
       <ReactMapGL
