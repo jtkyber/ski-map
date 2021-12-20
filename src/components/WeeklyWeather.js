@@ -1,4 +1,4 @@
-import { useStoreState, useStoreActions } from 'easy-peasy';
+import { useStoreState } from 'easy-peasy';
 import '../styles/weeklyWeather.css';
 
 const WeeklyWeather = () => {

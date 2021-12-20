@@ -35,6 +35,16 @@ const MapComponent = () => {
     }
   }, [toggleResortNames, toggleFavorites])
 
+  useEffect(() => {
+    window.addEventListener('resize', () => {
+      setViewport({
+        ...viewport,
+        width: '100vw',
+        height: '100vh'
+      })
+    })
+  }, [])
+
   return (
       <ReactMapGL
         {...viewport}

@@ -75,8 +75,8 @@ img {
 }
 
 .map {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     transition: all 0.2s ease-out;
 }
 
@@ -91,4 +91,6 @@ img {
 
 .mapboxgl-canvas {
     position: absolute;
+    width: 100%;
+    height: 100%;
 }
