@@ -26,8 +26,8 @@ const model  = {
     viewport: {
         latitude: 40.3,
         longitude: -99.2,
-        width: '100vw',
-        height: '100vh',
+        width: '100%',
+        height: '100%',
         zoom: 4
     },
 
