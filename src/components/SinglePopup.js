@@ -54,15 +54,7 @@ const SinglePopup = () => {
         </button>
         <h3 className='popupName'>{selectedResort.properties.name}</h3>
       </div>
-      {
-      currentWeatherData !== null
-      ?
       <CurrentWeather />
-      :
-      <div className='loadingWeather'>
-        <h4>Loading Weather...</h4>
-      </div>
-      }
       <div className='weeklyForcastWebcamBtnContainer'>
         <button
           onClick={() => fetchWeeklyWeatherData(selectedResort.geometry.coordinates[1], selectedResort.geometry.coordinates[0])}

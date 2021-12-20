@@ -45,3 +45,79 @@
     /*max-width: 25rem;*/
     text-align: center;
 }
+
+
+/*  Loading skeleton animation: */
+
+.currentWeatherContainerLoading {
+    display: flex;
+    flex-flow: nowrap column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 25rem;
+    animation-name: skeletonPulse;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes skeletonPulse {
+    0% {opacity: 10%;}
+    50% {opacity: 50%;}
+    100% {opacity: 10%;}
+}
+
+.loadingCurWeatherImg {
+    width: 2rem;
+    height: 2rem;
+    background-color: white;
+    border-radius: 100%;
+}
+
+.loadingCurWeatherSummary {
+    width: 8rem;
+    height: 1rem;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.loadingCurWeatherFeelsLike {
+    width: 3.5rem;
+    height: 0.8rem;
+    background-color: white;
+    border-radius: 20px;
+    margin-top: 0.3rem;
+}
+
+.loadingCurWeatherLow {
+    width: 2.5rem;
+    height: 0.8rem;
+    background-color: white;
+    border-radius: 20px;
+    margin-top: 0.3rem;
+}
+
+.loadingCurWeatherHigh {
+    width: 2.5rem;
+    height: 0.8rem;
+    background-color: white;
+    border-radius: 20px;
+    margin-top: 0.3rem;
+}
+
+.loadingCurWeatherRestOfDay {
+    width: 12rem;
+    height: 1rem;
+    background-color: white;
+    border-radius: 20px;
+    margin-top: 1rem;
+}
+
+.loadingCurWeatherRestOfDay2 {
+    width: 8rem;
+    height: 1rem;
+    background-color: white;
+    border-radius: 20px;
+    margin-top: 0.3rem;
+}
