@@ -105,6 +105,10 @@ body {
     pointer-events: none;
 }
 
+.blurMap button {
+    pointer-events: none;
+}
+
 .mapboxgl-canvas {
     position: absolute;
     width: 100%;
