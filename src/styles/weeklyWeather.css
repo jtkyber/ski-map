@@ -1,9 +1,3 @@
-.weeklyWeatherResortName {
-    margin: 0;
-    margin-bottom: 1rem;
-    font-weight: 600;
-}
-
 .weeklyWeatherContainer {
     position: absolute;
     display: flex;
@@ -18,17 +12,47 @@
     border-radius: 10px;
     color: white;
     width: 25rem;
-    max-width: 90vw;
+    /*max-width: 90vw;*/
     height: 20rem;
-    max-height: 90vh;
+    /*max-height: 90vh;*/
     padding: 1rem;
     animation-name: fadeIn;
     animation-duration: 0.3s;
 }
 
+@media only screen and (min-width: 500px) and (max-width: 768px) {
+  .weeklyWeatherContainer {
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+}
+
+@media only screen and (min-width: 401px) and (max-width: 499px) {
+  .weeklyWeatherContainer {
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+}
+
+@media only screen and (min-width: 331px) and (max-width: 400px) {
+  .weeklyWeatherContainer {
+    transform: translate(-50%, -50%) scale(0.7);
+  }
+}
+
+@media only screen and (max-width: 330px) {
+  .weeklyWeatherContainer {
+    transform: translate(-50%, -50%) scale(0.6);
+  }
+}
+
 @keyframes fadeIn {
     from {opacity: 0;}
     to {opacity: 100;}
+}
+
+.weeklyWeatherResortName {
+    margin: 0;
+    margin-bottom: 1rem;
+    font-weight: 600;
 }
 
 .weeklyWeather {

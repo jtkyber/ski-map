@@ -11,6 +11,30 @@
     height: 210px !important;
 }
 
+@media only screen and (min-width: 500px) and (max-width: 768px) {
+  .mapboxgl-popup-content {
+    transform: scale(0.9);
+  }
+}
+
+@media only screen and (min-width: 401px) and (max-width: 499px) {
+  .mapboxgl-popup-content {
+    transform: scale(0.8);
+  }
+}
+
+@media only screen and (min-width: 331px) and (max-width: 400px) {
+  .mapboxgl-popup-content {
+    transform: scale(0.7);
+  }
+}
+
+@media only screen and (max-width: 330px) {
+  .mapboxgl-popup-content {
+    transform: scale(0.6);
+  }
+}
+
 .popup {
     display: flex;
     flex-flow: nowrap column;
