@@ -28,15 +28,15 @@ const WeeklyWeather = () => {
 
   return (
     <div className='weeklyWeatherContainer'>
-      <h3 className='weeklyWeatherResortName'>{selectedResort.properties.name} Weekly Forecast</h3>
+      <h2 className='weeklyWeatherResortName'>{selectedResort.properties.name} Weekly Forecast</h2>
       <div className='weeklyWeather'>
       {
         weeklyWeatherData.map((w, index) => (
           <div key={w.day + index} className='weeklyWeatherRow'>
-            <h4>{w.day}:</h4>
+            <h3>{w.day}:</h3>
             <div className='weeklyWeatherImg'><img src={'https://darksky.net' + w.icon} alt='Weather Img'/></div>
-            <h4>Low: {w.minTemp}</h4>
-            <h4>High: {w.maxTemp}</h4>
+            <h3>Low: {w.minTemp}</h3>
+            <h3>High: {w.maxTemp}</h3>
           </div>
         ))
       }
