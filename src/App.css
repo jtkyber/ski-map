@@ -18,19 +18,41 @@ img {
     user-drag: none;
 }
 
+body {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
 .container {
     width: 100vw;
     height: 100vh;
     padding: 0;
     background-color: rgb(236, 232, 228);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mapContainer {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .settingsContainer {
     position: absolute;
+    width: 100%;
     right: 2rem;
     top: 1rem;
     display: flex;
     flex-flow: nowrap row;
+    justify-content: flex-end;
     gap: 0.5rem;
     z-index: 10;
 }
@@ -43,6 +65,8 @@ img {
     color: rgba(255, 255, 255, 0.8);
     padding: 0.3rem;
     transition: all 0.2s ease-out;
+    max-width: 25vw;
+    max-height: 30vw;
 }
 
 .settingsBtn:hover {
@@ -63,15 +87,6 @@ img {
     background-color: rgba(0, 0, 0, 0.7) !important;
     color: rgba(255, 255, 255, 0.8) !important;
     border-color: rgba(255, 255, 255, 0.8) !important;
-}
-
-.mapContainer {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .map {

@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import { useStoreState } from 'easy-peasy';
 import '../styles/weeklyWeather.css';
 
@@ -7,6 +8,20 @@ const WeeklyWeather = () => {
     weeklyWeatherData: state.weeklyWeatherData,
     currentWeatherData: state.currentWeatherData
   }));
+
+  useEffect(() => {
+    const map = document.querySelector('.mapContainer');
+    const wWeather = document.querySelector('.weeklyWeatherContainer');
+
+    const scale = Math.min(
+      map.offsetWidth / wWeather.offsetWidth,
+      map.offsetHeight / wWeather.offsetHeight,
+    )
+
+    if (map.offsetWidth < 768 || map.offsetHeight < 768) {
+      wWeather.style.setProperty("--weekly-weather-scale", `${scale * 0.8}`)
+    }
+  }, [])
 
   return (
     <div className='weeklyWeatherContainer'>
