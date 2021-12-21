@@ -32,17 +32,20 @@ const SingleMarker = ({ resort }) => {
   }
 
   const makePopupEvenWidthAndHeight = () => {
-    const popup = document.querySelector('.popup');
+    const popup = document.querySelector('.mapboxgl-popup-content');
     const popupWidth = popup.offsetWidth;
     const popupHeight = popup.offsetHeight;
 
-    if ((popupWidth % 10) !== 0) {
-      popup.style.width = `${Math.ceil(popupWidth / 10) * 10}px`
-    }
+    // if ((popupWidth % 2) !== 0) {
+    //   // popup.style.width = `${Math.ceil(popupWidth / 2) * 2}px !important`;
+    //   popup.style.setProperty("width", `${Math.ceil(popupWidth / 2) * 2}px`, "important");
+    // }
 
-    if ((popupHeight % 10) !== 0) {
-      popup.style.height = `${Math.ceil(popupHeight / 10) * 10}px`
-    }
+    // if ((popupHeight % 2) !== 0) {
+    //   // popup.style.height = `${Math.ceil(popupHeight / 2) * 2}px !important`;
+    //   popup.style.setProperty("height", `${Math.ceil(popupWidth / 2) * 2}px`, "important");
+    // }
+    console.log('width: ' + popup.style.width, 'height: ' + popup.style.height);
   }
 
   const handleResortClick = async (e, resort) => {
@@ -52,7 +55,7 @@ const SingleMarker = ({ resort }) => {
     setCurrentWeatherData(null);
     setSelectedResort(resort);
     await fetchCurrentWeatherData(resort.geometry.coordinates[1], resort.geometry.coordinates[0])
-    makePopupEvenWidthAndHeight();
+    // makePopupEvenWidthAndHeight();
   }
 
   const handleResortNamesHoverOrBtn = (target) => {
