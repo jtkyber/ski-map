@@ -53,9 +53,10 @@
 /*  Loading skeleton animation: */
 
 .currentWeatherContainerLoading {
+    grid-area: popMid;
     display: flex;
     flex-flow: nowrap column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     width: 100%;
     max-width: 25rem;
@@ -63,7 +64,7 @@
     animation-duration: 2s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
-    margin-bottom: -0.5rem;
+    margin-top: 0.5rem;
 }
 
 @keyframes skeletonPulse {
