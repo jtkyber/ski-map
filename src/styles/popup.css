@@ -43,6 +43,10 @@
   }
 }
 
+.mapboxgl-popup-close-button {
+    color: white;
+}
+
 .popup {
     display: flex;
     flex-flow: nowrap column;
