@@ -13,33 +13,43 @@ const App = () => {
     darkMode: state.stored.darkMode
   }));
 
-  const { setWeeklyWeatherData, setShowWeeklyWeather, setToggleResortNames, setToggleFavorites, setDarkMode } = useStoreActions(actions => ({
+  const { setWeeklyWeatherData, setShowWeeklyWeather, setToggleResortNames, setToggleFavorites, setDarkMode, setSearch } = useStoreActions(actions => ({
     setWeeklyWeatherData: actions.setWeeklyWeatherData,
     setShowWeeklyWeather: actions.setShowWeeklyWeather,
     setToggleResortNames: actions.setToggleResortNames,
     setToggleFavorites: actions.setToggleFavorites,
-    setDarkMode: actions.setDarkMode
+    setDarkMode: actions.setDarkMode,
+    setSearch: actions.setSearch
   }));
 
   return (
     <div onClick={() => setShowWeeklyWeather(false)} className='container'>
       <div className='mapContainer'>
-        <div className={`settingsContainer ${showWeeklyWeather ? 'blurMap' : null}`}>
-          <button
-            onClick={() => setToggleResortNames()}
-            className={`settingsBtn ${darkMode ? 'settingsBtnDark' : ''}`}>
-            {toggleResortNames ? 'Hide Labels' : 'Show Labels'}
-          </button>
-          <button
-            onClick={() => setToggleFavorites()}
-            className={`settingsBtn ${darkMode ? 'settingsBtnDark' : ''}`}>
-            {toggleFavorites ? 'Show All Resorts' : 'Show Favorites'}
-          </button>
-          <button
-            onClick={() => setDarkMode()}
-            className={`settingsBtn ${darkMode ? 'settingsBtnDark' : ''}`}>
-            {!darkMode ? 'Dark Mode' : 'Light Mode'}
-          </button>
+        <div className='settingsAndSearchContainer'>
+          <div className={`settingsContainer ${showWeeklyWeather ? 'blurMap' : null}`}>
+            <button
+              onClick={() => setToggleResortNames()}
+              className={`settingsBtn ${darkMode ? 'settingsBtnDark' : ''}`}>
+              {toggleResortNames ? 'Hide Labels' : 'Show Labels'}
+            </button>
+            <button
+              onClick={() => setToggleFavorites()}
+              className={`settingsBtn ${darkMode ? 'settingsBtnDark' : ''}`}>
+              {toggleFavorites ? 'Show All Resorts' : 'Show Favorites'}
+            </button>
+            <button
+              onClick={() => setDarkMode()}
+              className={`settingsBtn ${darkMode ? 'settingsBtnDark' : ''}`}>
+              {!darkMode ? 'Dark Mode' : 'Light Mode'}
+            </button>
+          </div>
+          <div className='searchContainer'>
+            <input
+              onChange={(e) => setSearch(e.target.value)}
+              className={`resortSearch ${darkMode ? 'resortSearchDark' : ''} ${showWeeklyWeather ? 'blurMap' : null}`}
+              type='text'
+              placeholder='Filter Resorts' />
+          </div>
         </div>
         <div className={`map ${showWeeklyWeather ? 'blurMap' : null}`}>
           <MapComponent setWeeklyWeatherData={setWeeklyWeatherData} weeklyWeatherData={weeklyWeatherData}/>

@@ -23,6 +23,7 @@ const model  = {
     currentWeatherData: null,
     showWeeklyWeather: false,
     currentIsFavorite: false,
+    search: '',
     viewport: {
         latitude: 40.3,
         longitude: -99.2,
@@ -80,6 +81,10 @@ const model  = {
 
     setDarkMode: action((state) => {
         state.stored.darkMode = !state.stored.darkMode;
+    }),
+
+    setSearch: action((state, input) => {
+        state.search = input;
     }),
 }
 

@@ -11,13 +11,14 @@ mapboxgl.workerClass = require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worke
 
 
 const MapComponent = () => {
-  const { selectedResort, viewport, toggleResortNames, favorites, toggleFavorites, darkMode } = useStoreState(state => ({
+  const { selectedResort, viewport, toggleResortNames, favorites, toggleFavorites, darkMode, search } = useStoreState(state => ({
     selectedResort: state.selectedResort,
     viewport: state.viewport,
     toggleResortNames: state.stored.toggleResortNames,
     favorites: state.stored.favorites,
     toggleFavorites: state.stored.toggleFavorites,
-    darkMode: state.stored.darkMode
+    darkMode: state.stored.darkMode,
+    search: state.search
   }));
 
   const { setSelectedResort, setViewport } = useStoreActions(actions => ({
@@ -33,7 +34,7 @@ const MapComponent = () => {
     for (let marker of markers) {
       marker.style.setProperty("--resort-name", `"${marker.id}"`);
     }
-  }, [toggleResortNames, toggleFavorites])
+  }, [toggleResortNames, toggleFavorites, search])
 
   useEffect(() => {
     window.addEventListener('resize', () => {
@@ -61,19 +62,26 @@ const MapComponent = () => {
       {
         !toggleFavorites
         ?
-        skiResorts.map(resort => (
-          <Marker key={resort.properties.name} latitude={resort.geometry.coordinates[1]} longitude={resort.geometry.coordinates[0]}>
-            <SingleMarker resort={resort} />
-          </Marker>
-        ))
-        :
         skiResorts.reduce((temp, resort) => {
-          if (favorites.includes(resort.properties.name)) {
-            temp.push(
+          if (resort.properties.name.toLowerCase().includes(search)) {
+            temp.push (
               <Marker key={resort.properties.name} latitude={resort.geometry.coordinates[1]} longitude={resort.geometry.coordinates[0]}>
                 <SingleMarker resort={resort} />
               </Marker>
             )
+          }
+          return temp;
+        }, [])
+        :
+        skiResorts.reduce((temp, resort) => {
+          if (favorites.includes(resort.properties.name)) {
+            if (resort.properties.name.toLowerCase().includes(search)) {
+              temp.push(
+                <Marker key={resort.properties.name} latitude={resort.geometry.coordinates[1]} longitude={resort.geometry.coordinates[0]}>
+                  <SingleMarker resort={resort} />
+                </Marker>
+              )
+            }
           }
           return temp;
         }, [])
