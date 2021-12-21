@@ -18,7 +18,10 @@ const WeeklyWeather = () => {
       map.offsetHeight / wWeather.offsetHeight,
     )
 
-    if (map.offsetWidth < 768 || map.offsetHeight < 768) {
+    if (map.offsetWidth < 560) {
+      wWeather.style.setProperty("--weekly-weather-scale", `${scale * 0.9}`)
+    }
+    if (map.offsetHeight < 560) {
       wWeather.style.setProperty("--weekly-weather-scale", `${scale * 0.8}`)
     }
   }, [])
