@@ -24,7 +24,7 @@ const App = () => {
   return (
     <div onClick={() => setShowWeeklyWeather(false)} className='container'>
       <div className='mapContainer'>
-        <div className='settingsContainer'>
+        <div className={`settingsContainer ${showWeeklyWeather ? 'blurMap' : null}`}>
           <button
             onClick={() => setToggleResortNames()}
             className={`settingsBtn ${darkMode ? 'settingsBtnDark' : ''}`}>

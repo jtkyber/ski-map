@@ -22,6 +22,7 @@
     align-items: center;
     gap: 0.5rem;
     height: 2rem;
+    width: 100%;
 }
 
 .highLowRow {
@@ -31,6 +32,7 @@
     align-items: center;
     gap: 0.5rem;
     height: 1rem;
+    width: 100%;
 }
 
 .highLowRow > h5 {
@@ -81,14 +83,14 @@
 }
 
 .loadingCurWeatherSummary {
-    width: 8rem;
+    width: 50%;
     height: 1rem;
     background-color: white;
     border-radius: 20px;
 }
 
 .loadingCurWeatherFeelsLike {
-    width: 4.5rem;
+    width: 30%;
     height: 0.8rem;
     background-color: white;
     border-radius: 20px;
@@ -96,7 +98,7 @@
 }
 
 .loadingCurWeatherLow {
-    width: 3rem;
+    width: 20%;
     height: 0.8rem;
     background-color: white;
     border-radius: 20px;
@@ -104,7 +106,7 @@
 }
 
 .loadingCurWeatherHigh {
-    width: 3rem;
+    width: 20%;
     height: 0.8rem;
     background-color: white;
     border-radius: 20px;
@@ -112,7 +114,7 @@
 }
 
 .loadingCurWeatherRestOfDay {
-    width: 14rem;
+    width: 90%;
     height: 1rem;
     background-color: white;
     border-radius: 20px;
@@ -120,7 +122,7 @@
 }
 
 .loadingCurWeatherRestOfDay2 {
-    width: 10rem;
+    width: 70%;
     height: 1rem;
     background-color: white;
     border-radius: 20px;
