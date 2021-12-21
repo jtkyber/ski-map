@@ -4,12 +4,15 @@
 }
 
 .currentWeatherContainer {
+    grid-area: popMid;
     display: flex;
     flex-flow: nowrap column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     width: 100%;
+    height: 100%;
     max-width: 25rem;
+    margin-top: 0.5rem;
 }
 
 .currentSummaryRow {

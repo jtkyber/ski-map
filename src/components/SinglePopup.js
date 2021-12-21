@@ -57,7 +57,7 @@ const SinglePopup = () => {
           className={`favoritesBtn ${!favorites.includes(selectedResort.properties.name) ? 'addToFavorites' : 'removeFromFavorites'}`}>
             <h3>{`${!favorites.includes(selectedResort.properties.name) ? '+' : '-'}`}</h3>
         </button>
-        <h3 className='popupName'>{selectedResort.properties.name}</h3>
+        <h2 className='popupName'>{selectedResort.properties.name}</h2>
       </div>
       <CurrentWeather />
       <div className='weeklyForcastWebcamBtnContainer'>
