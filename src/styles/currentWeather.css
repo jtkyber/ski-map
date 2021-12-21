@@ -60,6 +60,7 @@
     animation-duration: 2s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
+    margin-bottom: -0.5rem;
 }
 
 @keyframes skeletonPulse {
@@ -83,7 +84,7 @@
 }
 
 .loadingCurWeatherFeelsLike {
-    width: 3.5rem;
+    width: 4.5rem;
     height: 0.8rem;
     background-color: white;
     border-radius: 20px;
@@ -91,7 +92,7 @@
 }
 
 .loadingCurWeatherLow {
-    width: 2.5rem;
+    width: 3rem;
     height: 0.8rem;
     background-color: white;
     border-radius: 20px;
@@ -99,7 +100,7 @@
 }
 
 .loadingCurWeatherHigh {
-    width: 2.5rem;
+    width: 3rem;
     height: 0.8rem;
     background-color: white;
     border-radius: 20px;
@@ -107,15 +108,15 @@
 }
 
 .loadingCurWeatherRestOfDay {
-    width: 12rem;
+    width: 14rem;
     height: 1rem;
     background-color: white;
     border-radius: 20px;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
 }
 
 .loadingCurWeatherRestOfDay2 {
-    width: 8rem;
+    width: 10rem;
     height: 1rem;
     background-color: white;
     border-radius: 20px;
