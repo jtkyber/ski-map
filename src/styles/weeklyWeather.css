@@ -20,27 +20,27 @@
     animation-duration: 0.3s;
 }
 
-@media only screen and (min-width: 500px) and (max-width: 768px) {
+/*@media only screen and (min-width: 500px) and (max-width: 768px) {
   .weeklyWeatherContainer {
-    transform: translate(-50%, -50%) scale(0.9);
+    transform: translate(-50%, -50%) scale(0.95);
   }
-}
+}*/
 
-@media only screen and (min-width: 401px) and (max-width: 499px) {
+@media only screen and (min-width: 401px) and (max-width: 450px) {
   .weeklyWeatherContainer {
-    transform: translate(-50%, -50%) scale(0.8);
+    transform: translate(-50%, -50%) scale(0.85);
   }
 }
 
 @media only screen and (min-width: 331px) and (max-width: 400px) {
   .weeklyWeatherContainer {
-    transform: translate(-50%, -50%) scale(0.7);
+    transform: translate(-50%, -50%) scale(0.75);
   }
 }
 
 @media only screen and (max-width: 330px) {
   .weeklyWeatherContainer {
-    transform: translate(-50%, -50%) scale(0.6);
+    transform: translate(-50%, -50%) scale(0.65);
   }
 }
 

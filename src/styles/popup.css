@@ -13,25 +13,33 @@
 
 @media only screen and (min-width: 500px) and (max-width: 768px) {
   .mapboxgl-popup-content {
-    transform: scale(0.9);
+    width: 310px !important;
+    height: 200px !important;
+    font-size: 95%;
   }
 }
 
 @media only screen and (min-width: 401px) and (max-width: 499px) {
   .mapboxgl-popup-content {
-    transform: scale(0.8);
+    width: 290px !important;
+    height: 190px !important;
+    font-size: 90%;
   }
 }
 
 @media only screen and (min-width: 331px) and (max-width: 400px) {
   .mapboxgl-popup-content {
-    transform: scale(0.7);
+    width: 260px !important;
+    height: 180px !important;
+    font-size: 85%;
   }
 }
 
 @media only screen and (max-width: 330px) {
   .mapboxgl-popup-content {
-    transform: scale(0.6);
+    width: 230px !important;
+    height: 190px !important;
+    font-size: 80%;
   }
 }
 
