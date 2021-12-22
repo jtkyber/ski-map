@@ -61,15 +61,27 @@ const App = () => {
         searchBar.value = '';
         setSearch('');
         if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+          console.log('mobile');
           searchBar.blur();
+          setTimeout(() => {
+            setViewport({
+            ...viewport,
+            latitude: newLatitude,
+            longitude: newLongitude,
+            zoom: zoom
+            })
+          }, 500)
+        } else {
+          console.log('desktop');
+          setViewport({
+            ...viewport,
+            latitude: newLatitude,
+            longitude: newLongitude,
+            zoom: zoom
+          })
         }
 
-        setViewport({
-          ...viewport,
-          latitude: newLatitude,
-          longitude: newLongitude,
-          zoom: zoom
-        })
+
       } else if ((e.keyCode === 13) && (!search.length)) {
         setViewport({
           ...viewport,
