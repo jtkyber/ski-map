@@ -1,29 +1,93 @@
+import React, { useEffect } from 'react';
 import { useStoreState, useStoreActions } from 'easy-peasy';
 import MapComponent from './components/MapComponent';
 import WeeklyWeather from './components/WeeklyWeather';
+import skiResorts from "./skiResorts.json";
 import './App.css';
 
 const App = () => {
   const urlRoot = 'https://shielded-springs-47306.herokuapp.com';
   // const urlRoot = 'http://localhost:3001';
 
-  const { weeklyWeatherData, showWeeklyWeather, selectedResort, toggleResortNames, toggleFavorites, darkMode } = useStoreState(state => ({
+  const { weeklyWeatherData, showWeeklyWeather, selectedResort, toggleResortNames, toggleFavorites, darkMode, search, viewport, favorites } = useStoreState(state => ({
     weeklyWeatherData: state.weeklyWeatherData,
     showWeeklyWeather: state.showWeeklyWeather,
     selectedResort: state.selectedResort,
     toggleResortNames: state.stored.toggleResortNames,
     toggleFavorites: state.stored.toggleFavorites,
-    darkMode: state.stored.darkMode
+    darkMode: state.stored.darkMode,
+    search: state.search,
+    viewport: state.viewport,
+    favorites: state.stored.favorites
   }));
 
-  const { setWeeklyWeatherData, setShowWeeklyWeather, setToggleResortNames, setToggleFavorites, setDarkMode, setSearch } = useStoreActions(actions => ({
+  const { setWeeklyWeatherData, setShowWeeklyWeather, setToggleResortNames, setToggleFavorites, setDarkMode, setSearch, setViewport } = useStoreActions(actions => ({
     setWeeklyWeatherData: actions.setWeeklyWeatherData,
     setShowWeeklyWeather: actions.setShowWeeklyWeather,
     setToggleResortNames: actions.setToggleResortNames,
     setToggleFavorites: actions.setToggleFavorites,
     setDarkMode: actions.setDarkMode,
-    setSearch: actions.setSearch
+    setSearch: actions.setSearch,
+    setViewport: actions.setViewport
   }));
+
+  const zoomToResort = (e) => {
+    let newLatitude = viewport.latitude;
+    let newLongitude = viewport.longitude;
+    let zoom = viewport.zoom;
+
+    if ((e.keyCode === 13) && (search.length)) {
+        e.preventDefault();
+
+        for (let resort of skiResorts) {
+          if (!toggleFavorites) {
+            if (resort.properties.name.toLowerCase().includes(search.toLowerCase())) {
+              newLatitude = resort.geometry.coordinates[1];
+              newLongitude = resort.geometry.coordinates[0];
+              zoom = 11;
+              break;
+            }
+          } else if (favorites.includes(resort.properties.name)) {
+            if (resort.properties.name.toLowerCase().includes(search.toLowerCase())) {
+              newLatitude = resort.geometry.coordinates[1];
+              newLongitude = resort.geometry.coordinates[0];
+              zoom = 11;
+              break;
+            }
+          }
+        }
+
+        setViewport({
+          ...viewport,
+          latitude: newLatitude,
+          longitude: newLongitude,
+          zoom: zoom
+        })
+
+        const searchBar = document.querySelector('.resortSearch');
+        searchBar.value = '';
+        setSearch('');
+      } else if ((e.keyCode === 13) && (!search.length)) {
+        setViewport({
+          ...viewport,
+          latitude: 40.3,
+          longitude: -99.2,
+          zoom: 4
+        })
+
+        const searchBar = document.querySelector('.resortSearch');
+        searchBar.value = '';
+        setSearch('');
+      }
+  }
+
+  useEffect(() => {
+    document.addEventListener('keydown', zoomToResort);
+
+    return () => {
+      document.removeEventListener('keydown', zoomToResort);
+    }
+  }, [search])
 
   return (
     <div onClick={() => setShowWeeklyWeather(false)} className='container'>

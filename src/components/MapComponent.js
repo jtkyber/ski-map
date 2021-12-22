@@ -36,14 +36,20 @@ const MapComponent = ({ urlRoot }) => {
     }
   }, [toggleResortNames, toggleFavorites, search])
 
-  useEffect(() => {
-    window.addEventListener('resize', () => {
-      setViewport({
-        ...viewport,
-        width: '100%',
-        height: '100%'
-      })
+  const resizeViewport = () => {
+    setViewport({
+      ...viewport,
+      width: '100%',
+      height: '100%'
     })
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', resizeViewport);
+
+    return () => {
+      window.removeEventListener('resize', resizeViewport);
+    }
   }, [])
 
   return (
