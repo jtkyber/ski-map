@@ -24,6 +24,7 @@ const model  = {
     showWeeklyWeather: false,
     currentIsFavorite: false,
     search: '',
+    currentSnowReportLink: '',
     viewport: {
         latitude: 40.3,
         longitude: -99.2,
@@ -85,6 +86,10 @@ const model  = {
 
     setSearch: action((state, input) => {
         state.search = input;
+    }),
+
+    setCurrentSnowReportLink: action((state, input) => {
+        state.currentSnowReportLink = input;
     }),
 }
 

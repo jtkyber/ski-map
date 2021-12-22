@@ -4,6 +4,9 @@ import WeeklyWeather from './components/WeeklyWeather';
 import './App.css';
 
 const App = () => {
+  const urlRoot = 'https://shielded-springs-47306.herokuapp.com';
+  // const urlRoot = 'http://localhost:3001';
+
   const { weeklyWeatherData, showWeeklyWeather, selectedResort, toggleResortNames, toggleFavorites, darkMode } = useStoreState(state => ({
     weeklyWeatherData: state.weeklyWeatherData,
     showWeeklyWeather: state.showWeeklyWeather,
@@ -52,12 +55,12 @@ const App = () => {
           </div>
         </div>
         <div className={`map ${showWeeklyWeather ? 'blurMap' : null}`}>
-          <MapComponent setWeeklyWeatherData={setWeeklyWeatherData} weeklyWeatherData={weeklyWeatherData}/>
+          <MapComponent urlRoot={urlRoot} setWeeklyWeatherData={setWeeklyWeatherData} weeklyWeatherData={weeklyWeatherData}/>
         </div>
         {
         showWeeklyWeather && selectedResort !== null
         ?
-          <WeeklyWeather />
+          <WeeklyWeather urlRoot={urlRoot} />
         :
         null
         }

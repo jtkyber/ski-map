@@ -1,12 +1,16 @@
 import React, { useEffect } from 'react';
-import { useStoreState } from 'easy-peasy';
+import { useStoreState, useStoreActions } from 'easy-peasy';
 import '../styles/weeklyWeather.css';
 
-const WeeklyWeather = () => {
-  const { selectedResort, weeklyWeatherData, currentWeatherData } = useStoreState(state => ({
+const WeeklyWeather = ({ urlRoot }) => {
+  const { selectedResort, weeklyWeatherData, currentSnowReportLink } = useStoreState(state => ({
     selectedResort: state.selectedResort,
     weeklyWeatherData: state.weeklyWeatherData,
-    currentWeatherData: state.currentWeatherData
+    currentSnowReportLink: state.currentSnowReportLink
+  }));
+
+  const { setCurrentSnowReportLink } = useStoreActions(actions => ({
+    setCurrentSnowReportLink: actions.setCurrentSnowReportLink
   }));
 
   useEffect(() => {
@@ -26,6 +30,24 @@ const WeeklyWeather = () => {
     }
   }, [])
 
+  useEffect(() => {
+    setCurrentSnowReportLink(null);
+    fetchSnowReport(selectedResort.properties.name);
+  }, [])
+
+  const fetchSnowReport = async (name) => {
+    try {
+      const res = await fetch(`${urlRoot}/scrapeSnowForecast?name=${name}`);
+      if (!res.ok) {
+          throw new Error('Error')
+      }
+      const url = await res.json();
+      setCurrentSnowReportLink(url);
+    } catch(err) {
+      console.log(err);
+    }
+  }
+
   return (
     <div className='weeklyWeatherContainer'>
       <h2 className='weeklyWeatherResortName'>{selectedResort.properties.name} Weekly Forecast</h2>
@@ -41,7 +63,13 @@ const WeeklyWeather = () => {
         ))
       }
       </div>
-      <a className='moreWeather' href={currentWeatherData.darkSkyUrl} target='_blank' rel='noopener noreferrer'>More Weather Info</a>
+      <a
+        className='snowForecast'
+        href={currentSnowReportLink}
+        target='_blank'
+        rel='noopener noreferrer'>
+        ❄️<span className='snowForecastText'>Detailed Snow Forecast</span>❄️
+      </a>
     </div>
   )
 }

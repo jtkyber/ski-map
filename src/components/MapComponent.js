@@ -10,7 +10,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 mapboxgl.workerClass = require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
 
 
-const MapComponent = () => {
+const MapComponent = ({ urlRoot }) => {
   const { selectedResort, viewport, toggleResortNames, favorites, toggleFavorites, darkMode, search } = useStoreState(state => ({
     selectedResort: state.selectedResort,
     viewport: state.viewport,
@@ -66,7 +66,7 @@ const MapComponent = () => {
           if (resort.properties.name.toLowerCase().includes(search.toLowerCase())) {
             temp.push (
               <Marker key={resort.properties.name} latitude={resort.geometry.coordinates[1]} longitude={resort.geometry.coordinates[0]}>
-                <SingleMarker resort={resort} />
+                <SingleMarker urlRoot={urlRoot} resort={resort} />
               </Marker>
             )
           }
@@ -78,7 +78,7 @@ const MapComponent = () => {
             if (resort.properties.name.toLowerCase().includes(search.toLowerCase())) {
               temp.push(
                 <Marker key={resort.properties.name} latitude={resort.geometry.coordinates[1]} longitude={resort.geometry.coordinates[0]}>
-                  <SingleMarker resort={resort} />
+                  <SingleMarker urlRoot={urlRoot} resort={resort} />
                 </Marker>
               )
             }
@@ -96,7 +96,7 @@ const MapComponent = () => {
             setSelectedResort(null);
           }}
         >
-          <SinglePopup />
+          <SinglePopup urlRoot={urlRoot} />
         </Popup>
         :
         null

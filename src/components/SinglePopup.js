@@ -3,14 +3,13 @@ import { useStoreState, useStoreActions } from 'easy-peasy';
 import CurrentWeather from './CurrentWeather';
 import '../styles/popup.css';
 
-const SinglePopup = () => {
-  const urlRoot = 'https://shielded-springs-47306.herokuapp.com';
-
-  const { selectedResort, currentWebcamLink, favorites, darkMode } = useStoreState(state => ({
+const SinglePopup = ({ urlRoot }) => {
+  const { selectedResort, currentWebcamLink, favorites, darkMode, currentWeatherData } = useStoreState(state => ({
     selectedResort: state.selectedResort,
     currentWebcamLink: state.currentWebcamLink,
     favorites: state.stored.favorites,
-    darkMode: state.stored.darkMode
+    darkMode: state.stored.darkMode,
+    currentWeatherData: state.currentWeatherData
   }));
 
   const { setShowWeeklyWeather, setWeeklyWeatherData, addToFavorites, removeFromFavorites } = useStoreActions(actions => ({
@@ -31,13 +30,15 @@ const SinglePopup = () => {
 
   const fetchWeeklyWeatherData = async (lat, lon) => {
     try {
-      const res = await fetch(`${urlRoot}/scrapeWeeklyWeather?lat=${lat}&lon=${lon}`);
+      if (currentWeatherData) {
+        const res = await fetch(`${urlRoot}/scrapeWeeklyWeather?lat=${lat}&lon=${lon}`);
         if (!res.ok) {
             throw new Error('Error')
         }
         const weather = await res.json();
         setWeeklyWeatherData(weather);
         setShowWeeklyWeather(true);
+      }
     } catch(err) {
       console.log(err);
     }

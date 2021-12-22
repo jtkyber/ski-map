@@ -92,12 +92,17 @@
     padding: 0.1rem;
 }
 
-.moreWeather {
+.snowForecast {
     text-decoration: none;
-    color: rgba(255, 220, 0, 1);
     margin-top: 1rem;
 }
 
-.moreWeather:hover {
+.snowForecast:hover {
     opacity: 0.6;
+}
+
+.snowForecastText {
+    color: rgba(255, 255, 255, 1);
+    border-bottom: 1px dashed rgba(255, 255, 255, 1.0);
+    cursor: pointer;
 }
