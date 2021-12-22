@@ -32,6 +32,7 @@ const App = () => {
   }));
 
   const zoomToResort = (e) => {
+    const searchBar = document.querySelector('.resortSearch');
     let newLatitude = viewport.latitude;
     let newLongitude = viewport.longitude;
     let zoom = viewport.zoom;
@@ -57,14 +58,16 @@ const App = () => {
           }
         }
 
+        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+          searchBar.blur();
+        }
+
         setViewport({
           ...viewport,
           latitude: newLatitude,
           longitude: newLongitude,
           zoom: zoom
         })
-
-        const searchBar = document.querySelector('.resortSearch');
         searchBar.value = '';
         setSearch('');
       } else if ((e.keyCode === 13) && (!search.length)) {
@@ -75,7 +78,6 @@ const App = () => {
           zoom: 4
         })
 
-        const searchBar = document.querySelector('.resortSearch');
         searchBar.value = '';
         setSearch('');
       }
