@@ -63,7 +63,7 @@ const MapComponent = () => {
         !toggleFavorites
         ?
         skiResorts.reduce((temp, resort) => {
-          if (resort.properties.name.toLowerCase().includes(search)) {
+          if (resort.properties.name.toLowerCase().includes(search.toLowerCase())) {
             temp.push (
               <Marker key={resort.properties.name} latitude={resort.geometry.coordinates[1]} longitude={resort.geometry.coordinates[0]}>
                 <SingleMarker resort={resort} />
@@ -75,7 +75,7 @@ const MapComponent = () => {
         :
         skiResorts.reduce((temp, resort) => {
           if (favorites.includes(resort.properties.name)) {
-            if (resort.properties.name.toLowerCase().includes(search)) {
+            if (resort.properties.name.toLowerCase().includes(search.toLowerCase())) {
               temp.push(
                 <Marker key={resort.properties.name} latitude={resort.geometry.coordinates[1]} longitude={resort.geometry.coordinates[0]}>
                   <SingleMarker resort={resort} />
