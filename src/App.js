@@ -58,6 +58,8 @@ const App = () => {
           }
         }
 
+        searchBar.value = '';
+        setSearch('');
         if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
           searchBar.blur();
         }
@@ -68,8 +70,6 @@ const App = () => {
           longitude: newLongitude,
           zoom: zoom
         })
-        searchBar.value = '';
-        setSearch('');
       } else if ((e.keyCode === 13) && (!search.length)) {
         setViewport({
           ...viewport,
