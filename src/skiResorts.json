@@ -449,6 +449,17 @@
             "name": "Sugarbush",
             "webcams": "https://www.sugarbush.com/mountain/webcams"
         }
+    },
+    {
+        "geometry": {
+            "coordinates": [140.68202614455203, 42.84455471504683],
+            "type": "Point"
+        },
+        "type": "Feature",
+        "properties": {
+            "name": "Niseko",
+            "webcams": "https://www.niseko.ne.jp/en/livecamera/"
+        }
     }
 ]
 
