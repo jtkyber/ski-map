@@ -60,15 +60,17 @@ const App = () => {
 
         searchBar.value = '';
         setSearch('');
-        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
           console.log('mobile');
           searchBar.blur();
           setTimeout(() => {
             setViewport({
-            ...viewport,
-            latitude: newLatitude,
-            longitude: newLongitude,
-            zoom: zoom
+              ...viewport,
+              width: '100%',
+              height: '100%',
+              latitude: newLatitude,
+              longitude: newLongitude,
+              zoom: zoom
             })
           }, 500)
         } else {
