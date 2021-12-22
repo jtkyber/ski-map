@@ -48,10 +48,12 @@
 .restOfDay {
     font-weight: 400;
     margin: 0;
-    /*max-width: 25rem;*/
     text-align: center;
 }
 
+.restOfDay::-webkit-scrollbar {
+  display: none;
+}
 
 /*  Loading skeleton animation: */
 

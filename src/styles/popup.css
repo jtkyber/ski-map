@@ -8,13 +8,13 @@
     border: 3px solid black;
     border-radius: 14px !important;
     width: 250px !important;
-    height: 190px !important;
+    height: 220px !important;
 }
 
 @media only screen and (min-width: 500px) and (max-width: 768px) {
   .mapboxgl-popup-content {
     width: 230px !important;
-    height: 180px !important;
+    height: 200px !important;
     font-size: 90%;
   }
 }
@@ -22,7 +22,7 @@
 @media only screen and (min-width: 401px) and (max-width: 499px) {
   .mapboxgl-popup-content {
     width: 220px !important;
-    height: 170px !important;
+    height: 190px !important;
     font-size: 80%;
   }
 }
@@ -30,7 +30,7 @@
 @media only screen and (min-width: 331px) and (max-width: 400px) {
   .mapboxgl-popup-content {
     width: 200px !important;
-    height: 170px !important;
+    height: 180px !important;
     font-size: 75%;
   }
 }
@@ -38,7 +38,7 @@
 @media only screen and (max-width: 330px) {
   .mapboxgl-popup-content {
     width: 200px !important;
-    height: 160px !important;
+    height: 170px !important;
     font-size: 70%;
   }
 }
