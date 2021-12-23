@@ -109,7 +109,7 @@ const App = () => {
         longitude: -99.2,
         zoom: 4
       })
-    } else if (e.ctrlKey && e.shiftKey) {
+    } else if (e.ctrlKey && e.altKey) {
       setViewport({
         ...viewport,
         latitude: 39.1,
