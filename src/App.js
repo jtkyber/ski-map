@@ -61,7 +61,6 @@ const App = () => {
         searchBar.value = '';
         setSearch('');
         if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-          console.log('mobile');
           searchBar.blur();
           setTimeout(() => {
             setViewport({
@@ -74,7 +73,6 @@ const App = () => {
             })
           }, 500)
         } else {
-          console.log('desktop');
           setViewport({
             ...viewport,
             latitude: newLatitude,
@@ -82,8 +80,6 @@ const App = () => {
             zoom: zoom
           })
         }
-
-
       } else if ((e.keyCode === 13) && (!search.length)) {
         setViewport({
           ...viewport,
@@ -91,9 +87,13 @@ const App = () => {
           longitude: -99.2,
           zoom: 4
         })
-
-        searchBar.value = '';
-        setSearch('');
+      } else if (e.ctrlKey && e.shiftKey) {
+        setViewport({
+          ...viewport,
+          latitude: 39.1,
+          longitude: -106.8,
+          zoom: 7
+        })
       }
   }
 
