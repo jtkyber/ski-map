@@ -32,8 +32,10 @@ const CurrentWeather = () => {
           <div className='loadingCurWeatherLow'></div>
           <div className='loadingCurWeatherHigh'></div>
         </div>
-        <div className='loadingCurWeatherRestOfDay'></div>
-        <div className='loadingCurWeatherRestOfDay2'></div>
+        <div className='restOfDay'>
+          <div className='loadingCurWeatherRestOfDay'></div>
+          <div className='loadingCurWeatherRestOfDay2'></div>
+        </div>
       </div>
   )
 }

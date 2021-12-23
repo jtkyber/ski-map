@@ -5,39 +5,48 @@
 
 .currentWeatherContainer {
     grid-area: popMid;
-    display: flex;
-    flex-flow: nowrap column;
-    justify-content: flex-start;
-    align-items: center;
+    margin-top: 0.2rem;
+    display: grid;
+    grid-template-rows: max-content 1rem 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "currentSummaryRow"
+    "highLowRow"
+    "restOfDay";
     width: 100%;
     height: 100%;
     max-width: 25rem;
-    margin-top: 0.5rem;
-    color: rgba(255, 255, 255, 0.9);;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .currentSummaryRow {
+    grid-area: currentSummaryRow;
     display: flex;
     flex-flow: nowrap row;
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
-    height: 2rem;
-    width: 100%;
+    text-align: center;
+    min-height: fit-content;
+}
+
+.currentSummaryRow > h3 {
+    margin: 0;
+
 }
 
 .highLowRow {
+    grid-area: highLowRow;
     display: flex;
     flex-flow: nowrap row;
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
-    height: 1rem;
-    width: 100%;
 }
 
 .highLowRow > h5 {
     font-weight: 600;
+    margin: 0;
 }
 
 .currentImg {
@@ -46,30 +55,32 @@
 }
 
 .restOfDay {
+    grid-area: restOfDay;
     font-weight: 400;
     margin: 0;
     text-align: center;
-}
-
-.restOfDay::-webkit-scrollbar {
-  display: none;
+    align-self: center;
 }
 
 /*  Loading skeleton animation: */
 
 .currentWeatherContainerLoading {
     grid-area: popMid;
-    display: flex;
-    flex-flow: nowrap column;
-    justify-content: flex-start;
-    align-items: center;
+    margin-top: 0.4rem;
+    display: grid;
+    grid-template-rows: max-content 1rem 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "currentSummaryRow"
+    "highLowRow"
+    "restOfDay";
     width: 100%;
+    height: 100%;
     max-width: 25rem;
     animation-name: skeletonPulse;
     animation-duration: 2s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
-    margin-top: 0.5rem;
 }
 
 @keyframes skeletonPulse {
@@ -121,7 +132,9 @@
     height: 1rem;
     background-color: white;
     border-radius: 20px;
+    margin: auto;
     margin-top: 0.5rem;
+    justify-self: center;
 }
 
 .loadingCurWeatherRestOfDay2 {
@@ -129,5 +142,7 @@
     height: 1rem;
     background-color: white;
     border-radius: 20px;
+    margin: auto;
     margin-top: 0.3rem;
+    justify-self: center;
 }

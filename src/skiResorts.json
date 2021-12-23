@@ -460,6 +460,17 @@
             "name": "Niseko",
             "webcams": "https://www.niseko.ne.jp/en/livecamera/"
         }
+    },
+    {
+        "geometry": {
+            "coordinates": [-120.0655205534938, 38.683964135172545],
+            "type": "Point"
+        },
+        "type": "Feature",
+        "properties": {
+            "name": "Kirkwood",
+            "webcams": "https://www.kirkwood.com/the-mountain/mountain-conditions/mountain-cams.aspx"
+        }
     }
 ]
 
