@@ -51,7 +51,7 @@ const App = () => {
         searchBarContainer.classList.add('chetlerModeActivated');
         setTimeout(() => {
           searchBarContainer.classList.remove('chetlerModeActivated');
-        }, 2000)
+        }, 3000)
       } else if ((search === 'nobentchetler') && (chetlerMode)) {
         searchBar.value = '';
         setSearch('');
@@ -60,7 +60,7 @@ const App = () => {
         searchBarContainer.classList.add('chetlerModeDisabled');
         setTimeout(() => {
           searchBarContainer.classList.remove('chetlerModeDisabled');
-        }, 2000)
+        }, 3000)
       } else {
         for (let resort of skiResorts) {
           if (!toggleFavorites) {

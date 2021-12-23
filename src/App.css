@@ -113,6 +113,7 @@ body {
     content: "Chetler Mode Activated";
     color: green;
     font-weight: 600;
+    animation: 3.1s ease-out fadeChetler;
 }
 
 .chetlerModeDisabled:after {
@@ -121,6 +122,15 @@ body {
     content: "Chetler Mode Disabled";
     color: red;
     font-weight: 600;
+    animation: 3.1s ease-out fadeChetler;
+}
+
+@keyframes fadeChetler {
+    0% {opacity: 0;}
+    25% {opacity: 100%;}
+    50% {opacity: 100%;}
+    75% {opacity: 100%;}
+    100% {opacity: 0;}
 }
 
 .resortSearch:hover {

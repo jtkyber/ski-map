@@ -4,7 +4,7 @@
 
 .mapboxgl-popup-content {
     background-color: rgba(0, 0, 0, 0.7) !important;
-    color: white !important;
+    color: rgba(255, 255, 255, 0.9) !important;
     border: 3px solid black;
     border-radius: 14px !important;
     width: 250px !important;
@@ -128,7 +128,7 @@
     text-align: center;
     margin: 0;
     font-weight: 400;
-    color: rgba(255, 255, 255, 0.9);
+    /*color: rgba(255, 255, 255, 0.9);*/
     margin-bottom: 0.2rem;
 }
 
