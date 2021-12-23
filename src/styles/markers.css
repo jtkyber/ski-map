@@ -1,6 +1,6 @@
 :root {
     --marker-width: 30px;
-    --marker-height: 30px;
+    --marker-height: auto;
 }
 
 .markerBtn {
@@ -26,7 +26,7 @@
 
 .showAllMarkerNames:before {
     position: absolute;
-    top: -80%;
+    top: -75%;
     width: max-content;
     content: var(--resort-name);
     background: rgba(255, 255, 255, 0.8);

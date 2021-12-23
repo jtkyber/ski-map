@@ -26,23 +26,17 @@
     user-select: none;
 }
 
-/*@media only screen and (min-width: 401px) and (max-width: 450px) {
-  .weeklyWeatherContainer {
-    transform: translate(-50%, -50%) scale(0.85);
-  }
+.chetlerMode {
+    position: absolute;
+    background-image: url("../secret-skis.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.3;
+    transform: scale(0.95);
 }
-
-@media only screen and (min-width: 331px) and (max-width: 400px) {
-  .weeklyWeatherContainer {
-    transform: translate(-50%, -50%) scale(0.75);
-  }
-}
-
-@media only screen and (max-width: 330px) {
-  .weeklyWeatherContainer {
-    transform: translate(-50%, -50%) scale(0.65);
-  }
-}*/
 
 @keyframes fadeIn {
     from {opacity: 0;}

@@ -8,7 +8,8 @@ const model  = {
             toggleResortNames: false,
             favorites: [],
             toggleFavorites: false,
-            darkMode: false
+            darkMode: false,
+            chetlerMode: false
         },
         {
             storage: 'localStorage',
@@ -90,6 +91,10 @@ const model  = {
 
     setCurrentSnowReportLink: action((state, input) => {
         state.currentSnowReportLink = input;
+    }),
+
+    setChetlerMode: action((state, input) => {
+        state.stored.chetlerMode = input;
     }),
 }
 

@@ -3,10 +3,11 @@ import { useStoreState, useStoreActions } from 'easy-peasy';
 import '../styles/weeklyWeather.css';
 
 const WeeklyWeather = ({ urlRoot }) => {
-  const { selectedResort, weeklyWeatherData, currentSnowReportLink } = useStoreState(state => ({
+  const { selectedResort, weeklyWeatherData, currentSnowReportLink, chetlerMode } = useStoreState(state => ({
     selectedResort: state.selectedResort,
     weeklyWeatherData: state.weeklyWeatherData,
-    currentSnowReportLink: state.currentSnowReportLink
+    currentSnowReportLink: state.currentSnowReportLink,
+    chetlerMode: state.stored.chetlerMode
   }));
 
   const { setCurrentSnowReportLink } = useStoreActions(actions => ({
@@ -50,6 +51,7 @@ const WeeklyWeather = ({ urlRoot }) => {
 
   return (
     <div className='weeklyWeatherContainer'>
+      <div className={`${chetlerMode ? 'chetlerMode' : null}`}></div>
       <h2 className='weeklyWeatherResortName'>{selectedResort.properties.name} Weekly Forecast</h2>
       <div className='weeklyWeather'>
       {

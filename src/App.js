@@ -9,7 +9,7 @@ const App = () => {
   const urlRoot = 'https://shielded-springs-47306.herokuapp.com';
   // const urlRoot = 'http://localhost:3001';
 
-  const { weeklyWeatherData, showWeeklyWeather, selectedResort, toggleResortNames, toggleFavorites, darkMode, search, viewport, favorites } = useStoreState(state => ({
+  const { weeklyWeatherData, showWeeklyWeather, selectedResort, toggleResortNames, toggleFavorites, darkMode, search, viewport, favorites, chetlerMode } = useStoreState(state => ({
     weeklyWeatherData: state.weeklyWeatherData,
     showWeeklyWeather: state.showWeeklyWeather,
     selectedResort: state.selectedResort,
@@ -18,28 +18,50 @@ const App = () => {
     darkMode: state.stored.darkMode,
     search: state.search,
     viewport: state.viewport,
-    favorites: state.stored.favorites
+    favorites: state.stored.favorites,
+    chetlerMode: state.stored.chetlerMode
   }));
 
-  const { setWeeklyWeatherData, setShowWeeklyWeather, setToggleResortNames, setToggleFavorites, setDarkMode, setSearch, setViewport } = useStoreActions(actions => ({
+  const { setWeeklyWeatherData, setShowWeeklyWeather, setToggleResortNames, setToggleFavorites, setDarkMode, setSearch, setViewport, setChetlerMode } = useStoreActions(actions => ({
     setWeeklyWeatherData: actions.setWeeklyWeatherData,
     setShowWeeklyWeather: actions.setShowWeeklyWeather,
     setToggleResortNames: actions.setToggleResortNames,
     setToggleFavorites: actions.setToggleFavorites,
     setDarkMode: actions.setDarkMode,
     setSearch: actions.setSearch,
-    setViewport: actions.setViewport
+    setViewport: actions.setViewport,
+    setChetlerMode: actions.setChetlerMode
   }));
 
   const zoomToResort = (e) => {
     const searchBar = document.querySelector('.resortSearch');
+    const searchBarContainer = document.querySelector('.searchContainer');
     let newLatitude = viewport.latitude;
     let newLongitude = viewport.longitude;
     let zoom = viewport.zoom;
 
     if ((e.keyCode === 13) && (search.length)) {
-        e.preventDefault();
+      e.preventDefault();
 
+      if ((search === 'bentchetler') && (!chetlerMode)) {
+        searchBar.value = '';
+        setSearch('');
+        setChetlerMode(true);
+
+        searchBarContainer.classList.add('chetlerModeActivated');
+        setTimeout(() => {
+          searchBarContainer.classList.remove('chetlerModeActivated');
+        }, 2000)
+      } else if ((search === 'nobentchetler') && (chetlerMode)) {
+        searchBar.value = '';
+        setSearch('');
+        setChetlerMode(false);
+
+        searchBarContainer.classList.add('chetlerModeDisabled');
+        setTimeout(() => {
+          searchBarContainer.classList.remove('chetlerModeDisabled');
+        }, 2000)
+      } else {
         for (let resort of skiResorts) {
           if (!toggleFavorites) {
             if (resort.properties.name.toLowerCase().includes(search.toLowerCase())) {
@@ -57,7 +79,6 @@ const App = () => {
             }
           }
         }
-
         searchBar.value = '';
         setSearch('');
         if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
@@ -80,21 +101,22 @@ const App = () => {
             zoom: zoom
           })
         }
-      } else if ((e.keyCode === 13) && (!search.length)) {
-        setViewport({
-          ...viewport,
-          latitude: 40.3,
-          longitude: -99.2,
-          zoom: 4
-        })
-      } else if (e.ctrlKey && e.shiftKey) {
-        setViewport({
-          ...viewport,
-          latitude: 39.1,
-          longitude: -106.8,
-          zoom: 7
-        })
       }
+    } else if ((e.keyCode === 13) && (!search.length)) {
+      setViewport({
+        ...viewport,
+        latitude: 40.3,
+        longitude: -99.2,
+        zoom: 4
+      })
+    } else if (e.ctrlKey && e.shiftKey) {
+      setViewport({
+        ...viewport,
+        latitude: 39.1,
+        longitude: -106.8,
+        zoom: 7
+      })
+    }
   }
 
   useEffect(() => {
@@ -131,7 +153,8 @@ const App = () => {
               onChange={(e) => setSearch(e.target.value)}
               className={`resortSearch ${darkMode ? 'resortSearchDark' : ''} ${showWeeklyWeather ? 'blurMap' : null}`}
               type='text'
-              placeholder='Filter Resorts' />
+              placeholder='Filter Resorts'
+            />
           </div>
         </div>
         <div className={`map ${showWeeklyWeather ? 'blurMap' : null}`}>
