@@ -471,6 +471,17 @@
             "name": "Kirkwood",
             "webcams": "https://www.kirkwood.com/the-mountain/mountain-conditions/mountain-cams.aspx"
         }
+    },
+    {
+        "geometry": {
+            "coordinates": [-120.33789477437581, 39.30468027095883],
+            "type": "Point"
+        },
+        "type": "Feature",
+        "properties": {
+            "name": "Sugar Bowl",
+            "webcams": "https://www.sugarbowl.com/webcams"
+        }
     }
 ]
 
