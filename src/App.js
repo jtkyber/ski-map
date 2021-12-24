@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useStoreState, useStoreActions } from 'easy-peasy';
+import { FlyToInterpolator } from 'react-map-gl';
 import MapComponent from './components/MapComponent';
 import WeeklyWeather from './components/WeeklyWeather';
 import skiResorts from "./skiResorts.json";
@@ -90,7 +91,9 @@ const App = () => {
               height: '100%',
               latitude: newLatitude,
               longitude: newLongitude,
-              zoom: zoom
+              zoom: zoom,
+              transitionDuration: 1000,
+              transitionInterpolator: new FlyToInterpolator()
             })
           }, 500)
         } else {
@@ -98,7 +101,9 @@ const App = () => {
             ...viewport,
             latitude: newLatitude,
             longitude: newLongitude,
-            zoom: zoom
+            zoom: zoom,
+            transitionDuration: 1000,
+            transitionInterpolator: new FlyToInterpolator()
           })
         }
       }
@@ -107,14 +112,18 @@ const App = () => {
         ...viewport,
         latitude: 40.3,
         longitude: -99.2,
-        zoom: 4
+        zoom: 4,
+        transitionDuration: 1000,
+        transitionInterpolator: new FlyToInterpolator()
       })
     } else if (e.ctrlKey && e.altKey) {
       setViewport({
         ...viewport,
         latitude: 39.1,
         longitude: -106.8,
-        zoom: 7
+        zoom: 7,
+        transitionDuration: 1000,
+        transitionInterpolator: new FlyToInterpolator()
       })
     }
   }
