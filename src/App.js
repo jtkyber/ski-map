@@ -108,14 +108,25 @@ const App = () => {
         }
       }
     } else if ((e.keyCode === 13) && (!search.length)) {
-      setViewport({
-        ...viewport,
-        latitude: 40.3,
-        longitude: -99.2,
-        zoom: 4,
-        transitionDuration: 1000,
-        transitionInterpolator: new FlyToInterpolator()
-      })
+      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        setViewport({
+          ...viewport,
+          latitude: 38.9,
+          longitude: -106.7,
+          zoom: 6,
+          transitionDuration: 1000,
+          transitionInterpolator: new FlyToInterpolator()
+        })
+      } else {
+        setViewport({
+          ...viewport,
+          latitude: 40.3,
+          longitude: -99.2,
+          zoom: 4,
+          transitionDuration: 1000,
+          transitionInterpolator: new FlyToInterpolator()
+        })
+      }
     } else if (e.ctrlKey && e.altKey) {
       setViewport({
         ...viewport,
