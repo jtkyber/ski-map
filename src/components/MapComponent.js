@@ -37,11 +37,16 @@ const MapComponent = ({ urlRoot }) => {
   }, [toggleResortNames, toggleFavorites, search])
 
   const resizeViewport = () => {
-    setViewport({
-      ...viewport,
-      width: '100%',
-      height: '100%'
-    })
+    const searchBar = document.querySelector('.resortSearch');
+    if (
+      !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.platform))
+      || ((/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.platform)) && (searchBar !== document.activeElement))) {
+      setViewport({
+        ...viewport,
+        width: '100%',
+        height: '100%'
+      })
+    }
   }
 
   useEffect(() => {
