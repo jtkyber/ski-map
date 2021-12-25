@@ -95,7 +95,7 @@ const App = () => {
               transitionDuration: 1000,
               transitionInterpolator: new FlyToInterpolator()
             })
-          }, 300)
+          }, 500)
         } else {
           setViewport({
             ...viewport,
@@ -109,6 +109,7 @@ const App = () => {
       }
     } else if ((e.keyCode === 13) && (!search.length)) {
       if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        searchBar.blur();
         setViewport({
           ...viewport,
           latitude: 38.9,
