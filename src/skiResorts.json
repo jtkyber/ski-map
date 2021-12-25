@@ -482,6 +482,17 @@
             "name": "Sugar Bowl",
             "webcams": "https://www.sugarbowl.com/webcams"
         }
+    },
+    {
+        "geometry": {
+            "coordinates": [-111.40112146562034, 45.285378997177425],
+            "type": "Point"
+        },
+        "type": "Feature",
+        "properties": {
+            "name": "Big Sky",
+            "webcams": "https://bigskyresort.com/webcams"
+        }
     }
 ]
 
