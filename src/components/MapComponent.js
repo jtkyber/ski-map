@@ -38,9 +38,8 @@ const MapComponent = ({ urlRoot }) => {
 
   const resizeViewport = () => {
     const searchBar = document.querySelector('.resortSearch');
-    if (
-      !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.platform))
-      || ((/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.platform)) && (searchBar !== document.activeElement))) {
+    const isMobile = ('ontouchstart' in document.documentElement && navigator.userAgent.match(/Mobi/));
+    if (!isMobile || (isMobile && (searchBar !== document.activeElement))) {
       setViewport({
         ...viewport,
         width: '100%',
