@@ -1,5 +1,23 @@
 import { action, persist } from 'easy-peasy';
 
+const isMobile = () => {
+     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        return {
+            latitude: 38.9,
+            longitude: -106.7,
+            width: '100%',
+            height: '100%',
+            zoom: 6
+        }
+     } else return {
+            latitude: 40.3,
+            longitude: -99.2,
+            width: '100%',
+            height: '100%',
+            zoom: 4
+        }
+}
+
 const model  = {
     //State:
 
@@ -26,13 +44,7 @@ const model  = {
     currentIsFavorite: false,
     search: '',
     currentSnowReportLink: '',
-    viewport: {
-        latitude: 40.3,
-        longitude: -99.2,
-        width: '100%',
-        height: '100%',
-        zoom: 4
-    },
+    viewport: isMobile(),
 
     //Actions:
 
