@@ -95,7 +95,7 @@ const App = () => {
               transitionDuration: 1000,
               transitionInterpolator: new FlyToInterpolator()
             })
-          }, 500)
+          }, 300)
         } else {
           setViewport({
             ...viewport,
