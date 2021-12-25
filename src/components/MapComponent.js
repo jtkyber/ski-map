@@ -37,9 +37,9 @@ const MapComponent = ({ urlRoot }) => {
   }, [toggleResortNames, toggleFavorites, search])
 
   const resizeViewport = () => {
-    const searchBar = document.querySelector('.resortSearch');
+    // const searchBar = document.querySelector('.resortSearch');
     const isMobile = ('ontouchstart' in document.documentElement && navigator.userAgent.match(/Mobi/));
-    if (!isMobile || (isMobile && (searchBar !== document.activeElement))) {
+    if (!isMobile) {
       setViewport({
         ...viewport,
         width: '100%',
