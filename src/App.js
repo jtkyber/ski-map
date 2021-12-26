@@ -155,18 +155,34 @@ const App = () => {
           <div className={`settingsContainer ${showWeeklyWeather ? 'blurMap' : null}`}>
             <button
               onClick={() => setToggleResortNames()}
-              className={`settingsBtn ${darkMode ? 'settingsBtnDark' : ''}`}>
-              {toggleResortNames ? 'Hide Labels' : 'Show Labels'}
+              className={`
+                settingsBtn
+                ${darkMode ? 'settingsBtnDark' : ''}
+                ${toggleResortNames ? 'settingActive' : ''}
+                ${(toggleResortNames && darkMode) ? 'settingActiveDark' : ''}
+              `}
+            >
+              Show Labels
             </button>
             <button
               onClick={() => setToggleFavorites()}
-              className={`settingsBtn ${darkMode ? 'settingsBtnDark' : ''}`}>
-              {toggleFavorites ? 'Show All Resorts' : 'Show Favorites'}
+              className={`
+                settingsBtn
+                ${darkMode ? 'settingsBtnDark' : ''}
+                ${toggleFavorites ? 'settingActive' : ''}
+                ${(toggleFavorites && darkMode) ? 'settingActiveDark' : ''}
+              `}
+            >
+              Show Favorites
             </button>
             <button
               onClick={() => setDarkMode()}
-              className={`settingsBtn ${darkMode ? 'settingsBtnDark' : ''}`}>
-              {!darkMode ? 'Dark Mode' : 'Light Mode'}
+              className={`
+                settingsBtn
+                ${darkMode ? 'settingsBtnDark settingActiveDark' : ''}
+              `}
+            >
+              Dark Mode
             </button>
           </div>
           <div className='searchContainer'>
