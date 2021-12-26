@@ -527,6 +527,17 @@
             "name": "White Fish",
             "webcams": "https://skiwhitefish.com/webcams/"
         }
+    },
+    {
+        "geometry": {
+            "coordinates": [-120.16127471659541, 39.08309027784605],
+            "type": "Point"
+        },
+        "type": "Feature",
+        "properties": {
+            "name": "Homewood",
+            "webcams": "https://www.skihomewood.com/mountain/homewood-webcam/"
+        }
     }
 ]
 
