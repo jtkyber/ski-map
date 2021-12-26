@@ -493,6 +493,40 @@
             "name": "Big Sky",
             "webcams": "https://bigskyresort.com/webcams"
         }
+    },
+
+    {
+        "geometry": {
+            "coordinates": [-73.98544024826316, 44.289363761254506],
+            "type": "Point"
+        },
+        "type": "Feature",
+        "properties": {
+            "name": "Lake Placid",
+            "webcams": "https://whiteface.com/mountain/webcams/"
+        }
+    },
+    {
+        "geometry": {
+            "coordinates": [-121.65340767690856, 48.863611826544066],
+            "type": "Point"
+        },
+        "type": "Feature",
+        "properties": {
+            "name": "Mt Baker",
+            "webcams": "https://www.mtbaker.us/snow-report/"
+        }
+    },
+    {
+        "geometry": {
+            "coordinates": [-114.35037340601818, 48.480384358871554],
+            "type": "Point"
+        },
+        "type": "Feature",
+        "properties": {
+            "name": "White Fish",
+            "webcams": "https://skiwhitefish.com/webcams/"
+        }
     }
 ]
 
