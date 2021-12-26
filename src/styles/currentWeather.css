@@ -1,0 +1,152 @@
+.weatherIcon {
+    width: 50px;
+    height: 50px;
+}
+
+.currentWeatherContainer {
+    grid-area: popMid;
+    margin-top: 0.2rem;
+    display: grid;
+    grid-template-rows: max-content 1rem 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "currentSummaryRow"
+    "highLowRow"
+    "restOfDay";
+    width: 100%;
+    height: 100%;
+    max-width: 25rem;
+}
+
+.currentSummaryRow {
+    grid-area: currentSummaryRow;
+    display: flex;
+    flex-flow: nowrap row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+    margin-top: 0.2rem;
+}
+
+.currentSummaryRow > h3 {
+    margin: 0;
+
+}
+
+.highLowRow {
+    grid-area: highLowRow;
+    display: flex;
+    flex-flow: nowrap row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.2rem;
+}
+
+.highLowRow > h5 {
+    font-weight: 600;
+    margin: 0;
+}
+
+.currentImg {
+    width: 2rem;
+    height: 2rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 0.1rem;
+    text-align: center;
+}
+
+.restOfDay {
+    grid-area: restOfDay;
+    font-weight: 400;
+    margin: 0;
+    text-align: center;
+    align-self: center;
+}
+
+/*  Loading skeleton animation: */
+
+.currentWeatherContainerLoading {
+    grid-area: popMid;
+    margin-top: 0.4rem;
+    display: grid;
+    grid-template-rows: max-content 1rem 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "currentSummaryRow"
+    "highLowRow"
+    "restOfDay";
+    width: 100%;
+    height: 100%;
+    max-width: 25rem;
+    animation-name: skeletonPulse;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes skeletonPulse {
+    0% {opacity: 10%;}
+    50% {opacity: 50%;}
+    100% {opacity: 10%;}
+}
+
+.loadingCurWeatherImg {
+    width: 2rem;
+    height: 2rem;
+    background-color: white;
+    border-radius: 100%;
+}
+
+.loadingCurWeatherSummary {
+    width: 50%;
+    height: 1rem;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.loadingCurWeatherFeelsLike {
+    width: 30%;
+    height: 0.8rem;
+    background-color: white;
+    border-radius: 20px;
+    margin-top: 0.3rem;
+}
+
+.loadingCurWeatherLow {
+    width: 20%;
+    height: 0.8rem;
+    background-color: white;
+    border-radius: 20px;
+    margin-top: 0.3rem;
+}
+
+.loadingCurWeatherHigh {
+    width: 20%;
+    height: 0.8rem;
+    background-color: white;
+    border-radius: 20px;
+    margin-top: 0.3rem;
+}
+
+.loadingCurWeatherRestOfDay {
+    width: 90%;
+    height: 1rem;
+    background-color: white;
+    border-radius: 20px;
+    margin: auto;
+    margin-top: 0.5rem;
+    justify-self: center;
+}
+
+.loadingCurWeatherRestOfDay2 {
+    width: 70%;
+    height: 1rem;
+    background-color: white;
+    border-radius: 20px;
+    margin: auto;
+    margin-top: 0.3rem;
+    justify-self: center;
+}
