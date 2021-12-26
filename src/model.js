@@ -43,7 +43,8 @@ const model  = {
     showWeeklyWeather: false,
     currentIsFavorite: false,
     search: '',
-    currentSnowReportLink: '',
+    openSnowLink: null,
+    snowForecastLink: null,
     viewport: isMobile(),
 
     //Actions:
@@ -101,8 +102,12 @@ const model  = {
         state.search = input;
     }),
 
-    setCurrentSnowReportLink: action((state, input) => {
-        state.currentSnowReportLink = input;
+    setOpenSnowLink: action((state, input) => {
+        state.openSnowLink = input;
+    }),
+
+    setSnowForecastLink: action((state, input) => {
+        state.snowForecastLink = input;
     }),
 
     setChetlerMode: action((state, input) => {

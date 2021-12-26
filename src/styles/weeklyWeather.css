@@ -13,7 +13,7 @@
     border-radius: 14px;
     color: white;
     width: 24rem;
-    height: 22rem;
+    height: 24rem;
     padding: 1rem;
     animation-name: fadeIn;
     animation-duration: 0.3s;
@@ -96,3 +96,19 @@
     border-bottom: 1px dashed rgba(255, 255, 255, 1.0);
     cursor: pointer;
 }
+
+.detailedSnowForecast {
+    text-decoration: none;
+    margin-top: 0.2rem;
+}
+
+.detailedSnowForecast:hover {
+    opacity: 0.6;
+}
+
+.detailedSnowForecast {
+    color: rgba(255, 255, 255, 1);
+    border-bottom: 1px dashed rgba(255, 255, 255, 1.0);
+    cursor: pointer;
+}
+

@@ -3,15 +3,17 @@ import { useStoreState, useStoreActions } from 'easy-peasy';
 import '../styles/weeklyWeather.css';
 
 const WeeklyWeather = ({ urlRoot }) => {
-  const { selectedResort, weeklyWeatherData, currentSnowReportLink, chetlerMode } = useStoreState(state => ({
+  const { selectedResort, weeklyWeatherData, openSnowLink, snowForecastLink, chetlerMode } = useStoreState(state => ({
     selectedResort: state.selectedResort,
     weeklyWeatherData: state.weeklyWeatherData,
-    currentSnowReportLink: state.currentSnowReportLink,
+    openSnowLink: state.openSnowLink,
+    snowForecastLink: state.snowForecastLink,
     chetlerMode: state.stored.chetlerMode
   }));
 
-  const { setCurrentSnowReportLink } = useStoreActions(actions => ({
-    setCurrentSnowReportLink: actions.setCurrentSnowReportLink
+  const { setOpenSnowLink, setSnowForecastLink } = useStoreActions(actions => ({
+    setOpenSnowLink: actions.setOpenSnowLink,
+    setSnowForecastLink: actions.setSnowForecastLink
   }));
 
   useEffect(() => {
@@ -32,18 +34,35 @@ const WeeklyWeather = ({ urlRoot }) => {
   }, [])
 
   useEffect(() => {
-    setCurrentSnowReportLink(null);
-    fetchSnowReport(selectedResort.properties.name);
+    setOpenSnowLink(null);
+    setSnowForecastLink(null);
+    fetchSnowForcast(selectedResort.properties.name);
+    fetchOpenSnow(selectedResort.properties.name);
   }, [])
 
-  const fetchSnowReport = async (name) => {
+  const fetchSnowForcast = async () => {
     try {
+      const name = selectedResort.properties.name;
+      const res = await fetch(`${urlRoot}/scrapeSnowForecast?name=${name}`);
+      if (!res.ok) {
+          throw new Error('Error')
+      }
+      const url = await res.json();
+      setSnowForecastLink(url);
+    } catch(err) {
+      console.log(err);
+    }
+  }
+
+  const fetchOpenSnow = async () => {
+    try {
+      const name = selectedResort.properties.name;
       const res = await fetch(`${urlRoot}/scrapeOpenSnow?name=${name}`);
       if (!res.ok) {
           throw new Error('Error')
       }
       const url = await res.json();
-      setCurrentSnowReportLink(url);
+      setOpenSnowLink(url);
     } catch(err) {
       console.log(err);
     }
@@ -67,10 +86,17 @@ const WeeklyWeather = ({ urlRoot }) => {
       </div>
       <a
         className='snowForecast'
-        href={currentSnowReportLink}
+        href={openSnowLink}
         target='_blank'
         rel='noopener noreferrer'>
         ❄️<span className='snowForecastText'>Snow Forecast</span>❄️
+      </a>
+      <a
+        className='detailedSnowForecast'
+        href={snowForecastLink}
+        target='_blank'
+        rel='noopener noreferrer'>
+        ❄️<span className='snowForecastText'>Detailed Snow Forecast</span>❄️
       </a>
     </div>
   )
