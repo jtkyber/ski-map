@@ -38,7 +38,7 @@ const WeeklyWeather = ({ urlRoot }) => {
 
   const fetchSnowReport = async (name) => {
     try {
-      const res = await fetch(`${urlRoot}/scrapeSnowForecast?name=${name}`);
+      const res = await fetch(`${urlRoot}/scrapeOpenSnow?name=${name}`);
       if (!res.ok) {
           throw new Error('Error')
       }
@@ -70,7 +70,7 @@ const WeeklyWeather = ({ urlRoot }) => {
         href={currentSnowReportLink}
         target='_blank'
         rel='noopener noreferrer'>
-        ❄️<span className='snowForecastText'>Detailed Snow Forecast</span>❄️
+        ❄️<span className='snowForecastText'>Snow Forecast</span>❄️
       </a>
     </div>
   )
