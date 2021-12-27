@@ -7,6 +7,7 @@ import skiResorts from "./skiResorts.json";
 import './App.css';
 
 const App = () => {
+  const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   const urlRoot = 'https://shielded-springs-47306.herokuapp.com';
   // const urlRoot = 'http://localhost:3001';
 
@@ -148,6 +149,15 @@ const App = () => {
     }
   }, [search])
 
+  // useEffect(() => {
+  //   const settingBtn = document.querySelectorAll('.settingsBtn');
+  //   if(!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+  //     for (let btn of settingBtn) {
+  //       btn.classList.add('settingsBtnHover');
+  //     }
+  //   }
+  // }, [])
+
   return (
     <div onClick={() => setShowWeeklyWeather(false)} className='container'>
       <div className='mapContainer'>
@@ -160,6 +170,10 @@ const App = () => {
                 ${darkMode ? 'settingsBtnDark' : ''}
                 ${toggleResortNames ? 'settingActive' : ''}
                 ${(toggleResortNames && darkMode) ? 'settingActiveDark' : ''}
+                ${!isMobileDevice ? 'settingsBtnHover' : ''}
+                ${(!isMobileDevice && darkMode) ? 'settingsBtnDarkHover ' : ''}
+                ${(!isMobileDevice && toggleResortNames) ? 'settingActiveHover ' : ''}
+                ${(!isMobileDevice && toggleResortNames && darkMode) ? 'settingActiveDarkHover ' : ''}
               `}
             >
               Show Labels
@@ -171,6 +185,10 @@ const App = () => {
                 ${darkMode ? 'settingsBtnDark' : ''}
                 ${toggleFavorites ? 'settingActive' : ''}
                 ${(toggleFavorites && darkMode) ? 'settingActiveDark' : ''}
+                ${!isMobileDevice ? 'settingsBtnHover' : ''}
+                ${(!isMobileDevice && darkMode) ? 'settingsBtnDarkHover ' : ''}
+                ${(!isMobileDevice && toggleFavorites) ? 'settingActiveHover ' : ''}
+                ${(!isMobileDevice && toggleFavorites && darkMode) ? 'settingActiveDarkHover ' : ''}
               `}
             >
               Show Favorites
@@ -180,6 +198,8 @@ const App = () => {
               className={`
                 settingsBtn
                 ${darkMode ? 'settingsBtnDark settingActiveDark' : ''}
+                ${!isMobileDevice ? 'settingsBtnHover' : ''}
+                ${(!isMobileDevice && darkMode) ? 'settingsBtnDarkHover settingActiveDarkHover' : ''}
               `}
             >
               Dark Mode
