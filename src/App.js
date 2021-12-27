@@ -83,7 +83,7 @@ const App = () => {
         }
         searchBar.value = '';
         setSearch('');
-        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        if(isMobileDevice) {
           searchBar.blur();
           setTimeout(() => {
             setViewport({
@@ -109,7 +109,7 @@ const App = () => {
         }
       }
     } else if ((e.keyCode === 13) && (!search.length)) {
-      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      if (isMobileDevice) {
         searchBar.blur();
         setViewport({
           ...viewport,
@@ -148,15 +148,6 @@ const App = () => {
       document.removeEventListener('keydown', zoomToResort);
     }
   }, [search])
-
-  // useEffect(() => {
-  //   const settingBtn = document.querySelectorAll('.settingsBtn');
-  //   if(!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-  //     for (let btn of settingBtn) {
-  //       btn.classList.add('settingsBtnHover');
-  //     }
-  //   }
-  // }, [])
 
   return (
     <div onClick={() => setShowWeeklyWeather(false)} className='container'>
