@@ -538,6 +538,28 @@
             "name": "Homewood",
             "webcams": "https://www.skihomewood.com/mountain/homewood-webcam/"
         }
+    },
+    {
+        "geometry": {
+            "coordinates": [-105.45013379961516, 36.5951460402413],
+            "type": "Point"
+        },
+        "type": "Feature",
+        "properties": {
+            "name": "Taos",
+            "webcams": "https://www.skitaos.com/mountain/cams-conditions"
+        }
+    },
+    {
+        "geometry": {
+            "coordinates": [-106.33242251297642, 38.51252520689771],
+            "type": "Point"
+        },
+        "type": "Feature",
+        "properties": {
+            "name": "Monarch",
+            "webcams": "https://skimonarch.com/conditions/"
+        }
     }
 ]
 

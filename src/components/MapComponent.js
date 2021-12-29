@@ -71,6 +71,7 @@ const MapComponent = ({ urlRoot }) => {
       });
       const pixelCrds = viewport2.project([resort.geometry.coordinates[0], resort.geometry.coordinates[1]]);
       if ((pixelCrds[0] > 0) && (pixelCrds[0] < viewportW) && (pixelCrds[1] > 0) && (pixelCrds[1] < viewportH)) {
+        console.log(resort.properties.name);
         return true;
       } else return false;
     }
