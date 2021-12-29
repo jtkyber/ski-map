@@ -4,6 +4,7 @@ import SinglePopup from './SinglePopup';
 import { useStoreState, useStoreActions } from 'easy-peasy';
 import ReactMapGL, { Marker, Popup } from 'react-map-gl';
 import mapboxgl from 'mapbox-gl';
+import WebMercatorViewport from '@math.gl/web-mercator';
 import skiResorts from "../skiResorts.json";
 import 'mapbox-gl/dist/mapbox-gl.css';
 // eslint-disable-next-line import/no-webpack-loader-syntax
@@ -34,7 +35,7 @@ const MapComponent = ({ urlRoot }) => {
     for (let marker of markers) {
       marker.style.setProperty("--resort-name", `"${marker.id}"`);
     }
-  }, [toggleResortNames, toggleFavorites, search])
+  }, [toggleResortNames, toggleFavorites, search, viewport])
 
   const resizeViewport = () => {
     // const searchBar = document.querySelector('.resortSearch');
@@ -55,6 +56,26 @@ const MapComponent = ({ urlRoot }) => {
       window.removeEventListener('resize', resizeViewport);
     }
   }, [])
+  
+
+  const markerVisible = (resort) => {
+    if (document.querySelector('.mapboxgl-map')) {
+      const viewportW = document.querySelector('.mapboxgl-map').getBoundingClientRect().width;
+      const viewportH = document.querySelector('.mapboxgl-map').getBoundingClientRect().height;
+      const viewport2 = new WebMercatorViewport({
+        latitude: viewport.latitude,
+        longitude: viewport.longitude,
+        width: viewportW,
+        height: viewportH,
+        zoom: viewport.zoom
+      });
+      const pixelCrds = viewport2.project([resort.geometry.coordinates[0], resort.geometry.coordinates[1]]);
+      if ((pixelCrds[0] > 0) && (pixelCrds[0] < viewportW) && (pixelCrds[1] > 0) && (pixelCrds[1] < viewportH)) {
+        return true;
+      } else return false;
+    }
+    return false;
+  }
 
   return (
       <ReactMapGL
@@ -74,11 +95,13 @@ const MapComponent = ({ urlRoot }) => {
         ?
         skiResorts.reduce((temp, resort) => {
           if (resort.properties.name.toLowerCase().includes(search.toLowerCase())) {
-            temp.push (
-              <Marker key={resort.properties.name} latitude={resort.geometry.coordinates[1]} longitude={resort.geometry.coordinates[0]}>
-                <SingleMarker urlRoot={urlRoot} resort={resort} />
-              </Marker>
-            )
+            if (markerVisible(resort)) {
+              temp.push (
+                <Marker key={resort.properties.name} latitude={resort.geometry.coordinates[1]} longitude={resort.geometry.coordinates[0]}>
+                  <SingleMarker urlRoot={urlRoot} resort={resort} />
+                </Marker>
+              )
+            }
           }
           return temp;
         }, [])
@@ -86,11 +109,13 @@ const MapComponent = ({ urlRoot }) => {
         skiResorts.reduce((temp, resort) => {
           if (favorites.includes(resort.properties.name)) {
             if (resort.properties.name.toLowerCase().includes(search.toLowerCase())) {
-              temp.push(
-                <Marker key={resort.properties.name} latitude={resort.geometry.coordinates[1]} longitude={resort.geometry.coordinates[0]}>
-                  <SingleMarker urlRoot={urlRoot} resort={resort} />
-                </Marker>
-              )
+              if (markerVisible(resort)) {
+                temp.push(
+                  <Marker key={resort.properties.name} latitude={resort.geometry.coordinates[1]} longitude={resort.geometry.coordinates[0]}>
+                    <SingleMarker urlRoot={urlRoot} resort={resort} />
+                  </Marker>
+                )
+              }
             }
           }
           return temp;

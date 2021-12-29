@@ -1,6 +1,6 @@
 import { action, persist } from 'easy-peasy';
 
-const isMobile = () => {
+const viewPortSettings = () => {
      if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         return {
             latitude: 38.9,
@@ -45,7 +45,7 @@ const model  = {
     search: '',
     openSnowLink: null,
     snowForecastLink: null,
-    viewport: isMobile(),
+    viewport: viewPortSettings(),
 
     //Actions:
 
