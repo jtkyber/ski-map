@@ -66,7 +66,7 @@
     width: 100%;
     grid-area: popTop;
     display: grid;
-    grid-template-columns: 1.5rem 1fr;
+    grid-template-columns: max-content 1fr;
     grid-template-areas:
     "favoritesBtn popupName";
     border-bottom: 1px solid rgba(0, 0, 0, 0.8);
@@ -128,7 +128,8 @@
 .popupName {
     align-self: end;
     grid-area: popupName;
-    width: calc(100% - var(--favorites-btn-width));
+    /* width: calc(100% - var(--favorites-btn-width)); */
+    width: 100%;
     text-align: center;
     margin: 0;
     font-weight: 400;
