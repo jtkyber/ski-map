@@ -190,14 +190,17 @@ const App = () => {
   const fetchRandomWeatherData = async (x, y) => {
     try {
       const crds =  await getLocationFromPixelCrds(x, y);
-      const res = await fetch(`${urlRoot}/scrapeCurrentWeather?lat=${crds[1]}&lon=${crds[0]}`);
-      if (!res.ok) {
-          throw new Error('Error')
+      console.log(crds[0], crds[1])
+      if ((crds[1] >= -90) && (crds[1] <= 90) && (crds[0] >= -180) && (crds[0] <= 180)) {
+        const res = await fetch(`${urlRoot}/scrapeCurrentWeather?lat=${crds[1]}&lon=${crds[0]}`);
+        if (!res.ok) {
+            throw new Error('Error')
+        }
+        const weather = await res.json();
+        const address = await fetchAddressFromCrds(crds[0], crds[1])
+        await setCurrentWeatherData({...weather});
+        setSelectedResort([crds[0], crds[1], address]);
       }
-      const weather = await res.json();
-      const address = await fetchAddressFromCrds(crds[0], crds[1])
-      await setCurrentWeatherData({...weather});
-      setSelectedResort([crds[0], crds[1], address]);
     } catch(err) {
       console.log(err);
     }
