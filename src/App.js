@@ -10,8 +10,8 @@ import { act } from 'react-dom/cjs/react-dom-test-utils.production.min';
 
 const App = () => {
   const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-  const urlRoot = 'https://shielded-springs-47306.herokuapp.com';
-  // const urlRoot = 'http://localhost:3001';
+  // const urlRoot = 'https://shielded-springs-47306.herokuapp.com';
+  const urlRoot = 'http://localhost:3001';
   const reverseGeocodingApiKey = '9bcc84879c614c1caf3675e356e7457c';
 
   const { weeklyWeatherData, showWeeklyWeather, selectedResort, toggleResortNames, toggleFavorites, darkMode, search, viewport, favorites, chetlerMode } = useStoreState(state => ({
@@ -177,11 +177,13 @@ const App = () => {
         throw new Error('Error')
       }
       const address = await res.json();
+      console.log(address.features[0].properties);
       const city = address.features[0].properties.city ? address.features[0].properties.city : '';
-      const county = (address.features[0].properties.county && !address.features[0].properties.city) ? address.features[0].properties.county : '';
+      const county = (address.features[0].properties.county && !city) ? address.features[0].properties.county : '';
+      const state = address.features[0].properties.state ? `${(city || county) ? ', ' : ''}${address.features[0].properties.state}` : '';
       const country = address.features[0].properties.country ? `, ${address.features[0].properties.country}` : '';
-      const addressLine = (address.features[0].properties.address_line1 && city === '' && county === '') ? address.features[0].properties.address_line1 : '';
-      return `${city}${county}${addressLine}${country}`;
+      const addressLine = (address.features[0].properties.address_line1 && city === '' && county === '' && state === '') ? address.features[0].properties.address_line1 : '';
+      return `${city}${county}${state}${addressLine}${country}`;
     } catch(err) {
       console.log(err);
     }
@@ -190,16 +192,17 @@ const App = () => {
   const fetchRandomWeatherData = async (x, y) => {
     try {
       const crds =  await getLocationFromPixelCrds(x, y);
-      console.log(crds[0], crds[1])
       if ((crds[1] >= -90) && (crds[1] <= 90) && (crds[0] >= -180) && (crds[0] <= 180)) {
         const res = await fetch(`${urlRoot}/scrapeCurrentWeather?lat=${crds[1]}&lon=${crds[0]}`);
         if (!res.ok) {
             throw new Error('Error')
         }
         const weather = await res.json();
-        const address = await fetchAddressFromCrds(crds[0], crds[1])
-        await setCurrentWeatherData({...weather});
-        setSelectedResort([crds[0], crds[1], address]);
+        if (weather !== null) {
+          const address = await fetchAddressFromCrds(crds[0], crds[1])
+          await setCurrentWeatherData({...weather});
+          setSelectedResort([crds[0], crds[1], address]);
+        }
       }
     } catch(err) {
       console.log(err);
