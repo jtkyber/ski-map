@@ -35,7 +35,7 @@ const SingleMarker = ({ resort, urlRoot }) => {
     setWeeklyWeatherData(null);
     setCurrentWeatherData(null);
     setSelectedResort(resort);
-    await fetchCurrentWeatherData(resort.geometry.coordinates[1], resort.geometry.coordinates[0])
+    fetchCurrentWeatherData(resort.geometry.coordinates[1], resort.geometry.coordinates[0])
   }
 
   const handleResortNamesHoverOrBtn = (target) => {

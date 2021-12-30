@@ -81,8 +81,8 @@ const WeeklyWeather = ({ urlRoot }) => {
           <div key={w.day + index} className='weeklyWeatherRow'>
             <h3>{w.day}:</h3>
             <div className='weeklyWeatherImg'><img src={'https://darksky.net' + w.icon} alt='Weather Img'/></div>
-            <h3>Low: {w.minTemp}</h3>
             <h3>High: {w.maxTemp}</h3>
+            <h3>Low: {w.minTemp}</h3>
           </div>
         ))
       }

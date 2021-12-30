@@ -16,8 +16,8 @@ const CurrentWeather = () => {
         </div>
         <div className='highLowRow'>
           <h5>Feels like: {currentWeatherData.feelsLike}</h5>
-          <h5>Low: {currentWeatherData.minTemp}</h5>
           <h5>High: {currentWeatherData.maxTemp}</h5>
+          <h5>Low: {currentWeatherData.minTemp}</h5>
         </div>
         <h3 className='restOfDay'>{currentWeatherData.restOfDay.slice(0, -1)}</h3>
       </div>
