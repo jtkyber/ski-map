@@ -177,7 +177,6 @@ const App = () => {
         throw new Error('Error')
       }
       const address = await res.json();
-      console.log(address.features[0].properties);
       const city = address.features[0].properties.city ? address.features[0].properties.city : '';
       const county = (address.features[0].properties.county && !city) ? address.features[0].properties.county : '';
       const state = address.features[0].properties.state ? `${(city || county) ? ', ' : ''}${address.features[0].properties.state}` : '';
