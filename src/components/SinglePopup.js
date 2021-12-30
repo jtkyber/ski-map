@@ -30,6 +30,7 @@ const SinglePopup = ({ urlRoot }) => {
 
   const fetchWeeklyWeatherData = async (lat, lon) => {
     try {
+      console.log(lat, lon);
       if (currentWeatherData) {
         const res = await fetch(`${urlRoot}/scrapeWeeklyWeather?lat=${lat}&lon=${lon}`);
         if (!res.ok) {
@@ -71,7 +72,7 @@ const SinglePopup = ({ urlRoot }) => {
       <CurrentWeather />
       <div className='weeklyForcastWebcamBtnContainer'>
         <button
-          onClick={() => fetchWeeklyWeatherData(selectedResort?.properties?.name ? (selectedResort.geometry.coordinates[1], selectedResort.geometry.coordinates[0]) : (selectedResort[1], selectedResort[0]))}
+          onClick={() => fetchWeeklyWeatherData(selectedResort?.properties?.name ? selectedResort.geometry.coordinates[1] : selectedResort[1], selectedResort?.properties?.name ? selectedResort.geometry.coordinates[0] : selectedResort[0])}
           className={`weeklyWeatherBtn ${darkMode ? 'weeklyWeatherBtnDark' : ''}`}>Weekly Forecast
         </button>
         {
