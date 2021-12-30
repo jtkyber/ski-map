@@ -46,6 +46,9 @@ const SinglePopup = ({ urlRoot }) => {
 
   return (
     <div className='popup' >
+      {
+      selectedResort?.properties?.name
+      ?
       <div className={`favoritesBtnAndName ${darkMode ? 'favoritesBtnAndNameDark' : ''}`}>
         <button
           onClick={() => {
@@ -60,15 +63,25 @@ const SinglePopup = ({ urlRoot }) => {
         </button>
         <h2 className='popupName'>{selectedResort.properties.name}</h2>
       </div>
+      : 
+      <div className={`favoritesBtnAndName ${darkMode ? 'favoritesBtnAndNameDark' : ''}`}>
+        <h4 className='popupName'>{selectedResort[2]}</h4>
+      </div>
+      }
       <CurrentWeather />
       <div className='weeklyForcastWebcamBtnContainer'>
         <button
-          onClick={() => fetchWeeklyWeatherData(selectedResort.geometry.coordinates[1], selectedResort.geometry.coordinates[0])}
+          onClick={() => fetchWeeklyWeatherData(selectedResort?.properties?.name ? (selectedResort.geometry.coordinates[1], selectedResort.geometry.coordinates[0]) : (selectedResort[1], selectedResort[0]))}
           className={`weeklyWeatherBtn ${darkMode ? 'weeklyWeatherBtnDark' : ''}`}>Weekly Forecast
         </button>
+        {
+        selectedResort?.properties?.name
+        ?
         <button className={`webcamLink ${darkMode ? 'webcamLinkDark' : ''}`}>
           <a href={currentWebcamLink} target='_blank' rel='noopener noreferrer'>Webcams</a>
         </button>
+        : null
+        }
       </div>
     </div>
   );

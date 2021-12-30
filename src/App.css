@@ -241,3 +241,8 @@ body {
     opacity: 0 !important;
     pointer-events: none !important;
 }
+
+.mapbox-improve-map {
+    opacity: 0 !important;
+    pointer-events: none !important;
+}

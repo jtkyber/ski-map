@@ -36,8 +36,10 @@ const WeeklyWeather = ({ urlRoot }) => {
   useEffect(() => {
     setOpenSnowLink(null);
     setSnowForecastLink(null);
-    fetchSnowForcast(selectedResort.properties.name);
-    fetchOpenSnow(selectedResort.properties.name);
+    if (selectedResort?.properties?.name) {
+      fetchSnowForcast(selectedResort.properties.name);
+      fetchOpenSnow(selectedResort.properties.name);
+    }
   }, [])
 
   const fetchSnowForcast = async () => {
@@ -71,7 +73,7 @@ const WeeklyWeather = ({ urlRoot }) => {
   return (
     <div className='weeklyWeatherContainer'>
       <div className={`${chetlerMode ? 'chetlerMode' : null}`}></div>
-      <h2 className='weeklyWeatherResortName'>{selectedResort.properties.name} Weekly Forecast</h2>
+      <h2 className='weeklyWeatherResortName'>{selectedResort?.properties?.name ? selectedResort.properties.name : selectedResort[2]} Weekly Forecast</h2>
       <div className='weeklyWeather'>
       {
         weeklyWeatherData.map((w, index) => (
@@ -84,20 +86,27 @@ const WeeklyWeather = ({ urlRoot }) => {
         ))
       }
       </div>
-      <a
-        className='snowForecast'
-        href={openSnowLink}
-        target='_blank'
-        rel='noopener noreferrer'>
-        ❄️<span className='snowForecastText'>Snow Forecast</span>❄️
-      </a>
-      <a
-        className='detailedSnowForecast'
-        href={snowForecastLink}
-        target='_blank'
-        rel='noopener noreferrer'>
-        ❄️<span className='detailedSnowForecastText'>Detailed Snow Forecast</span>❄️
-      </a>
+      {
+      selectedResort?.properties?.name
+      ?
+      <>
+        <a
+          className='snowForecast'
+          href={openSnowLink}
+          target='_blank'
+          rel='noopener noreferrer'>
+          ❄️<span className='snowForecastText'>Snow Forecast</span>❄️
+        </a>
+        <a
+          className='detailedSnowForecast'
+          href={snowForecastLink}
+          target='_blank'
+          rel='noopener noreferrer'>
+          ❄️<span className='detailedSnowForecastText'>Detailed Snow Forecast</span>❄️
+        </a>
+      </>
+      : null
+      }
     </div>
   )
 }

@@ -4,12 +4,15 @@ import { FlyToInterpolator } from 'react-map-gl';
 import MapComponent from './components/MapComponent';
 import WeeklyWeather from './components/WeeklyWeather';
 import skiResorts from "./skiResorts.json";
+import WebMercatorViewport from '@math.gl/web-mercator';
 import './App.css';
+import { act } from 'react-dom/cjs/react-dom-test-utils.production.min';
 
 const App = () => {
   const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   const urlRoot = 'https://shielded-springs-47306.herokuapp.com';
   // const urlRoot = 'http://localhost:3001';
+  const reverseGeocodingApiKey = '9bcc84879c614c1caf3675e356e7457c';
 
   const { weeklyWeatherData, showWeeklyWeather, selectedResort, toggleResortNames, toggleFavorites, darkMode, search, viewport, favorites, chetlerMode } = useStoreState(state => ({
     weeklyWeatherData: state.weeklyWeatherData,
@@ -24,7 +27,8 @@ const App = () => {
     chetlerMode: state.stored.chetlerMode
   }));
 
-  const { setWeeklyWeatherData, setShowWeeklyWeather, setToggleResortNames, setToggleFavorites, setDarkMode, setSearch, setViewport, setChetlerMode } = useStoreActions(actions => ({
+  const { setSelectedResort, setWeeklyWeatherData, setShowWeeklyWeather, setToggleResortNames, setToggleFavorites, setDarkMode, setSearch, setViewport, setChetlerMode, setCurrentWeatherData } = useStoreActions(actions => ({
+    setSelectedResort: actions.setSelectedResort,
     setWeeklyWeatherData: actions.setWeeklyWeatherData,
     setShowWeeklyWeather: actions.setShowWeeklyWeather,
     setToggleResortNames: actions.setToggleResortNames,
@@ -32,7 +36,8 @@ const App = () => {
     setDarkMode: actions.setDarkMode,
     setSearch: actions.setSearch,
     setViewport: actions.setViewport,
-    setChetlerMode: actions.setChetlerMode
+    setChetlerMode: actions.setChetlerMode,
+    setCurrentWeatherData: actions.setCurrentWeatherData
   }));
 
   const zoomToResort = (e) => {
@@ -149,6 +154,65 @@ const App = () => {
     }
   }, [search])
 
+  const getLocationFromPixelCrds = (x, y) => {
+    const viewportW = document.querySelector('.mapboxgl-map').getBoundingClientRect().width;
+    const viewportH = document.querySelector('.mapboxgl-map').getBoundingClientRect().height;
+    const viewport2 = new WebMercatorViewport({
+      latitude: viewport.latitude,
+      longitude: viewport.longitude,
+      width: viewportW,
+      height: viewportH,
+      zoom: viewport.zoom
+    });
+    const clickCrds = viewport2.unproject([x, y]);
+    return clickCrds;
+  }
+
+  const fetchAddressFromCrds = async (lon, lat) => {
+    try {
+      const res = await fetch(`https://api.geoapify.com/v1/geocode/reverse?lat=${lat}&lon=${lon}&apiKey=${reverseGeocodingApiKey}`, {
+        "method": "GET"
+      })
+      if (!res.ok) {
+        throw new Error('Error')
+      }
+      const address = await res.json();
+      const city = address.features[0].properties.city ? address.features[0].properties.city : '';
+      const county = (address.features[0].properties.county && !address.features[0].properties.city) ? address.features[0].properties.county : '';
+      const country = address.features[0].properties.country ? `, ${address.features[0].properties.country}` : '';
+      const addressLine = (address.features[0].properties.address_line1 && city === '' && county === '') ? address.features[0].properties.address_line1 : '';
+      return `${city}${county}${addressLine}${country}`;
+    } catch(err) {
+      console.log(err);
+    }
+  }
+
+  const fetchRandomWeatherData = async (x, y) => {
+    try {
+      const crds =  await getLocationFromPixelCrds(x, y);
+      const res = await fetch(`${urlRoot}/scrapeCurrentWeather?lat=${crds[1]}&lon=${crds[0]}`);
+      if (!res.ok) {
+          throw new Error('Error')
+      }
+      const weather = await res.json();
+      const address = await fetchAddressFromCrds(crds[0], crds[1])
+      await setCurrentWeatherData({...weather});
+      setSelectedResort([crds[0], crds[1], address]);
+    } catch(err) {
+      console.log(err);
+    }
+  }
+
+  const handleMapRightClick = async (e) => {
+    if (e.target.classList.contains('overlays')) {
+      e.preventDefault();
+      setShowWeeklyWeather(false);
+      setWeeklyWeatherData(null);
+      setCurrentWeatherData(null);
+      fetchRandomWeatherData(e.clientX, e.clientY);
+    }
+  }
+
   return (
     <div onClick={() => setShowWeeklyWeather(false)} className='container'>
       <div className='mapContainer'>
@@ -205,7 +269,7 @@ const App = () => {
             />
           </div>
         </div>
-        <div className={`map ${showWeeklyWeather ? 'blurMap' : null}`}>
+        <div onContextMenu={(e) => handleMapRightClick(e)} className={`map ${showWeeklyWeather ? 'blurMap' : null}`}>
           <MapComponent urlRoot={urlRoot} setWeeklyWeatherData={setWeeklyWeatherData} weeklyWeatherData={weeklyWeatherData}/>
         </div>
         {

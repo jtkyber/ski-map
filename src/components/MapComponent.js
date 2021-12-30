@@ -89,6 +89,7 @@ const MapComponent = ({ urlRoot }) => {
         onViewportChange={(viewport => {
           setViewport(viewport);
         })}
+        dragRotate = {false}
       >
       {
         !toggleFavorites
@@ -125,8 +126,8 @@ const MapComponent = ({ urlRoot }) => {
         selectedResort
         ?
         <Popup
-          latitude={selectedResort.geometry.coordinates[1]}
-          longitude={selectedResort.geometry.coordinates[0]}
+          latitude={selectedResort?.properties?.name ? selectedResort.geometry.coordinates[1] : selectedResort[1]}
+          longitude={selectedResort?.properties?.name ? selectedResort.geometry.coordinates[0] : selectedResort[0]}
           onClose={() => {
             setSelectedResort(null);
           }}
