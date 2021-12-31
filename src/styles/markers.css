@@ -30,12 +30,12 @@
 
 @-webkit-keyframes fadeImgIn {
     0% {-webkit-opacity: 0;}
-    100% {-webkit-opacity: 100%;}
+    100% {-webkit-opacity: 1;}
 }
 
 @keyframes fadeImgIn {
     0% {opacity: 0;}
-    100% {opacity: 100%;}
+    100% {opacity: 1}
 }
 
 .markerBtn > img:hover {
@@ -85,10 +85,10 @@
 
 @-webkit-keyframes raiseOpacity {
     0% {-webkit-opacity: 0;}
-    100% {-webkit-opacity: 100%;}
+    100% {-webkit-opacity: 1;}
 }
 
 @keyframes raiseOpacity {
     0% {opacity: 0;}
-    100% {opacity: 100%;}
+    100% {opacity: 1;}
 }

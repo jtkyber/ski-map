@@ -41,12 +41,12 @@
 
 @-webkit-keyframes fadeIn {
     from {-webkit-opacity: 0;}
-    to {-webkit-opacity: 100%;}
+    to {-webkit-opacity: 1;}
 }
 
 @keyframes fadeIn {
     from {opacity: 0;}
-    to {opacity: 100%;}
+    to {opacity: 1;}
 }
 
 .weeklyWeatherResortName {

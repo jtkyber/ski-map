@@ -93,15 +93,15 @@
 }
 
 @keyframes skeletonPulse {
-    0% {-webkit-opacity: 10%;}
-    50% {-webkit-opacity: 50%;}
-    100% {-webkit-opacity: 10%;}
+    0% {-webkit-opacity: 0.1;}
+    50% {-webkit-opacity: 0.5;}
+    100% {-webkit-opacity: 0.1;}
 }
 
 @keyframes skeletonPulse {
-    0% {opacity: 10%;}
-    50% {opacity: 50%;}
-    100% {opacity: 10%;}
+    0% {opacity: 0.1;}
+    50% {opacity: 0.5;}
+    100% {opacity: 0.1;}
 }
 
 .loadingCurWeatherImg {

@@ -157,6 +157,7 @@ const App = () => {
       document.removeEventListener('keydown', zoomToResort);
     }
   }, [search])
+  
 
   const getLocationFromPixelCrds = (x, y) => {
     const viewportW = document.querySelector('.mapboxgl-map').getBoundingClientRect().width;
