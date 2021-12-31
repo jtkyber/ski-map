@@ -1,6 +1,6 @@
 * {
   cursor: default;
-  user-select: none !important;
+  -webkit-touch-callout: none;
 }
 
 button, a {
