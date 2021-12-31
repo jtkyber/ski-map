@@ -593,6 +593,17 @@
             "name": "Bear Mountain",
             "webcams": "https://www.bigbearmountainresort.com/webcams/bear-mountain"
         }
+    },
+    {
+        "geometry": {
+            "coordinates": [-111.59291708244183, 40.619632131020346],
+            "type": "Point"
+        },
+        "type": "Feature",
+        "properties": {
+            "name": "Solitude",
+            "webcams": "https://www.solitudemountain.com/mountain-and-village/webcams"
+        }
     }
 ]
 
