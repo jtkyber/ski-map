@@ -9,6 +9,8 @@ import './App.css';
 import { act } from 'react-dom/cjs/react-dom-test-utils.production.min';
 
 const App = () => {
+  let timer;
+  const touchduration = 500;
   const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   const urlRoot = 'https://shielded-springs-47306.herokuapp.com';
   // const urlRoot = 'http://localhost:3001';
@@ -274,7 +276,11 @@ const App = () => {
             />
           </div>
         </div>
-        <div onContextMenu={(e) => handleMapRightClick(e)} className={`map ${showWeeklyWeather ? 'blurMap' : null}`}>
+        <div 
+          onContextMenu={(e) => handleMapRightClick(e)} 
+          onTouchStart={(e) => timer = setTimeout((e) => handleMapRightClick(e), touchduration)} 
+          onTouchEnd={() => {if (timer) clearTimeout(timer)}} 
+          className={`map ${showWeeklyWeather ? 'blurMap' : null}`}>
           <MapComponent urlRoot={urlRoot} setWeeklyWeatherData={setWeeklyWeatherData} weeklyWeatherData={weeklyWeatherData}/>
         </div>
         {
