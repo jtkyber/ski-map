@@ -6,6 +6,7 @@
     background-color: rgba(0, 0, 0, 0.7) !important;
     color: rgba(255, 255, 255, 0.9) !important;
     border: 3px solid black;
+    -webkit-border-radius: 14px !important;
     border-radius: 14px !important;
     width: 250px !important;
     height: 220px !important;
@@ -80,10 +81,12 @@
     align-items: center;
     width: var(--favorites-btn-width);
     height: 1.5rem;
+    -webkit-border-radius: 100%;
     border-radius: 100%;
     background-color: transparent;
     left: 0.5rem;
     top: 0.5rem;
+    -webkit-transition: all 0.1s ease-out;
     transition: all 0.1s ease-out;
 }
 
@@ -156,8 +159,10 @@
     color: rgba(255, 255, 255, 0.9);
     outline: none;
     border: 2px solid rgba(0, 200, 255, 0.7);
+    -webkit-border-radius: 8px;
     border-radius: 8px;
     padding: 0.2rem 0.4rem;
+    -webkit-transition: all 0.1s ease-out;
     transition: all 0.1s ease-out;
 }
 
@@ -170,8 +175,10 @@
     background-color: rgba(0, 0, 0, 0.7);
     outline: none;
     border: 2px solid rgba(0, 200, 255, 0.7);
+    -webkit-border-radius: 8px;
     border-radius: 8px;
     padding: 0;
+    -webkit-transition: all 0.1s ease-out;
     transition: all 0.1s ease-out;
 }
 
@@ -184,6 +191,7 @@
     text-decoration: none;
     color: rgba(255, 255, 255, 0.9);
     padding: 0.2rem 0.4rem;
+    -webkit-transition: all 0.1s ease-out;
     transition: all 0.1s ease-out;
 }
 
