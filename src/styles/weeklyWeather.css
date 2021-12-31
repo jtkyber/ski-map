@@ -40,8 +40,8 @@
 }
 
 @keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 100;}
+    from {-webkit-opacity: 0; opacity: 0;}
+    to {-webkit-opacity: 100%; opacity: 100%;}
 }
 
 .weeklyWeatherResortName {

@@ -147,11 +147,11 @@ body {
 }
 
 @keyframes fadeChetler {
-    0% {opacity: 0;}
-    25% {opacity: 100%;}
-    50% {opacity: 100%;}
-    75% {opacity: 100%;}
-    100% {opacity: 0;}
+    0% {-webkit-opacity: 0; opacity: 0;}
+    25% {-webkit-opacity: 100%; opacity: 100%;}
+    50% {-webkit-opacity: 100%; opacity: 100%;}
+    75% {-webkit-opacity: 100%; opacity: 100%;}
+    100% {-webkit-opacity: 0; opacity: 0;}
 }
 
 .resortSearch:hover {
