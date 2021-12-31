@@ -1,9 +1,6 @@
-:root {
-
-}
-
 * {
   cursor: default;
+  user-select: none !important;
 }
 
 button, a {
