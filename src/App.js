@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useStoreState, useStoreActions } from 'easy-peasy';
 import { FlyToInterpolator } from 'react-map-gl';
 import MapComponent from './components/MapComponent';
@@ -9,12 +9,14 @@ import './App.css';
 import { act } from 'react-dom/cjs/react-dom-test-utils.production.min';
 
 const App = () => {
-  let timer;
-  const touchduration = 500;
   const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
   const urlRoot = 'https://shielded-springs-47306.herokuapp.com';
   // const urlRoot = 'http://localhost:3001';
   const reverseGeocodingApiKey = '9bcc84879c614c1caf3675e356e7457c';
+  const [intervalID, setIntervalID] = useState(null);
+  let cancelTouch = false;
+  let count = 0;
 
   const { weeklyWeatherData, showWeeklyWeather, selectedResort, toggleResortNames, toggleFavorites, darkMode, search, viewport, favorites, chetlerMode } = useStoreState(state => ({
     weeklyWeatherData: state.weeklyWeatherData,
@@ -212,12 +214,38 @@ const App = () => {
 
   const handleMapRightClick = async (e) => {
     if (e.target.classList.contains('overlays')) {
-      e.preventDefault();
-      setShowWeeklyWeather(false);
-      setWeeklyWeatherData(null);
-      setCurrentWeatherData(null);
-      fetchRandomWeatherData(e.clientX, e.clientY);
+      if (e.touches) {
+        e.preventDefault();
+        setShowWeeklyWeather(false);
+        setWeeklyWeatherData(null);
+        setCurrentWeatherData(null);
+        fetchRandomWeatherData(e.touches[0].clientX, e.touches[0].clientY);
+      } else {
+        e.preventDefault();
+        setShowWeeklyWeather(false);
+        setWeeklyWeatherData(null);
+        setCurrentWeatherData(null);
+        fetchRandomWeatherData(e.clientX, e.clientY);
+      }
     }
+  }
+
+  const handleScreenTouch = (e) => {
+    setIntervalID(setInterval(() => {
+      if ((count < 8) && !cancelTouch) {
+        count += 1;
+      } else if (!cancelTouch) {
+        count = 0;
+        handleMapRightClick(e);
+        cancelTouch = true;
+      }
+    }, 50))
+  }
+
+  const handleScreenTouchEnd = () => {
+    clearInterval(intervalID);
+    cancelTouch = false;
+    count = 0;
   }
 
   return (
@@ -277,9 +305,10 @@ const App = () => {
           </div>
         </div>
         <div 
-          onContextMenu={(e) => handleMapRightClick(e)} 
-          onTouchStart={(e) => timer = setTimeout((e) => handleMapRightClick(e), touchduration)} 
-          onTouchEnd={() => {if (timer) clearTimeout(timer)}} 
+          onTouchStart={(e) => isIOS ? handleScreenTouch(e) : null}
+          onTouchEnd={isIOS ? handleScreenTouchEnd : null}
+          onTouchMove={isIOS ? handleScreenTouchEnd: null}
+          onContextMenu={(e) => !isIOS ? handleMapRightClick(e) : null} 
           className={`map ${showWeeklyWeather ? 'blurMap' : null}`}>
           <MapComponent urlRoot={urlRoot} setWeeklyWeatherData={setWeeklyWeatherData} weeklyWeatherData={weeklyWeatherData}/>
         </div>
