@@ -30,7 +30,6 @@ const SinglePopup = ({ urlRoot }) => {
 
   const fetchWeeklyWeatherData = async (lat, lon) => {
     try {
-      console.log(lat, lon);
       if (currentWeatherData) {
         const res = await fetch(`${urlRoot}/scrapeWeeklyWeather?lat=${lat}&lon=${lon}`);
         if (!res.ok) {
