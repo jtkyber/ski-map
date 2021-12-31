@@ -28,9 +28,14 @@
     transition: all 0.12s ease-out;
 }
 
+@-webkit-keyframes fadeImgIn {
+    0% {-webkit-opacity: 0;}
+    100% {-webkit-opacity: 100%;}
+}
+
 @keyframes fadeImgIn {
-    0% {-webkit-opacity: 0; opacity: 0;}
-    100% {-webkit-opacity: 100; opacity: 100%;}
+    0% {opacity: 0;}
+    100% {opacity: 100%;}
 }
 
 .markerBtn > img:hover {
@@ -78,7 +83,12 @@
     animation: raiseOpacity 0.2s ease-out;
 }
 
+@-webkit-keyframes raiseOpacity {
+    0% {-webkit-opacity: 0;}
+    100% {-webkit-opacity: 100%;}
+}
+
 @keyframes raiseOpacity {
-    0% {-webkit-opacity: 0; opacity: 0;}
-    100% {-webkit-opacity: 100%; opacity: 100%;}
+    0% {opacity: 0;}
+    100% {opacity: 100%;}
 }
