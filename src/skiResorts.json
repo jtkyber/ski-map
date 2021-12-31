@@ -560,6 +560,39 @@
             "name": "Monarch",
             "webcams": "https://skimonarch.com/conditions/"
         }
+    },
+    {
+        "geometry": {
+            "coordinates": [-116.88959529927135, 34.235802463403154],
+            "type": "Point"
+        },
+        "type": "Feature",
+        "properties": {
+            "name": "Snow Summit",
+            "webcams": "https://www.bigbearmountainresort.com/webcams/snow-summit"
+        }
+    },
+    {
+        "geometry": {
+            "coordinates": [-117.03584643897238, 34.224669752604626],
+            "type": "Point"
+        },
+        "type": "Feature",
+        "properties": {
+            "name": "Snow Valley",
+            "webcams": "https://snow-valley.com/mountain-cams/"
+        }
+    },
+    {
+        "geometry": {
+            "coordinates": [-116.8605698488135, 34.22738774923897],
+            "type": "Point"
+        },
+        "type": "Feature",
+        "properties": {
+            "name": "Bear Mountain",
+            "webcams": "https://www.bigbearmountainresort.com/webcams/bear-mountain"
+        }
     }
 ]
 
