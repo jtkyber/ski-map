@@ -215,7 +215,6 @@ const App = () => {
 
   const handleMapRightClick = async (e) => {
     if (e.target.classList.contains('overlays')) {
-      console.log('test');
       if (e.touches) {
         e.preventDefault();
         setShowWeeklyWeather(false);
