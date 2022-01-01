@@ -196,6 +196,7 @@ const App = () => {
   const fetchRandomWeatherData = async (x, y) => {
     try {
       const crds =  await getLocationFromPixelCrds(x, y);
+      setSelectedResort([crds[0], crds[1]]);
       if ((crds[1] >= -90) && (crds[1] <= 90) && (crds[0] >= -180) && (crds[0] <= 180)) {
         const res = await fetch(`${urlRoot}/scrapeCurrentWeather?lat=${crds[1]}&lon=${crds[0]}`);
         if (!res.ok) {
@@ -214,8 +215,7 @@ const App = () => {
   }
 
   const handleMapRightClick = async (e) => {
-    if (e.target.classList.contains('overlays')) {
-      if (e.touches) {
+    if (e.target.classList.contains('overlays')) {      if (e.touches) {
         e.preventDefault();
         setShowWeeklyWeather(false);
         setWeeklyWeatherData(null);
