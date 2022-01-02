@@ -56,7 +56,6 @@ const MapComponent = ({ urlRoot }) => {
       window.removeEventListener('resize', resizeViewport);
     }
   }, [])
-  
 
   const markerVisible = (resort) => {
     if (document.querySelector('.mapboxgl-map')) {
@@ -70,7 +69,7 @@ const MapComponent = ({ urlRoot }) => {
         zoom: viewport.zoom
       });
       const pixelCrds = viewport2.project([resort.geometry.coordinates[0], resort.geometry.coordinates[1]]);
-      if ((pixelCrds[0] > -55) && (pixelCrds[0] < (viewportW + 55)) && (pixelCrds[1] > -12) && (pixelCrds[1] < (viewportH + 45))) {
+      if ((pixelCrds[0] > 10) && (pixelCrds[0] < (viewportW -10)) && (pixelCrds[1] > 20) && (pixelCrds[1] < (viewportH -10))) {
         return true;
       } else return false;
     }

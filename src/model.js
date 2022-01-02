@@ -45,6 +45,7 @@ const model  = {
     search: '',
     openSnowLink: null,
     snowForecastLink: null,
+    intervalID: null,
     viewport: viewPortSettings(),
 
     //Actions:
@@ -113,6 +114,11 @@ const model  = {
     setChetlerMode: action((state, input) => {
         state.stored.chetlerMode = input;
     }),
+
+    setIntervalID: action((state, input) => {
+        state.intervalID = input;
+    }),
+
 }
 
 export default model;

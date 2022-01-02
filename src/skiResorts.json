@@ -1,608 +1,608 @@
 [
     {
-        "geometry": {
-            "coordinates": [-81.85762841829467, 36.13022130738448],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Sugar Mountain",
             "webcams": "http://www.skisugar.com/cams/"
+        },
+        "geometry": {
+            "coordinates": [-81.85762841829467, 36.13022130738448],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-105.87207657344527, 39.642487581688044],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Arapahoe Basin",
             "webcams": "https://www.arapahoebasin.com/the-mountain/webcams/"
+        },
+        "geometry": {
+            "coordinates": [-105.87207657344527, 39.642487581688044],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-106.14611113252008, 39.50134370512292],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Copper",
             "webcams": "https://www.coppercolorado.com/the-mountain/webcams/mountain"
+        },
+        "geometry": {
+            "coordinates": [-106.14611113252008, 39.50134370512292],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-105.94304274575657, 39.60714553630726],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Keystone",
             "webcams": "https://www.keystoneresort.com/the-mountain/mountain-conditions/mountain-cams.aspx"
+        },
+        "geometry": {
+            "coordinates": [-105.94304274575657, 39.60714553630726],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-122.95589205592732, 50.11616997228402],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Whistler",
             "webcams": "https://www.whistlerblackcomb.com/the-mountain/mountain-conditions/mountain-cams.aspx"
+        },
+        "geometry": {
+            "coordinates": [-122.95589205592732, 50.11616997228402],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-110.8276145521009, 43.5874180244759],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Jackson Hole",
             "webcams": "https://www.jacksonhole.com/live-mountain-cams"
+        },
+        "geometry": {
+            "coordinates": [-110.8276145521009, 43.5874180244759],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-105.7625086376621, 39.8861606214969],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Winter Park",
             "webcams": "https://www.winterparkresort.com/the-mountain/mountain-cams"
+        },
+        "geometry": {
+            "coordinates": [-105.7625086376621, 39.8861606214969],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-106.37395618798793, 39.64103475844288],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Vail",
             "webcams": "https://www.vail.com/the-mountain/mountain-conditions/mountain-cams.aspx"
+        },
+        "geometry": {
+            "coordinates": [-106.37395618798793, 39.64103475844288],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-106.80576078297428, 40.4579116581514],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Steamboat",
             "webcams": "https://www.steamboat.com/the-mountain/live-cams"
+        },
+        "geometry": {
+            "coordinates": [-106.80576078297428, 40.4579116581514],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-81.87809081259003, 36.19530564601501],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Beech",
             "webcams": "https://www.beechmountainresort.com/mountain/webcams/"
+        },
+        "geometry": {
+            "coordinates": [-81.87809081259003, 36.19530564601501],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-79.99590492717071, 38.411394207415796],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Snowshoe",
             "webcams": "https://www.snowshoemtn.com/media-room/boathouse-and-ballhooter-lift-live-cam"
+        },
+        "geometry": {
+            "coordinates": [-79.99590492717071, 38.411394207415796],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-120.12207524407789, 39.274985528032985],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Northstar",
             "webcams": "https://www.northstarcalifornia.com/the-mountain/mountain-conditions/mountain-cams.aspx"
+        },
+        "geometry": {
+            "coordinates": [-120.12207524407789, 39.274985528032985],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-106.94806165829115, 39.209529615074445],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Aspen Snowmass",
             "webcams": "https://www.aspensnowmass.com/four-mountains/snowmass/mountain-cams"
+        },
+        "geometry": {
+            "coordinates": [-106.94806165829115, 39.209529615074445],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-107.84537205998375, 37.937750601788494],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Telluride",
             "webcams": "https://www.telluride.com/plan-your-visit/webcams/"
+        },
+        "geometry": {
+            "coordinates": [-107.84537205998375, 37.937750601788494],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-106.51764492035218, 39.60373732127088],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Beaver Creek",
             "webcams": "https://www.beavercreek.com/the-mountain/mountain-conditions/mountain-cams.aspx"
+        },
+        "geometry": {
+            "coordinates": [-106.51764492035218, 39.60373732127088],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-106.06713532585754, 39.48112743929762],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Breckenridge",
             "webcams": "https://www.breckenridge.com/the-mountain/mountain-conditions/mountain-cams.aspx"
+        },
+        "geometry": {
+            "coordinates": [-106.06713532585754, 39.48112743929762],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-107.81380055999861, 37.62990557942234],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Purgatory",
             "webcams": "https://www.purgatory.ski/mountaincams/"
+        },
+        "geometry": {
+            "coordinates": [-107.81380055999861, 37.62990557942234],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-107.66614822462202, 37.88465745371238],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Silverton",
             "webcams": "http://www.keno.org/colorado_web_cams/silverton_cams.htm"
+        },
+        "geometry": {
+            "coordinates": [-107.66614822462202, 37.88465745371238],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-106.79314845925836, 37.47222821734045],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Wolf Creek",
             "webcams": "https://wolfcreekski.com/wolf-creek-ski-area-live-web-cam/"
+        },
+        "geometry": {
+            "coordinates": [-106.79314845925836, 37.47222821734045],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-106.96648982800181, 38.89942444995005],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Crested Butte",
             "webcams": "https://www.skicb.com/the-mountain/mountain-conditions/mountain-cams.aspx"
+        },
+        "geometry": {
+            "coordinates": [-106.96648982800181, 38.89942444995005],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-105.89779629830797, 39.680574191945155],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Loveland",
             "webcams": "https://skiloveland.com/webcams/"
+        },
+        "geometry": {
+            "coordinates": [-105.89779629830797, 39.680574191945155],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-105.58269883473959, 39.93736947734402],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Eldora",
             "webcams": "https://www.eldora.com/the-mountain/webcams/snow-stake-cam"
+        },
+        "geometry": {
+            "coordinates": [-105.58269883473959, 39.93736947734402],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-114.35187547511973, 43.69455839905606],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Sun Valley",
             "webcams": "https://www.sunvalley.com/web-cams/"
+        },
+        "geometry": {
+            "coordinates": [-114.35187547511973, 43.69455839905606],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-111.65912375007179, 40.58105239508579],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Snowbird",
             "webcams": "https://www.snowbird.com/mountain-report/webcams/"
+        },
+        "geometry": {
+            "coordinates": [-111.65912375007179, 40.58105239508579],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-111.5103916270694, 40.65389442613216],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Park City",
             "webcams": "https://www.parkcitymountain.com/the-mountain/mountain-conditions/mountain-cams.aspx"
+        },
+        "geometry": {
+            "coordinates": [-111.5103916270694, 40.65389442613216],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-111.47912110041618, 40.63783370179366],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Deer Valley",
             "webcams": "https://www.deervalley.com/explore-the-mountain/webcams"
+        },
+        "geometry": {
+            "coordinates": [-111.47912110041618, 40.63783370179366],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-110.95779924832436, 43.788674859635634],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Grand Targhee",
             "webcams": "https://www.grandtarghee.com/the-mountain/area-webcams/"
+        },
+        "geometry": {
+            "coordinates": [-110.95779924832436, 43.788674859635634],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-111.63850485883478, 40.5882981200004],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Alta",
             "webcams": "https://www.alta.com/weather"
+        },
+        "geometry": {
+            "coordinates": [-111.63850485883478, 40.5882981200004],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-120.08082931414434, 38.80022132751941],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Sierra-at-Tahoe",
             "webcams": "https://www.sierraattahoe.com/live-cams/"
+        },
+        "geometry": {
+            "coordinates": [-120.08082931414434, 38.80022132751941],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-120.23464245808782, 39.19638305958696],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Palisades Tahoe",
             "webcams": "https://www.palisadestahoe.com/mountain-information/webcams"
+        },
+        "geometry": {
+            "coordinates": [-120.23464245808782, 39.19638305958696],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-121.67728928871357, 44.00277042955548],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Mt Bachelor",
             "webcams": "https://www.mtbachelor.com/the-mountain/webcams/mountain"
+        },
+        "geometry": {
+            "coordinates": [-121.67728928871357, 44.00277042955548],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-121.47545731655005, 46.93619160186777],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Crystal Mountain",
             "webcams": "https://www.crystalmountainresort.com/the-mountain/mountain-report-and-webcams/webcams"
+        },
+        "geometry": {
+            "coordinates": [-121.47545731655005, 46.93619160186777],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-111.58354189950812, 40.59807671737018],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Brighton",
             "webcams": "https://brightonresort.com/conditions"
+        },
+        "geometry": {
+            "coordinates": [-111.58354189950812, 40.59807671737018],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-111.76484681988087, 41.36984624161648],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Powder Mountain",
             "webcams": "https://www.powdermountain.com/resort/the-mountain/conditions/webcams"
+        },
+        "geometry": {
+            "coordinates": [-111.76484681988087, 41.36984624161648],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-119.03826884749098, 37.6510585343948],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Mammoth",
             "webcams": "https://www.onthesnow.com/california/mammoth-mountain-ski-area/webcams"
+        },
+        "geometry": {
+            "coordinates": [-119.03826884749098, 37.6510585343948],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-111.85736639518181, 41.21596154457196],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Snowbasin",
             "webcams": "https://www.snowbasin.com/the-mountain/web-cams/"
+        },
+        "geometry": {
+            "coordinates": [-111.85736639518181, 41.21596154457196],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-119.9399833748446, 38.93496918869946],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Heavenly",
             "webcams": "https://www.skiheavenly.com/the-mountain/mountain-conditions/mountain-cams.aspx"
+        },
+        "geometry": {
+            "coordinates": [-119.9399833748446, 38.93496918869946],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-122.20417791858782, 41.3207836751516],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Shasta",
             "webcams": "https://www.skipark.com/winter/mountain-cams"
+        },
+        "geometry": {
+            "coordinates": [-122.20417791858782, 41.3207836751516],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-72.7965633749421, 43.625727617616676],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Killington ",
             "webcams": "https://www.killington.com/the-mountain/webcams/mountain"
+        },
+        "geometry": {
+            "coordinates": [-72.7965633749421, 43.625727617616676],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-72.78092960430081, 44.530796072512366],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Stowe",
             "webcams": "https://www.stowe.com/the-mountain/mountain-conditions/mountain-cams.aspx"
+        },
+        "geometry": {
+            "coordinates": [-72.78092960430081, 44.530796072512366],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-72.89306921378999, 44.13647810317882],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Sugarbush",
             "webcams": "https://www.sugarbush.com/mountain/webcams"
+        },
+        "geometry": {
+            "coordinates": [-72.89306921378999, 44.13647810317882],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [140.68202614455203, 42.84455471504683],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Niseko",
             "webcams": "https://www.niseko.ne.jp/en/livecamera/"
+        },
+        "geometry": {
+            "coordinates": [140.68202614455203, 42.84455471504683],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-120.0655205534938, 38.683964135172545],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Kirkwood",
             "webcams": "https://www.kirkwood.com/the-mountain/mountain-conditions/mountain-cams.aspx"
+        },
+        "geometry": {
+            "coordinates": [-120.0655205534938, 38.683964135172545],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-120.33789477437581, 39.30468027095883],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Sugar Bowl",
             "webcams": "https://www.sugarbowl.com/webcams"
+        },
+        "geometry": {
+            "coordinates": [-120.33789477437581, 39.30468027095883],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-111.40112146562034, 45.285378997177425],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Big Sky",
             "webcams": "https://bigskyresort.com/webcams"
+        },
+        "geometry": {
+            "coordinates": [-111.40112146562034, 45.285378997177425],
+            "type": "Point"
         }
     },
 
     {
-        "geometry": {
-            "coordinates": [-73.98544024826316, 44.289363761254506],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Lake Placid",
             "webcams": "https://whiteface.com/mountain/webcams/"
+        },
+        "geometry": {
+            "coordinates": [-73.98544024826316, 44.289363761254506],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-121.65340767690856, 48.863611826544066],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Mt Baker",
             "webcams": "https://www.mtbaker.us/snow-report/"
+        },
+        "geometry": {
+            "coordinates": [-121.65340767690856, 48.863611826544066],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-114.35037340601818, 48.480384358871554],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "White Fish",
             "webcams": "https://skiwhitefish.com/webcams/"
+        },
+        "geometry": {
+            "coordinates": [-114.35037340601818, 48.480384358871554],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-120.16127471659541, 39.08309027784605],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Homewood",
             "webcams": "https://www.skihomewood.com/mountain/homewood-webcam/"
+        },
+        "geometry": {
+            "coordinates": [-120.16127471659541, 39.08309027784605],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-105.45013379961516, 36.5951460402413],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Taos",
             "webcams": "https://www.skitaos.com/mountain/cams-conditions"
+        },
+        "geometry": {
+            "coordinates": [-105.45013379961516, 36.5951460402413],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-106.33242251297642, 38.51252520689771],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Monarch",
             "webcams": "https://skimonarch.com/conditions/"
+        },
+        "geometry": {
+            "coordinates": [-106.33242251297642, 38.51252520689771],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-116.88959529927135, 34.235802463403154],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Snow Summit",
             "webcams": "https://www.bigbearmountainresort.com/webcams/snow-summit"
+        },
+        "geometry": {
+            "coordinates": [-116.88959529927135, 34.235802463403154],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-117.03584643897238, 34.224669752604626],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Snow Valley",
             "webcams": "https://snow-valley.com/mountain-cams/"
+        },
+        "geometry": {
+            "coordinates": [-117.03584643897238, 34.224669752604626],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-116.8605698488135, 34.22738774923897],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Bear Mountain",
             "webcams": "https://www.bigbearmountainresort.com/webcams/bear-mountain"
+        },
+        "geometry": {
+            "coordinates": [-116.8605698488135, 34.22738774923897],
+            "type": "Point"
         }
     },
     {
-        "geometry": {
-            "coordinates": [-111.59291708244183, 40.619632131020346],
-            "type": "Point"
-        },
         "type": "Feature",
         "properties": {
             "name": "Solitude",
             "webcams": "https://www.solitudemountain.com/mountain-and-village/webcams"
+        },
+        "geometry": {
+            "coordinates": [-111.59291708244183, 40.619632131020346],
+            "type": "Point"
         }
     }
 ]

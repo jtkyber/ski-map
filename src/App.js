@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useStoreState, useStoreActions } from 'easy-peasy';
 import { FlyToInterpolator } from 'react-map-gl';
 import MapComponent from './components/MapComponent';
@@ -6,7 +6,6 @@ import WeeklyWeather from './components/WeeklyWeather';
 import skiResorts from "./skiResorts.json";
 import WebMercatorViewport from '@math.gl/web-mercator';
 import './App.css';
-import { act } from 'react-dom/cjs/react-dom-test-utils.production.min';
 
 const App = () => {
   const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
@@ -14,11 +13,10 @@ const App = () => {
   const urlRoot = 'https://shielded-springs-47306.herokuapp.com';
   // const urlRoot = 'http://localhost:3001';
   const reverseGeocodingApiKey = '9bcc84879c614c1caf3675e356e7457c';
-  const [intervalID, setIntervalID] = useState(null);
   let cancelTouch = false;
   let count = 0;
 
-  const { weeklyWeatherData, showWeeklyWeather, selectedResort, toggleResortNames, toggleFavorites, darkMode, search, viewport, favorites, chetlerMode } = useStoreState(state => ({
+  const { weeklyWeatherData, showWeeklyWeather, selectedResort, toggleResortNames, toggleFavorites, darkMode, search, viewport, favorites, chetlerMode, intervalID } = useStoreState(state => ({
     weeklyWeatherData: state.weeklyWeatherData,
     showWeeklyWeather: state.showWeeklyWeather,
     selectedResort: state.selectedResort,
@@ -28,10 +26,11 @@ const App = () => {
     search: state.search,
     viewport: state.viewport,
     favorites: state.stored.favorites,
-    chetlerMode: state.stored.chetlerMode
+    chetlerMode: state.stored.chetlerMode,
+    intervalID: state.stored.intervalID
   }));
 
-  const { setSelectedResort, setWeeklyWeatherData, setShowWeeklyWeather, setToggleResortNames, setToggleFavorites, setDarkMode, setSearch, setViewport, setChetlerMode, setCurrentWeatherData } = useStoreActions(actions => ({
+  const { setSelectedResort, setWeeklyWeatherData, setShowWeeklyWeather, setToggleResortNames, setToggleFavorites, setDarkMode, setSearch, setViewport, setChetlerMode, setCurrentWeatherData, setIntervalID } = useStoreActions(actions => ({
     setSelectedResort: actions.setSelectedResort,
     setWeeklyWeatherData: actions.setWeeklyWeatherData,
     setShowWeeklyWeather: actions.setShowWeeklyWeather,
@@ -41,7 +40,8 @@ const App = () => {
     setSearch: actions.setSearch,
     setViewport: actions.setViewport,
     setChetlerMode: actions.setChetlerMode,
-    setCurrentWeatherData: actions.setCurrentWeatherData
+    setCurrentWeatherData: actions.setCurrentWeatherData,
+    setIntervalID: actions.setIntervalID
   }));
 
   const zoomToResort = (e) => {
@@ -215,7 +215,8 @@ const App = () => {
   }
 
   const handleMapRightClick = async (e) => {
-    if (e.target.classList.contains('overlays')) {      if (e.touches) {
+    if (e.target.classList.contains('overlays')) {      
+      if (e.touches) {
         e.preventDefault();
         setShowWeeklyWeather(false);
         setWeeklyWeatherData(null);
