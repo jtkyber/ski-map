@@ -7,6 +7,7 @@
     grid-area: popMid;
     margin-top: 0.2rem;
     display: grid;
+    grid-template-rows: -webkit-max-content 1rem 1fr;
     grid-template-rows: max-content 1rem 1fr;
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -53,7 +54,6 @@
     width: 2rem;
     height: 2rem;
     background-color: rgba(255, 255, 255, 0.2);
-    -webkit-border-radius: 10px;
     border-radius: 10px;
     padding: 0.1rem;
     text-align: center;
@@ -73,6 +73,7 @@
     grid-area: popMid;
     margin-top: 0.4rem;
     display: grid;
+    grid-template-rows: -webkit-max-content 1rem 1fr;
     grid-template-rows: max-content 1rem 1fr;
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -87,17 +88,17 @@
     -webkit-animation-duration: 2s;
     animation-duration: 2s;
     -webkit--animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
     animation-iteration-count: infinite;
     -webkit-animation-timing-function: linear;
     animation-timing-function: linear;
 }
 
-@keyframes skeletonPulse {
-    0% {-webkit-opacity: 0.1;}
-    50% {-webkit-opacity: 0.5;}
-    100% {-webkit-opacity: 0.1;}
+@-webkit-keyframes skeletonPulse {
+    0% {opacity: 0.1;}
+    50% {opacity: 0.5;}
+    100% {opacity: 0.1;}
 }
-
 @keyframes skeletonPulse {
     0% {opacity: 0.1;}
     50% {opacity: 0.5;}
@@ -108,7 +109,6 @@
     width: 2rem;
     height: 2rem;
     background-color: white;
-    -webkit-border-radius: 100%;
     border-radius: 100%;
 }
 
@@ -116,7 +116,6 @@
     width: 50%;
     height: 1rem;
     background-color: white;
-    -webkit-border-radius: 20px;
     border-radius: 20px;
 }
 
@@ -124,7 +123,6 @@
     width: 30%;
     height: 0.8rem;
     background-color: white;
-    -webkit-border-radius: 20px;
     border-radius: 20px;
     margin-top: 0.3rem;
 }
@@ -133,7 +131,6 @@
     width: 20%;
     height: 0.8rem;
     background-color: white;
-    -webkit-border-radius: 20px;
     border-radius: 20px;
     margin-top: 0.3rem;
 }
@@ -142,7 +139,6 @@
     width: 20%;
     height: 0.8rem;
     background-color: white;
-    -webkit-border-radius: 20px;
     border-radius: 20px;
     margin-top: 0.3rem;
 }
@@ -151,7 +147,6 @@
     width: 90%;
     height: 1rem;
     background-color: white;
-    -webkit-border-radius: 20px;
     border-radius: 20px;
     margin: auto;
     margin-top: 0.5rem;
@@ -162,7 +157,6 @@
     width: 70%;
     height: 1rem;
     background-color: white;
-    -webkit-border-radius: 20px;
     border-radius: 20px;
     margin: auto;
     margin-top: 0.3rem;

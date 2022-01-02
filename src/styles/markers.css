@@ -8,9 +8,7 @@
     height: var(--marker-height);
     background: transparent;
     border: none;
-    -webkit-border-radius: 100%;
     border-radius: 100%;
-    -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     padding: 0;
     /* animation-name: fadeImgIn; */
@@ -24,7 +22,6 @@
     cursor: pointer;
     width: var(--marker-width);
     height: var(--marker-height);
-    -webkit-transition: all 0.12s ease-out;
     transition: all 0.12s ease-out;
 }
 
@@ -39,25 +36,24 @@
 }
 
 .markerBtn > img:hover {
-    -webkit-transform: rotate(10deg);
     transform: rotate(10deg);
 }
 
 .showAllMarkerNames:before {
     position: absolute;
     top: -75%;
+    width: -webkit-max-content;
+    width: -moz-max-content;
     width: max-content;
     content: var(--resort-name);
     background: rgba(255, 255, 255, 0.8);
     padding: 0.1rem 0.3rem;
     border: 1px solid rgba(0, 100, 150, 1.0);
-    -webkit-border-radius: 8px;
     border-radius: 8px;
     color: rgba(0, 100, 150, 1.0);
     font-weight: 600;
     font-size: 0.8rem;
     text-transform: capitalize;
-    -webkit-transform: translate(calc(-50% + var(--marker-width) / 2));
     transform: translate(calc(-50% + var(--marker-width) / 2));
     -webkit-animation: raiseOpacity 0.2s ease-out;
     animation: raiseOpacity 0.2s ease-out;
@@ -66,18 +62,18 @@
 .showMarkerName:hover:before {
     position: absolute;
     top: -80%;
+    width: -webkit-max-content;
+    width: -moz-max-content;
     width: max-content;
     content: var(--resort-name);
     background: rgba(255, 255, 255, 0.8);
     padding: 0.1rem 0.3rem;
     border: 1px solid rgba(0, 100, 150, 1.0);
-    -webkit-border-radius: 8px;
     border-radius: 8px;
     color: rgba(0, 100, 150, 1.0);
     font-weight: 600;
     font-size: 0.8rem;
     text-transform: capitalize;
-    -webkit-transform: translate(calc(-50% + var(--marker-width) / 2));
     transform: translate(calc(-50% + var(--marker-width) / 2));
     -webkit-animation: raiseOpacity 0.2s ease-out;
     animation: raiseOpacity 0.2s ease-out;

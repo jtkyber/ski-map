@@ -64,9 +64,16 @@ const SinglePopup = ({ urlRoot }) => {
         <h2 className='popupName'>{selectedResort.properties.name}</h2>
       </div>
       : 
-      <div className={`favoritesBtnAndName ${darkMode ? 'favoritesBtnAndNameDark' : ''}`}>
-        <h4 className='popupName'>{selectedResort[2]}</h4>
-      </div>
+        selectedResort[2]
+        ?
+        <div className={`favoritesBtnAndName ${darkMode ? 'favoritesBtnAndNameDark' : ''}`}>
+          <h4 className='popupName'>{selectedResort[2]}</h4>
+        </div>
+        : 
+        <div className={`favoritesBtnAndNameLoading ${darkMode ? 'favoritesBtnAndNameDark' : ''}`}>
+          <div className='popupNameLoading'></div>
+          <div className='popupNameLoading2'></div>
+        </div>
       }
       <CurrentWeather />
       <div className='weeklyForcastWebcamBtnContainer'>
