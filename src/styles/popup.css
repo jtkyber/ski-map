@@ -83,8 +83,8 @@
     gap: 0.3rem;
     padding-bottom: 0.2rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.8);
-    -webkit-animation: skeletonPulse 0.8s infinite linear alternate;
-    animation: skeletonPulse 0.8s infinite linear alternate;
+    -webkit-animation: skeletonPulse 1s infinite linear alternate;
+    animation: skeletonPulse 1s infinite linear alternate;
 }
 
 .popupName {
