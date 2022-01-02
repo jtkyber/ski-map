@@ -83,26 +83,17 @@
     width: 100%;
     height: 100%;
     max-width: 25rem;
-    -webkit-animation-name: skeletonPulse;
-    animation-name: skeletonPulse;
-    -webkit-animation-duration: 2s;
-    animation-duration: 2s;
-    -webkit--animation-iteration-count: infinite;
-    -webkit-animation-iteration-count: infinite;
-    animation-iteration-count: infinite;
-    -webkit-animation-timing-function: linear;
-    animation-timing-function: linear;
+    -webkit-animation: skeletonPulse 0.8s infinite linear alternate;
+    animation: skeletonPulse 0.8s infinite linear alternate;
 }
 
 @-webkit-keyframes skeletonPulse {
     0% {opacity: 0.1;}
-    50% {opacity: 0.5;}
-    100% {opacity: 0.1;}
+    100% {opacity: 0.5;}
 }
 @keyframes skeletonPulse {
     0% {opacity: 0.1;}
-    50% {opacity: 0.5;}
-    100% {opacity: 0.1;}
+    100% {opacity: 0.5;}
 }
 
 .loadingCurWeatherImg {
