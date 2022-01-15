@@ -109,6 +109,7 @@
 .showMarkerName:hover:before {
     position: absolute;
     top: -80%;
+    left: 0;
     width: -webkit-max-content;
     width: -moz-max-content;
     width: max-content;
