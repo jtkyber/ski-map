@@ -1,4 +1,5 @@
 import { useStoreState, useStoreActions } from 'easy-peasy';
+import skiMarker from '../Skis.svg';
 import '../styles/markers.css';
 
 const SingleMarker = ({ resort, urlRoot }) => {
@@ -57,7 +58,7 @@ const SingleMarker = ({ resort, urlRoot }) => {
       id={resort.properties.name}
     >
       <img
-        src={require('../skis2.png')}
+        src={skiMarker}
         alt={resort.properties.name}
         onMouseEnter={(e) => handleResortNamesHoverOrBtn(e.target)}
       />
