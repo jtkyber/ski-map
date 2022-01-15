@@ -26,7 +26,6 @@
     cursor: pointer;
     width: var(--marker-width);
     height: var(--marker-height);
-    z-index: -1;
 }
 
 .markerImage > svg {
@@ -36,19 +35,28 @@
 }
 
 .leftSkiTilt {
-    animation: skiTiltLeft 0.3s cubic-bezier(.39,.66,.27,1.48) forwards;
+    -webkit-animation: skiTiltLeft 0.3s cubic-bezier(.39,.66,.27,1.48) forwards;
+            animation: skiTiltLeft 0.3s cubic-bezier(.39,.66,.27,1.48) forwards;
 }
 
 .rightSkiTilt {
-    animation: skiTiltRight 0.3s cubic-bezier(.39,.66,.27,1.48) forwards;
+    -webkit-animation: skiTiltRight 0.3s cubic-bezier(.39,.66,.27,1.48) forwards;
+            animation: skiTiltRight 0.3s cubic-bezier(.39,.66,.27,1.48) forwards;
 }
 
 .leftSkiTiltReset {
-    animation: skiLeftReset 0.3s cubic-bezier(.39,.66,.27,1.48) forwards;
+    -webkit-animation: skiLeftReset 0.3s cubic-bezier(.39,.66,.27,1.48) forwards;
+            animation: skiLeftReset 0.3s cubic-bezier(.39,.66,.27,1.48) forwards;
 }
 
 .rightSkiTiltReset {
-    animation: skiRightReset 0.3s cubic-bezier(.39,.66,.27,1.48) forwards;
+    -webkit-animation: skiRightReset 0.3s cubic-bezier(.39,.66,.27,1.48) forwards;
+            animation: skiRightReset 0.3s cubic-bezier(.39,.66,.27,1.48) forwards;
+}
+
+@-webkit-keyframes skiTiltLeft {
+    0% {transform: rotate(0); transform-origin: 50% 20%;}
+    100% {transform: rotate(30deg); transform-origin: 50% 20%;}
 }
 
 @keyframes skiTiltLeft {
@@ -56,13 +64,28 @@
     100% {transform: rotate(30deg); transform-origin: 50% 20%;}
 }
 
+@-webkit-keyframes skiTiltRight {
+    0% {transform: rotate(0); transform-origin: 50% 20%;}
+    100% {transform: rotate(-30deg); transform-origin: 50% 20%;}
+}
+
 @keyframes skiTiltRight {
     0% {transform: rotate(0); transform-origin: 50% 20%;}
     100% {transform: rotate(-30deg); transform-origin: 50% 20%;}
 }
 
+@-webkit-keyframes skiLeftReset {
+    0% {transform: rotate(30deg); transform-origin: 50% 20%;}
+    100% {transform: rotate(0); transform-origin: 50% 20%;}
+}
+
 @keyframes skiLeftReset {
     0% {transform: rotate(30deg); transform-origin: 50% 20%;}
+    100% {transform: rotate(0); transform-origin: 50% 20%;}
+}
+
+@-webkit-keyframes skiRightReset {
+    0% {transform: rotate(-30deg); transform-origin: 50% 20%;}
     100% {transform: rotate(0); transform-origin: 50% 20%;}
 }
 
@@ -80,10 +103,6 @@
     0% {opacity: 0;}
     100% {opacity: 1}
 }
-
-/* .markerImage > svg:hover {
-    transform: rotate(10deg);
-} */
 
 .showAllMarkerNames:before {
     position: absolute;
