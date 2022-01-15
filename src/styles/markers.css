@@ -36,19 +36,19 @@
 }
 
 .leftSkiTilt {
-    animation: skiTiltLeft 0.15s ease-out forwards;
+    animation: skiTiltLeft 0.3s cubic-bezier(.39,.66,.27,1.48) forwards;
 }
 
 .rightSkiTilt {
-    animation: skiTiltRight 0.15s ease-out forwards;
+    animation: skiTiltRight 0.3s cubic-bezier(.39,.66,.27,1.48) forwards;
 }
 
 .leftSkiTiltReset {
-    animation: skiLeftReset 0.15s ease-out forwards;
+    animation: skiLeftReset 0.3s cubic-bezier(.39,.66,.27,1.48) forwards;
 }
 
 .rightSkiTiltReset {
-    animation: skiRightReset 0.15s ease-out forwards;
+    animation: skiRightReset 0.3s cubic-bezier(.39,.66,.27,1.48) forwards;
 }
 
 @keyframes skiTiltLeft {
