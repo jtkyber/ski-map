@@ -118,7 +118,6 @@ const model  = {
     setIntervalID: action((state, input) => {
         state.intervalID = input;
     }),
-
 }
 
 export default model;

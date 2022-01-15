@@ -1,5 +1,5 @@
 import { useStoreState, useStoreActions } from 'easy-peasy';
-import skiMarker from '../Skis.svg';
+import MarkerSVG from './MarkerSVG';
 import '../styles/markers.css';
 
 const SingleMarker = ({ resort, urlRoot }) => {
@@ -42,6 +42,47 @@ const SingleMarker = ({ resort, urlRoot }) => {
   const handleResortNamesHoverOrBtn = (target) => {
     setResortHoverName(target.parentNode.id);
     target.parentNode.style.setProperty("--resort-name", `"${target.parentNode.id}"`);
+
+    let leftSki;
+    let rightSki;
+
+    if (target.tagName === 'DIV') {
+      leftSki = target?.childNodes[0]?.childNodes[0];
+      rightSki = target?.childNodes[0]?.childNodes[1]; 
+    } else if (target.tagName === 'SVG') {
+      leftSki = target?.childNodes[0];
+      rightSki = target?.childNodes[1];
+    }
+
+    if (leftSki && rightSki) {
+      leftSki.classList.remove('leftSkiTiltReset');
+      rightSki.classList.remove('rightSkiTiltReset');
+      leftSki.classList.add('leftSkiTilt');
+      rightSki.classList.add('rightSkiTilt');
+    }
+  }
+
+  const handleResortMarkerLeave = (target) => {
+    setResortHoverName(target.parentNode.id);
+    target.parentNode.style.setProperty("--resort-name", `"${target.parentNode.id}"`);
+
+    let leftSki;
+    let rightSki;
+
+    if (target.tagName === 'DIV') {
+      leftSki = target?.childNodes[0]?.childNodes[0];
+      rightSki = target?.childNodes[0]?.childNodes[1]; 
+    } else if (target.tagName === 'SVG') {
+      leftSki = target?.childNodes[0];
+      rightSki = target?.childNodes[1];
+    }
+
+    if (leftSki && rightSki) {
+      leftSki.classList.remove('leftSkiTilt');
+      rightSki.classList.remove('rightSkiTilt');
+      leftSki.classList.add('leftSkiTiltReset');
+      rightSki.classList.add('rightSkiTiltReset');
+    }
   }
 
   return (
@@ -57,11 +98,7 @@ const SingleMarker = ({ resort, urlRoot }) => {
       `}
       id={resort.properties.name}
     >
-      <img
-        src={skiMarker}
-        alt={resort.properties.name}
-        onMouseEnter={(e) => handleResortNamesHoverOrBtn(e.target)}
-      />
+      <MarkerSVG handleResortNamesHoverOrBtn={handleResortNamesHoverOrBtn} handleResortMarkerLeave={handleResortMarkerLeave} />
     </button>
   )
 }

@@ -15,11 +15,60 @@
     animation: fadeImgIn 0.5s ease-in;
 }
 
-.markerBtn > img {
+.markerImage {
     cursor: pointer;
     width: var(--marker-width);
     height: var(--marker-height);
     transition: all 0.12s ease-out;
+}
+
+.markerImage > * {
+    cursor: pointer;
+    width: var(--marker-width);
+    height: var(--marker-height);
+    z-index: -1;
+}
+
+.markerImage > svg {
+    width: var(--marker-width);
+    height: var(--marker-height);
+    pointer-events: none;
+}
+
+.leftSkiTilt {
+    animation: skiTiltLeft 0.15s ease-out forwards;
+}
+
+.rightSkiTilt {
+    animation: skiTiltRight 0.15s ease-out forwards;
+}
+
+.leftSkiTiltReset {
+    animation: skiLeftReset 0.15s ease-out forwards;
+}
+
+.rightSkiTiltReset {
+    animation: skiRightReset 0.15s ease-out forwards;
+}
+
+@keyframes skiTiltLeft {
+    0% {transform: rotate(0); transform-origin: 50% 20%;}
+    100% {transform: rotate(30deg); transform-origin: 50% 20%;}
+}
+
+@keyframes skiTiltRight {
+    0% {transform: rotate(0); transform-origin: 50% 20%;}
+    100% {transform: rotate(-30deg); transform-origin: 50% 20%;}
+}
+
+@keyframes skiLeftReset {
+    0% {transform: rotate(30deg); transform-origin: 50% 20%;}
+    100% {transform: rotate(0); transform-origin: 50% 20%;}
+}
+
+@keyframes skiRightReset {
+    0% {transform: rotate(-30deg); transform-origin: 50% 20%;}
+    100% {transform: rotate(0); transform-origin: 50% 20%;}
 }
 
 @-webkit-keyframes fadeImgIn {
@@ -32,13 +81,14 @@
     100% {opacity: 1}
 }
 
-.markerBtn > img:hover {
+/* .markerImage > svg:hover {
     transform: rotate(10deg);
-}
+} */
 
 .showAllMarkerNames:before {
     position: absolute;
     top: -75%;
+    left: 0;
     width: -webkit-max-content;
     width: -moz-max-content;
     width: max-content;
