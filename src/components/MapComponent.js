@@ -69,7 +69,7 @@ const MapComponent = ({ urlRoot }) => {
         zoom: viewport.zoom
       });
       const pixelCrds = viewport2.project([resort.geometry.coordinates[0], resort.geometry.coordinates[1]]);
-      if ((pixelCrds[0] > 10) && (pixelCrds[0] < (viewportW -10)) && (pixelCrds[1] > 20) && (pixelCrds[1] < (viewportH -10))) {
+      if ((pixelCrds[0] > -50) && (pixelCrds[0] < (viewportW + 50)) && (pixelCrds[1] > -15) && (pixelCrds[1] < (viewportH + 50))) {
         return true;
       } else return false;
     }
@@ -86,7 +86,7 @@ const MapComponent = ({ urlRoot }) => {
           : `mapbox://styles/jtkyber/ckx8ff5ll089g14nvynn2vgk4`
         }
         onViewportChange={(viewport => {
-          setViewport(viewport);
+          setViewport(viewport)
         })}
         dragRotate = {false}
       >

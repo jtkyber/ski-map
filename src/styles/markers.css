@@ -11,8 +11,8 @@
     border-radius: 100%;
     transform: translate(-50%, -50%);
     padding: 0;
-    -webkit-animation: fadeImgIn 0.5s ease-in;
-    animation: fadeImgIn 0.5s ease-in;
+    /* -webkit-animation: fadeImgIn 0.5s ease-in;
+    animation: fadeImgIn 0.5s ease-in; */
 }
 
 .markerImage {
@@ -121,8 +121,8 @@
     font-size: 0.8rem;
     text-transform: capitalize;
     transform: translate(calc(-50% + var(--marker-width) / 2));
-    -webkit-animation: raiseOpacity 0.2s ease-out;
-    animation: raiseOpacity 0.2s ease-out;
+    /* -webkit-animation: raiseOpacity 0.2s ease-out;
+    animation: raiseOpacity 0.2s ease-out; */
 }
 
 .showMarkerName:hover:before {
