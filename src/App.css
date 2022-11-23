@@ -24,7 +24,7 @@ body {
     width: 100vw;
     height: 100vh;
     justify-content: center;
-    align-items: center;
+    align-items: center;   
 }
 
 .container {
@@ -35,6 +35,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: rgba(0, 0, 0, 0.65); 
 }
 
 .mapContainer {
@@ -44,6 +45,22 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: -webkit-filter 0.2s ease-out;
+    transition: filter 0.2s ease-out;
+    transition: filter 0.2s ease-out, -webkit-filter 0.2s ease-out;
+}
+
+.blurMap {
+    -webkit-filter: blur(3px) brightness(0.5);
+            filter: blur(3px) brightness(0.5);
+    transition: -webkit-filter 2s ease-out;
+    transition: filter 2s ease-out;
+    transition: filter 2s ease-out, -webkit-filter 2s ease-out;
+    pointer-events: none;
+}
+
+.blurMap button {
+    pointer-events: none;
 }
 
 .settingsAndSearchContainer {
@@ -252,27 +269,8 @@ body {
 .map {
     width: 100%;
     height: 100%;
-    transition: -webkit-filter 0.2s ease-out;
-    transition: filter 0.2s ease-out;
-    transition: filter 0.2s ease-out, -webkit-filter 0.2s ease-out;
 }
 
-.blurMap {
-    -webkit-filter: blur(5px) brightness(0.5);
-    -moz-filter: blur(5px) brightness(0.5);
-    -o-filter: blur(5px) brightness(0.5);
-    -ms-filter: blur(5px) brightness(0.5);
-    filter: blur(5px) brightness(0.5);
-    transition: -webkit-filter 1s ease-out;
-    transition: filter 1s ease-out;
-    transition: filter 1s ease-out, -webkit-filter 1s ease-out;
-    -webkit-transition: filter 1s ease-out;
-    pointer-events: none;
-}
-
-.blurMap button {
-    pointer-events: none;
-}
 
 .mapboxgl-canvas {
     position: absolute;

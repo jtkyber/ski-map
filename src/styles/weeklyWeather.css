@@ -2,6 +2,10 @@
     /*--weekly-weather-scale:  ;*/
 }
 
+@keyframes raiseOpacity {
+    100% {opacity: 0.5;}
+}
+
 .weeklyWeatherContainer {
     position: absolute;
     display: flex;
@@ -19,7 +23,7 @@
             animation-name: fadeIn;
     -webkit-animation-duration: 0.3s;
             animation-duration: 0.3s;
-    z-index: 100;
+    z-index: 101;
     transform: scale(var(--weekly-weather-scale));
     margin-top: -15vh;
     -webkit-user-select: none;

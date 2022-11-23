@@ -252,9 +252,9 @@ const App = () => {
 
   return (
     <div onClick={() => setShowWeeklyWeather(false)} className='container'>
-      <div className='mapContainer'>
-        <div className='settingsAndSearchContainer'>
-          <div className={`settingsContainer ${showWeeklyWeather ? 'blurMap' : null}`}>
+      <div className={`mapContainer ${showWeeklyWeather ? 'blurMap' : null}`}>
+        <div className={`settingsAndSearchContainer`}>
+          <div className='settingsContainer'>
             <button
               onClick={() => setToggleResortNames()}
               className={`
@@ -300,7 +300,7 @@ const App = () => {
           <div className='searchContainer'>
             <input
               onChange={(e) => setSearch(e.target.value)}
-              className={`resortSearch ${darkMode ? 'resortSearchDark' : ''} ${showWeeklyWeather ? 'blurMap' : null}`}
+              className={`resortSearch ${darkMode ? 'resortSearchDark' : ''}`}
               type='text'
               placeholder='Filter Resorts'
             />
@@ -311,17 +311,17 @@ const App = () => {
           onTouchEnd={isIOS ? handleScreenTouchEnd : null}
           onTouchMove={isIOS ? handleScreenTouchEnd: null}
           onContextMenu={(e) => !isIOS ? handleMapRightClick(e) : null} 
-          className={`map ${showWeeklyWeather ? 'blurMap' : null}`}>
+          className='map'>
           <MapComponent urlRoot={urlRoot} setWeeklyWeatherData={setWeeklyWeatherData} weeklyWeatherData={weeklyWeatherData}/>
         </div>
-        {
-        showWeeklyWeather && selectedResort !== null
-        ?
-          <WeeklyWeather urlRoot={urlRoot} />
-        :
-        null
-        }
       </div>
+      {
+      showWeeklyWeather && selectedResort !== null
+      ?
+        <WeeklyWeather urlRoot={urlRoot} />
+      :
+      null
+      }
     </div>
   );
 }
