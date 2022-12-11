@@ -39,7 +39,7 @@ const WeeklyWeather = ({ urlRoot }) => {
     setSnowForecastLink(null);
     if (selectedResort?.properties?.name) {
       fetchSnowForcast(selectedResort.properties.name);
-      fetchOpenSnow(selectedResort.properties.name);
+      // fetchOpenSnow(selectedResort.properties.name);
     }
   }, [])
 

@@ -98,13 +98,16 @@
 }
 
 .snowForecast {
-    text-decoration: none;
     margin-top: 1rem;
-}
 
-.snowForecast:hover {
+    /* temporarily disable */
+    text-decoration: none;
+    text-decoration: line-through;
+    text-decoration-color: red;
+    pointer-events: none;
     opacity: 0.6;
 }
+
 
 .snowForecastText {
     color: rgba(255, 255, 255, 1);
@@ -112,18 +115,23 @@
     cursor: pointer;
 }
 
+.snowForecastText:hover {
+    opacity: 0.6;
+}
+
 .detailedSnowForecast {
     text-decoration: none;
     margin-top: 0.2rem;
 }
 
-.detailedSnowForecast:hover {
-    opacity: 0.6;
-}
 
 .detailedSnowForecastText {
     color: rgba(255, 255, 255, 1);
     border-bottom: 1px dashed rgba(255, 255, 255, 1.0);
     cursor: pointer;
+}
+
+.detailedSnowForecastText:hover {
+    opacity: 0.6;
 }
 
