@@ -10,7 +10,7 @@ import './App.css';
 const App = () => {
   const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-  const urlRoot = 'https://shielded-springs-47306.herokuapp.com';
+  const urlRoot = 'https://resort-forecast-api.herokuapp.com/ski-map';
   // const urlRoot = 'http://localhost:3001';
   const reverseGeocodingApiKey = '9bcc84879c614c1caf3675e356e7457c';
   let cancelTouch = false;
